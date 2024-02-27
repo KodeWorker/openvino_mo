@@ -1,0 +1,7 @@
+name: openvino
+dependencies:
+    - python=3.8
+    - pip
+    - pip:
+        - PyInstaller==6.3.0
+        - openvino-dev[tensorflow2, onnx]==2023.3.0
