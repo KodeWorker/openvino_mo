@@ -1,6 +1,6 @@
 # openvino_mo
 
-This is and example project for freezing Model Optimizer of OpenVINO 2023.3.0
+This is and example project for freezing Model Optimizer of [OpenVINO 2023.3.0](https://github.com/openvinotoolkit/openvino/tree/2023.3.0)
 
 # Instructions
 1. Create the environment
