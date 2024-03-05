@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, compatible_dims
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import int64_array, compatible_dims
+from front.extractor import bool_to_str
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class CTCLoss(Op):

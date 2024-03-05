@@ -48,7 +48,7 @@ def summarize_graph(graph_def):
 
 def main():
     sys.path.append(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
-    from openvino.tools.mo.front.tf.loader import load_tf_graph_def
+    from front.tf.loader import load_tf_graph_def
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_model", type=str, help="Path to tensorflow model", default="")

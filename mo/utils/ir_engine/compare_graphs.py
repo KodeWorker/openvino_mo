@@ -6,11 +6,11 @@ from numbers import Number
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Graph, Node
+from graph.graph import Graph, Node
 
 
 def compare_node(node_ref, node, ref_attr_value, attr_value, attr, errors_list: list):
-    from openvino.tools.mo.utils.ir_engine.ir_engine import IREngine
+    from utils.ir_engine.ir_engine import IREngine
 
     def err_format_string():
         return 'Current node "{}" with type "{}" and reference node "{}" with type "{}" have different attr "{}" : ' \
@@ -117,7 +117,7 @@ def compare_graphs(graph: Graph, graph_ref: Graph, last_node: str, last_node_ref
                         continue
 
                     def align_strided_slice_masks(curr_node: Node, rank: int):
-                        from openvino.tools.mo.ops.strided_slice import StridedSlice
+                        from ops.strided_slice import StridedSlice
                         for mask_name in StridedSlice.get_mask_names():
                             if isinstance(curr_node[mask_name], int):
                                 curr_node[mask_name] = [curr_node[mask_name]]

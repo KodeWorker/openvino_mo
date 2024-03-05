@@ -7,12 +7,12 @@ from collections import Counter
 import numpy as np
 from openvino.runtime import get_version as get_rt_version  # pylint: disable=no-name-in-module,import-error
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, unmask_shape, int64_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.pattern_match import for_graph_and_each_sub_graph_recursively
-from openvino.tools.mo.utils.cli_parser import get_params_with_paths_list
-from openvino.tools.mo.utils.telemetry_params import telemetry_params
-from openvino.tools.mo.utils.utils import check_values_equal
+from front.common.partial_infer.utils import is_fully_defined, unmask_shape, int64_array
+from graph.graph import Graph
+from middle.pattern_match import for_graph_and_each_sub_graph_recursively
+from utils.cli_parser import get_params_with_paths_list
+from utils.telemetry_params import telemetry_params
+from utils.utils import check_values_equal
 
 try:
     import openvino_telemetry as tm

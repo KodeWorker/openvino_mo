@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.elemental import copy_shape_infer
-from openvino.tools.mo.front.common.partial_infer.utils import reverse_bypass_infer
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.elemental import copy_shape_infer
+from front.common.partial_infer.utils import reverse_bypass_infer
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class ConvertLike(Op):

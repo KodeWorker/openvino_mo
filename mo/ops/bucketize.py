@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_destination_type
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import mo_array
+from front.extractor import bool_to_str
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import np_data_type_to_destination_type
+from ops.op import Op
 
 
 class Bucketize(Op):

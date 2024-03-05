@@ -5,9 +5,9 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.pipeline.common import convert_const_node_value_type
-from openvino.tools.mo.utils.error import Error
+from graph.graph import Node
+from pipeline.common import convert_const_node_value_type
+from utils.error import Error
 
 np_map_cast = {bool: lambda x: bool_cast(x),
                np.int8: lambda x: np.int8(x),

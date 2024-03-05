@@ -5,13 +5,13 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.layout import get_batch_dim, get_features_dim
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import add_attrs_props
-from openvino.tools.mo.front.extractor import update_ie_fields
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.fusing.helpers import get_value_id, get_tensor_id
-from openvino.tools.mo.middle.pattern_match import apply_pattern
+from front.common.layout import get_batch_dim, get_features_dim
+from front.common.partial_infer.utils import int64_array
+from front.extractor import add_attrs_props
+from front.extractor import update_ie_fields
+from graph.graph import Node, Graph
+from middle.passes.fusing.helpers import get_value_id, get_tensor_id
+from middle.pattern_match import apply_pattern
 
 
 def pad_op_transform(graph: Graph, match: dict):

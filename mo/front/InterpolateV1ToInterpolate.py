@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
+from ops.interpolate import Interpolate
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
 
 
 def correct_pad(pad):
@@ -20,7 +20,7 @@ class InterpolateV1ToInterpolate(FrontReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.InterpolateNormalizer import InterpolateNormalizer
+        from front.InterpolateNormalizer import InterpolateNormalizer
         return [InterpolateNormalizer]
 
     def find_and_replace_pattern(self, graph: Graph):

@@ -3,9 +3,9 @@
 
 import networkx as nx
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.memoryoffset import MemoryOffset
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph, Node
+from ops.memoryoffset import MemoryOffset
 
 
 def find_max_frame_time(node: Node):
@@ -90,7 +90,7 @@ class MemoryOffsetAdjustment(FrontReplacementSubgraph):
 
     def run_before(self):
         # transformation can't work with splitted MemoryOffsets
-        from openvino.tools.mo.front.kaldi.split_recurrent_memoryoffset import SplitRecurrentMemoryOffset
+        from front.kaldi.split_recurrent_memoryoffset import SplitRecurrentMemoryOffset
         return [SplitRecurrentMemoryOffset]
 
     def find_and_replace_pattern(self, graph: Graph):

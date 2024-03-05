@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.MatMul import FullyConnected
-from openvino.tools.mo.front.caffe.extractors.utils import embed_input
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.kaldi.loader.utils import find_next_tag, read_placeholder, collect_until_token
-from openvino.tools.mo.front.kaldi.utils import read_binary_matrix, read_binary_vector
-from openvino.tools.mo.utils.error import Error
+from ops.MatMul import FullyConnected
+from front.caffe.extractors.utils import embed_input
+from front.extractor import FrontExtractorOp
+from front.kaldi.loader.utils import find_next_tag, read_placeholder, collect_until_token
+from front.kaldi.utils import read_binary_matrix, read_binary_vector
+from utils.error import Error
 
 
 class FixedAffineComponentFrontExtractor(FrontExtractorOp):

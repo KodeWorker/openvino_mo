@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, is_fully_defined, dynamic_dimension
-from openvino.tools.mo.ops.op import PermuteAttrs
-from openvino.tools.mo.utils.error import Error
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.partial_infer.utils import shape_array, is_fully_defined, dynamic_dimension
+from ops.op import PermuteAttrs
+from utils.error import Error
 
 
 def concat_infer(node):

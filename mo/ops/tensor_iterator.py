@@ -3,12 +3,12 @@
 from copy import copy, deepcopy
 from math import ceil
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, is_fully_defined, dynamic_dimension_value
-from openvino.tools.mo.graph.graph import Node, dict_includes, Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import shape_array, is_fully_defined, dynamic_dimension_value
+from graph.graph import Node, dict_includes, Graph
+from ops.const import Const
+from ops.op import Op
+from ops.parameter import Parameter
+from utils.error import Error
 
 
 class TensorIterator(Op):
@@ -315,7 +315,7 @@ class TensorIterator(Op):
 
     @staticmethod
     def ti_type_infer(node):
-        from openvino.tools.mo.middle.passes.infer import type_infer
+        from middle.passes.infer import type_infer
         ti_graph = node.body
 
         for record in node.input_port_map:

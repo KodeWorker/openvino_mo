@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import mo_array
+from ops.elementwise import Mul
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
+from ops.const import Const
 
 
 class SoftmaxFrontReplacementSubgraph(FrontReplacementSubgraph):

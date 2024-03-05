@@ -3,18 +3,18 @@
 
 from typing import Dict
 
-from openvino.tools.mo.front.mxnet.mx_reshape_to_reshape import MXReshapeToReshape
-from openvino.tools.mo.front.mxnet.ssd_detection_output_replacer import SsdPatternDetectionOutputReplacer
-from openvino.tools.mo.ops.elementwise import Div, Add, Sub
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.graph.port import Port
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.reshape import Reshape
+from front.mxnet.mx_reshape_to_reshape import MXReshapeToReshape
+from front.mxnet.ssd_detection_output_replacer import SsdPatternDetectionOutputReplacer
+from ops.elementwise import Div, Add, Sub
+from ops.split import Split
+from front.common.partial_infer.utils import int64_array, mo_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, Node
+from graph.port import Port
+from middle.passes.convert_data_type import data_type_str_to_np
+from ops.concat import Concat
+from ops.reshape import Reshape
 
 
 def calculate_prior_box_value(value: Node, value_to_div: Port, value_to_add: Port):

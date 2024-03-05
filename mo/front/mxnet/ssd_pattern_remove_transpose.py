@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.mxnet.ssd_pattern_flatten_softmax_activation import SsdPatternFlattenSoftmaxActivation
-from openvino.tools.mo.front.mxnet.ssd_pattern_remove_flatten import SsdPatternRemoveFlatten
-from openvino.tools.mo.front.mxnet.ssd_pattern_remove_reshape import SsdPatternRemoveReshape
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
+from front.mxnet.ssd_pattern_flatten_softmax_activation import SsdPatternFlattenSoftmaxActivation
+from front.mxnet.ssd_pattern_remove_flatten import SsdPatternRemoveFlatten
+from front.mxnet.ssd_pattern_remove_reshape import SsdPatternRemoveReshape
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
 
 
 class SsdPatternRemoveTranspose(FrontReplacementSubgraph):

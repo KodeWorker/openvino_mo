@@ -6,11 +6,11 @@ import os
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.find_inputs import find_inputs
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Node, Graph
+from utils.error import Error
+from utils.find_inputs import find_inputs
+from utils.utils import refer_to_faq_msg
 
 
 def get_node_top(graph: Graph, name: str):

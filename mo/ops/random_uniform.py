@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_destination_type
-from openvino.tools.mo.ops.op import Op
+from graph.graph import Graph, Node
+from graph.perm_inputs import PermuteInputs
+from middle.passes.convert_data_type import np_data_type_to_destination_type
+from ops.op import Op
 
 
 class RandomUniform(Op):

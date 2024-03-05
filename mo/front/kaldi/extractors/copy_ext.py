@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.kaldi.loader.utils import read_binary_integer32_token, read_blob
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.const import Const
+from ops.gather import Gather
+from ops.transpose import Transpose
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementOp
+from front.kaldi.loader.utils import read_binary_integer32_token, read_blob
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Node, Graph
+from ops.const import Const
 
 
 class CopyFrontExtractor(FrontReplacementOp):

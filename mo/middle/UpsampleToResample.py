@@ -7,17 +7,17 @@ from typing import Dict
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.layout import get_height_dim, get_width_dim, get_depth_dim
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, float32_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.strided_slice import StridedSlice
+from ops.Cast import Cast
+from ops.elementwise import Mul
+from ops.interpolate import Interpolate
+from front.common.layout import get_height_dim, get_width_dim, get_depth_dim
+from front.common.partial_infer.utils import int64_array, float32_array
+from front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
+from graph.graph import Graph, Node, rename_nodes
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.shape import Shape
+from ops.strided_slice import StridedSlice
 
 
 class UpsampleToResample(MiddleReplacementPattern):
@@ -25,11 +25,11 @@ class UpsampleToResample(MiddleReplacementPattern):
     force_clean_up = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     def pattern(self):

@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.roifeatureextractor_onnx import ExperimentalDetectronROIFeatureExtractor
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.replacement import FrontReplacementFromConfigFileGeneral
-from openvino.tools.mo.graph.graph import Graph, Node, rename_node
+from ops.roifeatureextractor_onnx import ExperimentalDetectronROIFeatureExtractor
+from front.common.partial_infer.utils import int64_array
+from front.tf.replacement import FrontReplacementFromConfigFileGeneral
+from graph.graph import Graph, Node, rename_node
 
 
 class ONNXPersonDetectionCrossroadReplacement(FrontReplacementFromConfigFileGeneral):

@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.custom_replacement_registry import CustomReplacementRegistry
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.replacement import FrontReplacementFromConfigFileOp
-from openvino.tools.mo.graph.graph import Graph
+from front.common.custom_replacement_registry import CustomReplacementRegistry
+from front.common.replacement import FrontReplacementPattern
+from front.tf.replacement import FrontReplacementFromConfigFileOp
+from graph.graph import Graph
 
 
 class TransformationsConfig(FrontReplacementPattern):
@@ -15,11 +15,11 @@ class TransformationsConfig(FrontReplacementPattern):
     graph_condition = [lambda graph: graph.graph['cmd_params'].transformations_config is not None]
 
     def run_before(self):
-        from openvino.tools.mo.front.pass_separator import FrontStart
+        from front.pass_separator import FrontStart
         return [FrontStart]
 
     def run_after(self):
-        from openvino.tools.mo.load.loader import LoadFinish
+        from load.loader import LoadFinish
         return [LoadFinish]
 
     def find_and_replace_pattern(self, graph: Graph):

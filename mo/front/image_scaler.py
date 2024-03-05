@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.elementwise import Mul, Add
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from ops.elementwise import Mul, Add
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Graph
+from ops.const import Const
 
 
 class ImageScaler(FrontReplacementOp):

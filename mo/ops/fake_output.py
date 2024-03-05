@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.elemental import copy_shape_infer, copy_value
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.elemental import copy_shape_infer, copy_value
+from graph.graph import Graph
+from ops.op import Op
 
 
 class FakeOutput(Op):

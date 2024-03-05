@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.concat import Concat
+from front.onnx.extractors.utils import onnx_attr
+from front.extractor import FrontExtractorOp
+from ops.concat import Concat
     
 class ConcatFrontExtractor(FrontExtractorOp):
     op = 'Concat'

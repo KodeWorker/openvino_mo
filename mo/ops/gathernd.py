@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, is_fully_defined, dynamic_dimension_value, \
+from front.common.partial_infer.utils import int64_array, is_fully_defined, dynamic_dimension_value, \
     compatible_dims
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class GatherND(Op):

@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, shape_array, dynamic_dimension
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.fusing.helpers import backward_bfs, forward_bfs, get_value_in_port, \
+from front.common.partial_infer.utils import mo_array, shape_array, dynamic_dimension
+from graph.graph import Node, Graph
+from middle.passes.fusing.helpers import backward_bfs, forward_bfs, get_value_in_port, \
     get_tensor_in_port
-from openvino.tools.mo.ops.const import Const
+from ops.const import Const
 
 
 def _fuse_mul(graph: Graph, node: Node, fuse_nodes: list, backward: bool = True):

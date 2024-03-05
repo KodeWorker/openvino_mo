@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.depth_to_space import DepthToSpaceOp
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.depth_to_space import DepthToSpaceOp
+from front.extractor import FrontExtractorOp
 
 
 class DepthToSpaceFrontExtractor(FrontExtractorOp):

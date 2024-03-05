@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import undefined_shape_of_rank
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import undefined_shape_of_rank
+from graph.graph import Node, Graph
+from ops.op import Op, PermuteAttrs
+from utils.error import Error
 
 
 class ReorgYoloOp(Op):

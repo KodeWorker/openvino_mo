@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.mvn import MVN
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
+from ops.mvn import MVN
+from ops.range import Range
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.reshape import Reshape
+from ops.shape import Shape
 
 
 class FusedBatchNormTraining(MiddleReplacementPattern):

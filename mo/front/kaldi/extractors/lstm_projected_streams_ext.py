@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.lstm_cell import LSTMCell
-from openvino.tools.mo.front.caffe.extractors.utils import embed_input
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.kaldi.loader.utils import collect_until_token, collect_until_whitespace, get_uint32
-from openvino.tools.mo.front.kaldi.utils import read_binary_matrix, read_binary_vector
+from ops.lstm_cell import LSTMCell
+from front.caffe.extractors.utils import embed_input
+from front.extractor import FrontExtractorOp
+from front.kaldi.loader.utils import collect_until_token, collect_until_whitespace, get_uint32
+from front.kaldi.utils import read_binary_matrix, read_binary_vector
 
 
 class LSTMProjectedStreamsFrontExtractor(FrontExtractorOp):

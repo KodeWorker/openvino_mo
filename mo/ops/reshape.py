@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension, dynamic_dimension_value, is_fully_defined
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import dynamic_dimension, dynamic_dimension_value, is_fully_defined
+from front.extractor import bool_to_str
+from graph.graph import Node, Graph
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op
 
 
 class Reshape(Op):

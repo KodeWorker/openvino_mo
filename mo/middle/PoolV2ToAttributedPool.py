@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.pooling import Pooling
+from graph.graph import Graph, rename_nodes
+from middle.replacement import MiddleReplacementPattern
+from ops.pooling import Pooling
 
 
 class PoolV2ToAttributedPool(MiddleReplacementPattern):

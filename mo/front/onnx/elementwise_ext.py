@@ -1,14 +1,14 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.elementwise import Add, Sub, Mul, Div, Pow, Less, Equal, Greater, LogicalAnd, LogicalOr, LogicalXor, \
+from front.common.partial_infer.utils import mo_array
+from ops.elementwise import Add, Sub, Mul, Div, Pow, Less, Equal, Greater, LogicalAnd, LogicalOr, LogicalXor, \
     Round, GreaterEqual, LessEqual
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.eltwise_n import EltwiseNAdd, EltwiseNMax, EltwiseNMin
-from openvino.tools.mo.ops.power import AttributedPower
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
+from graph.graph import Node
+from ops.eltwise_n import EltwiseNAdd, EltwiseNMax, EltwiseNMin
+from ops.power import AttributedPower
 
 
 class AddFrontExtractor(FrontExtractorOp):

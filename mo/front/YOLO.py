@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.no_op_eraser import NoOpEraser
-from openvino.tools.mo.ops.regionyolo import RegionYoloOp
-from openvino.tools.mo.front.tf.replacement import FrontReplacementFromConfigFileGeneral
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.result import Result
-from openvino.tools.mo.utils.error import Error
+from front.no_op_eraser import NoOpEraser
+from ops.regionyolo import RegionYoloOp
+from front.tf.replacement import FrontReplacementFromConfigFileGeneral
+from graph.graph import Node, Graph
+from ops.result import Result
+from utils.error import Error
 
 
 class YoloRegionAddon(FrontReplacementFromConfigFileGeneral):

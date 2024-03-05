@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.Reverse import Reverse
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.Reverse import Reverse
+from front.extractor import FrontExtractorOp
 
 
 class ReverseV2FrontExtractor(FrontExtractorOp):

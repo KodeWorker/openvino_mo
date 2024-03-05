@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.elemental import copy_shape_infer
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.softmax import Softmax
+from front.common.partial_infer.elemental import copy_shape_infer
+from front.extractor import FrontExtractorOp
+from ops.softmax import Softmax
 
 
 class SoftmaxComponentFrontExtractor(FrontExtractorOp):

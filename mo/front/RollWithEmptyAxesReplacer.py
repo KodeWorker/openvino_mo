@@ -1,14 +1,14 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.AttributedRollToRoll import AttributedRollToRoll
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
+from front.AttributedRollToRoll import AttributedRollToRoll
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, rename_nodes
+from ops.const import Const
+from ops.reshape import Reshape
+from ops.shape import Shape
 
 
 class RollWithEmptyAxesReplacer(FrontReplacementPattern):

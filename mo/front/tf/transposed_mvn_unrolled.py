@@ -5,17 +5,17 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.PowerToEltwises import PowerToEltwises
-from openvino.tools.mo.front.tf.mvn_unrolled import MVNUnrolled
-from openvino.tools.mo.ops.elementwise import Add, Mul
-from openvino.tools.mo.ops.mvn import MVN
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
+from front.PowerToEltwises import PowerToEltwises
+from front.tf.mvn_unrolled import MVNUnrolled
+from ops.elementwise import Add, Mul
+from ops.mvn import MVN
+from ops.transpose import Transpose
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
+from graph.graph import Graph
+from ops.reshape import Reshape
+from ops.shape import Shape
 
 
 def check_applicability(match: dict) -> bool:
@@ -88,7 +88,7 @@ class TransposedMVNUnrolled(FrontReplacementSubgraph):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.tf.mvn import MVNReplacer
+        from front.tf.mvn import MVNReplacer
         return [MVNReplacer, MVNUnrolled, PowerToEltwises]
 
     def pattern(self):

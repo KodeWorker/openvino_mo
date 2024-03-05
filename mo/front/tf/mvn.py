@@ -3,10 +3,10 @@
 
 import logging as log
 
-from openvino.tools.mo.ops.elementwise import Mul, Add
-from openvino.tools.mo.ops.mvn import MVN
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Node, Graph
+from ops.elementwise import Mul, Add
+from ops.mvn import MVN
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Node, Graph
 
 
 class MVNReplacer(FrontReplacementSubgraph):

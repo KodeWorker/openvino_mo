@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_insert
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.fusing.helpers import get_tensor_in_port, get_value_in_port
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from front.common.partial_infer.utils import shape_insert
+from graph.graph import Node, Graph
+from middle.passes.fusing.helpers import get_tensor_in_port, get_value_in_port
+from middle.replacement import MiddleReplacementPattern
 
 
 class EltwiseChecker(MiddleReplacementPattern):
@@ -17,11 +17,11 @@ class EltwiseChecker(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.EltwiseInputReshape import Eltwise1DInputReshape
+        from middle.EltwiseInputReshape import Eltwise1DInputReshape
         return [Eltwise1DInputReshape]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     @staticmethod

@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: Apache-2.0
 import logging as log
 
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.mxnet.extractors.utils import get_mxnet_layer_attrs
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.MatMul import MatMul
+from front.extractor import FrontExtractorOp
+from front.mxnet.extractors.utils import get_mxnet_layer_attrs
+from graph.graph import Node
+from ops.MatMul import MatMul
 
 
 class BatchDotExt(FrontExtractorOp):

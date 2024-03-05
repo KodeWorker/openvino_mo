@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mark_input_bins, assign_dims_to_weights, tf_window_op_pad_infer, \
+from front.common.partial_infer.utils import mark_input_bins, assign_dims_to_weights, tf_window_op_pad_infer, \
     shape_array, compatible_shapes
-from openvino.tools.mo.front.onnx.extractors.utils import get_backend_pad
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
+from front.onnx.extractors.utils import get_backend_pad
+from graph.graph import Node, Graph
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op, PermuteAttrs
 
 
 class Deconvolution(Op):

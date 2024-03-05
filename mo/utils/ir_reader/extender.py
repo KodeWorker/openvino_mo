@@ -4,9 +4,9 @@
 import logging as log
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.utils import class_registration
-from openvino.tools.mo.utils.graph import Node
+from front.common.partial_infer.utils import int64_array
+from utils import class_registration
+from utils.graph import Node
 
 
 class Extender(object):

@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, dynamic_dimension_value
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_destination_type
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import is_fully_defined, dynamic_dimension_value
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import np_data_type_to_destination_type
+from ops.op import Op
 
 
 class NonZero(Op):

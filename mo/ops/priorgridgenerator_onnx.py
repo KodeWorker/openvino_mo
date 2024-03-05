@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, dynamic_dimension_value, set_input_shapes
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import shape_array, dynamic_dimension_value, set_input_shapes
+from ops.op import Op
 
 
 class ExperimentalDetectronPriorGridGenerator(Op):

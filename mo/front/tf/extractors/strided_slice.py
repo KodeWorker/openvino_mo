@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.strided_slice import StridedSlice
+from front.common.partial_infer.utils import mo_array
+from front.extractor import FrontExtractorOp
+from ops.strided_slice import StridedSlice
 
 
 def int_to_array_bit_mask(im):

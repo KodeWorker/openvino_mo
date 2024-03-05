@@ -4,10 +4,10 @@
 import logging as log
 from collections import defaultdict
 
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.extractor import FrontExtractorOp
+from ops.op import Op
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 def extension_extractor(node, ex_cls, disable_omitting_optional: bool = False,

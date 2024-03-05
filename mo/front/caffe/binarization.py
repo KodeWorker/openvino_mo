@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array
-from openvino.tools.mo.ops.fakequantize import FakeQuantize
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import float32_array
+from ops.fakequantize import FakeQuantize
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Node, Graph
+from ops.const import Const
 
 
 class BinarizationToQuantize(FrontReplacementOp):

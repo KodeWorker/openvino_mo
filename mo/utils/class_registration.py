@@ -6,14 +6,14 @@ import os
 from enum import Enum
 
 import networkx as nx
-
-from openvino.tools.mo.front.common.custom_replacement_registry import CustomReplacementRegistry
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.eliminate import shape_inference
-from openvino.tools.mo.middle.pattern_match import for_graph_and_each_sub_graph_recursively
-from openvino.tools.mo.utils.error import Error, InternalError, FrameworkError
-from openvino.tools.mo.utils.logger import progress_bar  # pylint: disable=no-name-in-module,import-error
-
+# DIT +++ [2024/03/25, Kelvin]
+from front.common.custom_replacement_registry import CustomReplacementRegistry
+from graph.graph import Graph
+from middle.passes.eliminate import shape_inference
+from middle.pattern_match import for_graph_and_each_sub_graph_recursively
+from utils.error import Error, InternalError, FrameworkError
+from utils.logger import progress_bar  # pylint: disable=no-name-in-module,import-error
+# DIT --- [2024/03/25, Kelvin]
 _registered_classes_dict = {}
 
 
@@ -32,9 +32,8 @@ def _check_unique_ids():
 
                     if id_cls in unique_idxs:
                         raise Error('Found replacer {} with not unique id!'.format(replacer_cls))
-                    unique_idxs.add(id_cls)
+                    unique_idxs.add(id_cls)    
     log.debug("All replacers has unique idxs.")
-
 
 def get_enabled_and_disabled_transforms():
     """
@@ -98,14 +97,14 @@ def _update(cls, registered_list: list, registered_dict: dict, key: str, enabled
                     log.info('Registered a new subclass with key: {}'.format(k))
         else:
             log.warning('Skipped {} registration because it was already registered or it was disabled. '.format(c))
+            
     registered_dict.update(new_keys)
 
 
 def update_registration(classes: list, enabled_transforms: list, disabled_transforms: list, exclude_modules: set):
-    for cls in classes:
+    for cls in classes:        
         _update(cls, cls.registered_cls, cls.registered_ops, 'op', enabled_transforms, disabled_transforms, exclude_modules)
         _registered_classes_dict.setdefault(cls.class_type(), set()).add(cls)
-
 
 class DependencyGraph(Graph):
     def __init__(self, data=None, **attr):
@@ -231,17 +230,20 @@ def get_replacers_order(transform_types: list):
     dependency_graph = DependencyGraph(name="UnifiedPipeline" if len(transform_types) != 1 else transform_types[0].name)
 
     replacers = []
-    for class_type, classes_set in _registered_classes_dict.items():
+    for class_type, classes_set in _registered_classes_dict.items():         
         if class_type in transform_types:
             for cls in classes_set:
+                #print(cls)
+                #print(len(cls.registered_cls))
+                #print(len(cls.registered_ops.keys()))
                 cur_cls_replacers = [c for c in cls.registered_cls if not hasattr(c, 'op')] + \
                                     [c for op, c in cls.registered_ops.items() if c]
                 replacers.extend(
                     [replacer for replacer in cur_cls_replacers if replacer not in cls.excluded_replacers])
-
+    #assert False
     for replacer_cls in replacers:
         dependency_graph.add_node(replacer_cls)
-
+        
     for i, replacer_cls in enumerate(replacers):
         for cls_after in replacer_cls().run_before():
             if cls_after in replacers:
@@ -249,9 +251,9 @@ def get_replacers_order(transform_types: list):
         for cls_before in replacer_cls().run_after():
             if cls_before in replacers:
                 dependency_graph.add_edge(cls_before, replacer_cls)
-
+    
     replacers_order = dependency_graph.determined_sort()
-
+        
     debug_msg_list = ['|  id  | enabled | class ']
     for i, replacer_cls in enumerate(replacers_order):
         debug_msg_list.append('|{:5} |{:^9}| {}'.format(i, str(getattr(replacer_cls, 'enabled', None)), replacer_cls))
@@ -286,7 +288,7 @@ def apply_transform(graph: Graph, replacer_cls, **kwargs):
             replacer.find_and_replace_pattern(graph)
         else:
             for_graph_and_each_sub_graph_recursively(graph, replacer.find_and_replace_pattern)
-
+        
         if hasattr(replacer, 'force_clean_up') and replacer.force_clean_up:
             for_graph_and_each_sub_graph_recursively(graph, lambda G: G.clean_up())
 
@@ -336,7 +338,6 @@ def apply_replacements(graph: Graph, replacements_type: list):
     """
     replacers_order = get_replacers_order(replacements_type)
     apply_replacements_list(graph, replacers_order)
-
 
 def clear_registered_classes_dict():
     CustomReplacementRegistry.registry = {}

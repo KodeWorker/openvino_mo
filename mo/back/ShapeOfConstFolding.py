@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph, rename_nodes
+from ops.const import Const
+from front.common.partial_infer.utils import is_fully_defined
 
 
 class ShapeOfConstFolding(BackReplacementPattern):
@@ -14,7 +14,7 @@ class ShapeOfConstFolding(BackReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.back.MatMulNormalizer import SmartReshape_HC_Reshape_MatMul
+        from back.MatMulNormalizer import SmartReshape_HC_Reshape_MatMul
         return [SmartReshape_HC_Reshape_MatMul]
 
     def find_and_replace_pattern(self, graph: Graph):

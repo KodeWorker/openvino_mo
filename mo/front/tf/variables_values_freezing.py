@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.loader import variables_to_constants
-from openvino.tools.mo.graph.graph import Graph
+from front.common.replacement import FrontReplacementPattern
+from front.tf.loader import variables_to_constants
+from graph.graph import Graph
 
 
 class VariablesToConstants(FrontReplacementPattern):
@@ -12,11 +12,11 @@ class VariablesToConstants(FrontReplacementPattern):
     graph_condition = [lambda graph: graph.graph['variables_values']]
 
     def run_after(self):
-        from openvino.tools.mo.front.input_cut import InputCut
+        from front.input_cut import InputCut
         return [InputCut]
 
     def run_before(self):
-        from openvino.tools.mo.front.freeze_placeholder_value import FreezePlaceholderValue
+        from front.freeze_placeholder_value import FreezePlaceholderValue
         return [FreezePlaceholderValue]
 
     def find_and_replace_pattern(self, graph: Graph):

@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.tf.common import tf_data_type_decode
+from ops.Cast import Cast
+from front.extractor import FrontExtractorOp
+from front.tf.common import tf_data_type_decode
 
 
 class CastFrontExtractor(FrontExtractorOp):

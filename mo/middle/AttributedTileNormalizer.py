@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.tile import Tile
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.tile import Tile
 
 
 class AttributedTileNormalizer(MiddleReplacementPattern):

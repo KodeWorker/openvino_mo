@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, float32_array
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import int64_array, float32_array
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.error import Error
 
 
 def broadcastable(broadcast_from, broadcast_to):

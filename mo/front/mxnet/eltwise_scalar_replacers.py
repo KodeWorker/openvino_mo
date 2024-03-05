@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.elementwise import Div, Greater, GreaterEqual, Equal, NotEqual, Sub, Mul, Add, Less, LessEqual, Minimum, Maximum
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.mxnet.extractors.utils import scalar_ops_replacer
-from openvino.tools.mo.graph.graph import Node, Graph
+from ops.elementwise import Div, Greater, GreaterEqual, Equal, NotEqual, Sub, Mul, Add, Less, LessEqual, Minimum, Maximum
+from front.common.replacement import FrontReplacementOp
+from front.mxnet.extractors.utils import scalar_ops_replacer
+from graph.graph import Node, Graph
 
 
 class DivScalarFrontReplacer(FrontReplacementOp):

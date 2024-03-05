@@ -4,8 +4,8 @@
 import logging as log
 from collections import deque
 
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.graph.port import Port
+from graph.graph import Node
+from graph.port import Port
 
 
 def get_value_id(node: Node):

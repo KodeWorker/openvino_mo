@@ -3,9 +3,9 @@
 
 import logging as log
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils.error import Error
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from utils.error import Error
 
 
 class BlockLSTM(FrontReplacementPattern):

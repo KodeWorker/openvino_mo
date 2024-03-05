@@ -3,11 +3,11 @@
 
 import logging as log
 
-from openvino.tools.mo.ops.mvn import MVN
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.pattern_match import apply_pattern
+from ops.mvn import MVN
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from middle.pattern_match import apply_pattern
 
 
 class LayerNorm(FrontReplacementPattern):

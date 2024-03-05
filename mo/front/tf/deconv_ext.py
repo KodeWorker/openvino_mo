@@ -1,14 +1,14 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import convert_deconv_tf_padding_to_str, int64_array, \
+from front.common.partial_infer.utils import convert_deconv_tf_padding_to_str, int64_array, \
     dynamic_dimension
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.tf.extractors.utils import tf_data_format_spatial, tf_data_format_channel, \
+from front.extractor import FrontExtractorOp
+from front.tf.extractors.utils import tf_data_format_spatial, tf_data_format_channel, \
     tf_data_format_batch, \
     tf_int_list
-from openvino.tools.mo.ops.deconvolution import Deconvolution
-from openvino.tools.mo.ops.op import PermuteAttrs
+from ops.deconvolution import Deconvolution
+from ops.op import PermuteAttrs
 
 
 class Conv2DBackpropInputFrontExtractor(FrontExtractorOp):

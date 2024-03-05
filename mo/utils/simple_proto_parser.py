@@ -5,7 +5,7 @@ import ast
 import logging as log
 import os
 
-from openvino.tools.mo.utils.error import Error
+from utils.error import Error
 
 
 class SimpleProtoParser(object):

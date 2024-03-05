@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import get_shape_from_slice, shape_array, \
+from front.common.partial_infer.utils import get_shape_from_slice, shape_array, \
     dynamic_dimension_value, \
     dynamic_dimension, is_dynamic_slice
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.error import Error
 
 """
 Slicing operations have different semantic or different parameters/inputs in different frameworks. To distinguish them 

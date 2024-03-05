@@ -3,9 +3,9 @@
 
 import logging as log
 
-from openvino.tools.mo.ops.DetectionOutput import DetectionOutput
-from openvino.tools.mo.front.caffe.collect_attributes import merge_attrs
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.DetectionOutput import DetectionOutput
+from front.caffe.collect_attributes import merge_attrs
+from front.extractor import FrontExtractorOp
 
 
 class DetectionOutputFrontExtractor(FrontExtractorOp):

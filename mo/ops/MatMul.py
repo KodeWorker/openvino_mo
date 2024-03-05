@@ -5,12 +5,12 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import assign_dims_to_weights, compatible_dims, compatible_shapes, \
+from front.common.partial_infer.utils import assign_dims_to_weights, compatible_dims, compatible_shapes, \
     shape_array, is_fully_defined, shape_delete, shape_insert
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.type_utils import override_data_type_of_constant
+from front.extractor import bool_to_str
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.type_utils import override_data_type_of_constant
 
 
 class MatMul(Op):

@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.hard_sigmoid import HardSigmoid
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
+from front.common.partial_infer.utils import mo_array
+from ops.hard_sigmoid import HardSigmoid
+from front.common.replacement import FrontReplacementOp
+from front.onnx.extractors.utils import onnx_attr
+from graph.graph import Node, Graph
+from front.tf.graph_utils import create_op_with_const_inputs
 
 
 class HardSigmoidFrontExtractor(FrontReplacementOp):

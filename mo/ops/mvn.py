@@ -1,13 +1,13 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.elemental import copy_shape_infer
-from openvino.tools.mo.front.common.partial_infer.utils import reverse_bypass_infer
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.elemental import copy_shape_infer
+from front.common.partial_infer.utils import reverse_bypass_infer
+from front.extractor import bool_to_str
+from graph.graph import Graph, Node
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op
+from utils.error import Error
 
 
 class MVN(Op):

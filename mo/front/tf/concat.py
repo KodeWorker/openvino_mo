@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
 
 
 class Concat(FrontReplacementSubgraph):

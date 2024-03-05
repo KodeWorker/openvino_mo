@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import reverse_bypass_infer
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import reverse_bypass_infer
+from graph.graph import Graph
+from ops.op import Op
 
 
 class Reverse(Op):

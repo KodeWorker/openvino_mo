@@ -8,10 +8,10 @@ import re
 from distutils.version import LooseVersion
 from pathlib import Path
 
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.utils.error import Error, FrameworkError
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
-from openvino.tools.mo.utils.environment_setup_utils import get_environment_setup  # pylint: disable=no-name-in-module,import-error
+from graph.graph import Node
+from utils.error import Error, FrameworkError
+from utils.utils import refer_to_faq_msg
+from utils.environment_setup_utils import get_environment_setup  # pylint: disable=no-name-in-module,import-error
 
 # do not print INFO and WARNING messages from TensorFlow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
@@ -26,8 +26,8 @@ except ImportError:
 tf_v1.get_logger().setLevel("ERROR")
 
 from google.protobuf import text_format
-from openvino.tools.mo.graph.graph import fill_graph_with_nodes, Graph
-from openvino.tools.mo.utils.summarize_graph import summarize_graph
+from graph.graph import fill_graph_with_nodes, Graph
+from utils.summarize_graph import summarize_graph
 
 
 def freeze_checkpoints(graph_def: tf_v1.GraphDef, checkpoint_dir: str, output_node_names: list):

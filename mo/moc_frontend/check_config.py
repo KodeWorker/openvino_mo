@@ -4,7 +4,7 @@
 import argparse
 from pathlib import Path
 
-from openvino.tools.mo.utils.error import Error
+from utils.error import Error
 import os
 
 

@@ -1,15 +1,15 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.ReduceOps import ReduceProd
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.utils.shape import node_to_get_shape_value_of_indices, new_shape_node_from_shape_nodes
+from ops.ReduceOps import ReduceProd
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph
+from ops.const import Const
+from ops.reshape import Reshape
+from ops.shape import Shape
+from utils.shape import node_to_get_shape_value_of_indices, new_shape_node_from_shape_nodes
 
 
 class FlattenONNXToReshape(FrontReplacementSubgraph):

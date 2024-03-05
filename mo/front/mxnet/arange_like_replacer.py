@@ -2,21 +2,21 @@
 # SPDX-License-Identifier: Apache-2.0
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.ReduceOps import ReduceProd
-from openvino.tools.mo.ops.elementwise import Add, Div, Mul
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.slice import Slice
-from openvino.tools.mo.ops.squeeze import Squeeze
-from openvino.tools.mo.ops.tile import Tile
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import int64_array, mo_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from ops.Cast import Cast
+from ops.ReduceOps import ReduceProd
+from ops.elementwise import Add, Div, Mul
+from ops.gather import Gather
+from ops.range import Range
+from ops.reshape import Reshape
+from ops.shape import Shape
+from ops.slice import Slice
+from ops.squeeze import Squeeze
+from ops.tile import Tile
+from utils.error import Error
 
 
 class ArangeLikeReplacer(FrontReplacementOp):

@@ -5,9 +5,9 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.middle.FuseReshapesSequence import FuseReshapesSequence
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.FuseReshapesSequence import FuseReshapesSequence
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
 
 
 class RemoveRedundantReshapeAfterCropAndResize(MiddleReplacementPattern):
@@ -15,7 +15,7 @@ class RemoveRedundantReshapeAfterCropAndResize(MiddleReplacementPattern):
     force_clean_up = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     def run_before(self):

@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.elementwise import Add, Maximum, Minimum, Mul
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Node, Graph
+from ops.elementwise import Add, Maximum, Minimum, Mul
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Node, Graph
 
 
 class EltwiseNReplacement(FrontReplacementOp):

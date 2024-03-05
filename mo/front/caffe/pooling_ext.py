@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_spatial_attr
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.pooling import Pooling
+from front.caffe.extractors.utils import get_spatial_attr
+from front.common.extractors.utils import layout_attrs
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from ops.pooling import Pooling
 
 
 class PoolingFrontExtractor(FrontExtractorOp):

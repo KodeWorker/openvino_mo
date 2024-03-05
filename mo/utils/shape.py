@@ -1,17 +1,17 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.elementwise import Add
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.graph.port import Port
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.squeeze import Squeeze
+from ops.elementwise import Add
+from ops.gather import Gather
+from ops.range import Range
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Node
+from graph.port import Port
+from ops.concat import Concat
+from ops.const import Const
+from ops.shape import Shape
+from ops.squeeze import Squeeze
 
 
 def get_canonical_axis_index_node(rank: Node, axis: int) -> Node:

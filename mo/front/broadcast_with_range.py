@@ -3,17 +3,17 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.elementwise import Equal
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.ops.select import Select
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, rename_nodes, Node
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from ops.elementwise import Equal
+from ops.gather import Gather
+from ops.range import Range
+from ops.select import Select
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
+from graph.graph import Graph, rename_nodes, Node
+from ops.shape import Shape
+from ops.unsqueeze import Unsqueeze
 
 
 class ExpandRangeConstant(FrontReplacementSubgraph):

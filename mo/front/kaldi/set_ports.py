@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.utils.error import Error
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Node, Graph
+from utils.error import Error
 
 
 class SetPortsPattern(FrontReplacementSubgraph):
@@ -13,11 +13,11 @@ class SetPortsPattern(FrontReplacementSubgraph):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.restore_ports import RestorePorts
+        from front.restore_ports import RestorePorts
         return [RestorePorts]
 
     def run_after(self):
-        from openvino.tools.mo.load.loader import LoadFinish
+        from load.loader import LoadFinish
         return [LoadFinish]
 
     def find_and_replace_pattern(self, graph: Graph):

@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.utils.shape import get_shape_values_by_indices_node, get_shape_values_by_range_idxs
+from ops.elementwise import Mul
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
+from ops.concat import Concat
+from ops.const import Const
+from ops.reshape import Reshape
+from ops.shape import Shape
+from utils.shape import get_shape_values_by_indices_node, get_shape_values_by_range_idxs
 
 
 class MXReshapeToReshape(FrontReplacementSubgraph):

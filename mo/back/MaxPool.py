@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
-from openvino.tools.mo.back.FakeOutputResolver import FakeOutputResolver
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.result import Result
+from back.FakeOutputResolver import FakeOutputResolver
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph, Node
+from ops.result import Result
 
 
 class MaxPool(BackReplacementPattern):

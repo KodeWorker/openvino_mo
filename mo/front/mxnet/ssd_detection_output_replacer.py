@@ -1,16 +1,16 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.flatten_to_reshape import FlattenToReshape
-from openvino.tools.mo.front.split_normalizer import AttributedSplitToSplit
-from openvino.tools.mo.ops.DetectionOutput import DetectionOutput
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.pattern_match import find_pattern_matches
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.result import Result
+from front.flatten_to_reshape import FlattenToReshape
+from front.split_normalizer import AttributedSplitToSplit
+from ops.DetectionOutput import DetectionOutput
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Node, Graph
+from middle.pattern_match import find_pattern_matches
+from ops.reshape import Reshape
+from ops.result import Result
 
 
 class SsdPatternDetectionOutputReplacer(FrontReplacementSubgraph):

@@ -1,16 +1,16 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.reverse_sequence import ReverseSequence
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, rename_node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.broadcast import Broadcast
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.squeeze import Squeeze
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
-from openvino.tools.mo.utils.shape import node_to_get_shape_value_of_indices
+from ops.reverse_sequence import ReverseSequence
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, rename_node
+from middle.replacement import MiddleReplacementPattern
+from ops.broadcast import Broadcast
+from ops.shape import Shape
+from ops.squeeze import Squeeze
+from ops.unsqueeze import Unsqueeze
+from utils.shape import node_to_get_shape_value_of_indices
 
 
 class ReverseToReverseSequence(MiddleReplacementPattern):
@@ -25,11 +25,11 @@ class ReverseToReverseSequence(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.PartialInfer import PartialInfer
+        from middle.PartialInfer import PartialInfer
         return [PartialInfer]
 
     def run_before(self):
-        from openvino.tools.mo.middle.reverse_tensor_iterator import ReverseTensorIteratorLSTM
+        from middle.reverse_tensor_iterator import ReverseTensorIteratorLSTM
         return [ReverseTensorIteratorLSTM]
 
     def find_and_replace_pattern(self, graph: Graph):

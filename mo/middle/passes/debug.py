@@ -1,7 +1,7 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import *
+from graph.graph import *
 
 
 def print_attributes_in_col(attrs: dict, indent: int, exclude_attrs: list):

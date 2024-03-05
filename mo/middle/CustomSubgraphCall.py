@@ -10,13 +10,13 @@ import os
 # do not print INFO and WARNING messages from TensorFlow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-from openvino.tools.mo.front.common.layout import nhwc_to_nchw_permute
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, shape_insert
-from openvino.tools.mo.front.extractor import update_ie_fields
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.graph.graph import Node, add_opoutput
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from front.common.layout import nhwc_to_nchw_permute
+from front.common.partial_infer.utils import mo_array
+from front.common.partial_infer.utils import shape_array, shape_insert
+from front.extractor import update_ie_fields
+from graph.graph import Graph
+from graph.graph import Node, add_opoutput
+from middle.replacement import MiddleReplacementPattern
 
 nchw_to_nhwc_constant_name = 'IE_NCHW_TO_NHWC'
 nhwc_to_nchw_constant_name = 'IE_NHWC_TO_NCHW'
@@ -28,11 +28,11 @@ class CustomSubgraphCall(MiddleReplacementPattern):
     graph_condition = [lambda graph: graph.graph['fw'] == 'tf']
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import PreMiddleStart
+        from middle.pass_separator import PreMiddleStart
         return [PreMiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     @staticmethod
@@ -60,9 +60,9 @@ class CustomSubgraphCall(MiddleReplacementPattern):
         # in some environment suppressing through TF_CPP_MIN_LOG_LEVEL does not work
         tf_v1.get_logger().setLevel("ERROR")
 
-        from openvino.tools.mo.front.common.layout import convert_shape, nhwc_to_nchw_permute, nchw_to_nhwc_permute
-        from openvino.tools.mo.front.tf.extractors.utils import tf_tensor_shape
-        from openvino.tools.mo.front.tf.partial_infer.tf import add_node_def_to_subgraph, update_input_in_pbs
+        from front.common.layout import convert_shape, nhwc_to_nchw_permute, nchw_to_nhwc_permute
+        from front.tf.extractors.utils import tf_tensor_shape
+        from front.tf.partial_infer.tf import add_node_def_to_subgraph, update_input_in_pbs
 
         tf_v1.reset_default_graph()
 
@@ -281,7 +281,7 @@ class CustomSubgraphCall(MiddleReplacementPattern):
         # in some environment suppressing through TF_CPP_MIN_LOG_LEVEL does not work
         tf_v1.get_logger().setLevel("ERROR")
 
-        from openvino.tools.mo.front.tf.partial_infer.tf import get_subgraph_output_tensors, add_node_def_to_subgraph
+        from front.tf.partial_infer.tf import get_subgraph_output_tensors, add_node_def_to_subgraph
         _, output_tensors = get_subgraph_output_tensors(node)
 
         # transpose permutation constant

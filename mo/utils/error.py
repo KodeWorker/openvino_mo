@@ -51,4 +51,4 @@ def classify_error_type(e):
 
 def legacy_path_error(functionality_description):
     raise Exception("{}Please try to install openvino-dev and use convert_model() "
-                    "from openvino.tools.mo.".format(functionality_description))
+                    "from ".format(functionality_description))

@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph
 
 
 class PackBinaryWeights(BackReplacementPattern):

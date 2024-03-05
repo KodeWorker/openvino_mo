@@ -6,21 +6,21 @@ from collections import defaultdict
 
 import numpy as np
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph, FrontReplacementPattern
-from openvino.tools.mo.front.extractor import add_input_ops
-from openvino.tools.mo.front.output_cut import OutputCut
-from openvino.tools.mo.front.user_data_repack import UserDataRepack
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_precision, SUPPORTED_DATA_TYPES
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.utils.error import Error
+from front.common.replacement import FrontReplacementSubgraph, FrontReplacementPattern
+from front.extractor import add_input_ops
+from front.output_cut import OutputCut
+from front.user_data_repack import UserDataRepack
+from graph.graph import Graph, Node
+from middle.passes.convert_data_type import np_data_type_to_precision, SUPPORTED_DATA_TYPES
+from ops.parameter import Parameter
+from utils.error import Error
 
 
 class FIFOQueue(FrontReplacementSubgraph):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.override_batch import OverrideBatch
+        from front.override_batch import OverrideBatch
         return [OverrideBatch]
 
     @staticmethod
@@ -92,7 +92,7 @@ class QueueDequeueManyV2(FrontReplacementSubgraph):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.override_batch import OverrideBatch
+        from front.override_batch import OverrideBatch
         return [OverrideBatch]
 
     @staticmethod

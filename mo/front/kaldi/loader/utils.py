@@ -7,8 +7,8 @@ import struct
 
 import numpy as np
 
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 end_of_nnet_tag = '</Nnet>'
 end_of_component_tag = '<!EndOfComponent>'

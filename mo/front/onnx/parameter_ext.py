@@ -3,9 +3,9 @@
 
 from onnx.mapping import TENSOR_TYPE_TO_NP_TYPE
 
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, dynamic_dimension_value
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.parameter import Parameter
+from front.common.partial_infer.utils import shape_array, dynamic_dimension_value
+from front.extractor import FrontExtractorOp
 
 
 class PlaceholderFrontExtractor(FrontExtractorOp):

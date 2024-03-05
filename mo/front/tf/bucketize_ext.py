@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array
-from openvino.tools.mo.ops.bucketize import Bucketize
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from front.common.partial_infer.utils import float32_array
+from ops.bucketize import Bucketize
+from front.extractor import FrontExtractorOp
 
 
 class BucketizeFrontExtractor(FrontExtractorOp):

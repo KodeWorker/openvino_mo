@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.extractor import user_data_repack
-from openvino.tools.mo.graph.graph import Graph
+from front.common.replacement import FrontReplacementPattern
+from front.extractor import user_data_repack
+from graph.graph import Graph
 
 
 class UserDataRepack(FrontReplacementPattern):

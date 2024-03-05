@@ -3,9 +3,9 @@
 
 import logging as log
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils.model_analysis import AnalyzeAction, graph_contains_scope
-from openvino.tools.mo.utils.utils import files_by_pattern, get_mo_root_dir
+from graph.graph import Graph
+from utils.model_analysis import AnalyzeAction, graph_contains_scope
+from utils.utils import files_by_pattern, get_mo_root_dir
 
 
 class TensorFlowObjectDetectionAPIAnalysis(AnalyzeAction):

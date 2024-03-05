@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension, dynamic_dimension_value, \
+from front.common.partial_infer.utils import dynamic_dimension, dynamic_dimension_value, \
     undefined_shape_of_rank, compatible_shapes, compatible_dims
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.utils.error import Error
+from graph.graph import Node
+from utils.error import Error
 
 
 def eltwise_infer(node: Node, op=None, **kwargs):

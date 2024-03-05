@@ -3,20 +3,20 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.ConvertLike import ConvertLike
-from openvino.tools.mo.ops.ReduceOps import ReduceSum
-from openvino.tools.mo.ops.broadcast import Broadcast
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.elementwise import Div, Equal
-from openvino.tools.mo.ops.embedding_bag import EmbeddingSegmentsSum
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.ops.select import Select
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from ops.ConvertLike import ConvertLike
+from ops.ReduceOps import ReduceSum
+from ops.broadcast import Broadcast
+from ops.const import Const
+from ops.elementwise import Div, Equal
+from ops.embedding_bag import EmbeddingSegmentsSum
+from ops.range import Range
+from ops.select import Select
+from ops.shape import Shape
+from ops.unsqueeze import Unsqueeze
 
 
 class EmbeddingSegmentsMeanDecomposition(FrontReplacementPattern):
@@ -39,7 +39,7 @@ class EmbeddingSegmentsMeanDecomposition(FrontReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.tf.embedding_segments_operation_fusing import \
+        from front.tf.embedding_segments_operation_fusing import \
             EmbeddingSegmentsOperationMultipleFeaturesFusing, EmbeddingSegmentsOperationSingleFeatureFusing
         return [EmbeddingSegmentsOperationMultipleFeaturesFusing, EmbeddingSegmentsOperationSingleFeatureFusing]
 

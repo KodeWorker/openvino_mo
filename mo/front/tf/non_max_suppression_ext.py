@@ -5,8 +5,8 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.ops.non_max_suppression import NonMaxSuppression
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.non_max_suppression import NonMaxSuppression
+from front.extractor import FrontExtractorOp
 
 
 class NonMaxSuppressionV2Extractor(FrontExtractorOp):

@@ -5,18 +5,18 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.activation_ops import Floor
-from openvino.tools.mo.ops.elementwise import Add, Div, Mul
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.layout import get_depth_dim, get_height_dim, get_width_dim
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, float_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.strided_slice import StridedSlice
+from ops.Cast import Cast
+from ops.activation_ops import Floor
+from ops.elementwise import Add, Div, Mul
+from ops.interpolate import Interpolate
+from front.common.layout import get_depth_dim, get_height_dim, get_width_dim
+from front.common.partial_infer.utils import int64_array, float_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, Node, rename_nodes
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.shape import Shape
+from ops.strided_slice import StridedSlice
 
 
 def convert_mode(onnx_mode: str) -> str:
@@ -151,7 +151,7 @@ class ONNXResize11ToInterpolate(MiddleReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.InterpolateSequenceToInterpolate import InterpolateSequenceToInterpolate
+        from middle.InterpolateSequenceToInterpolate import InterpolateSequenceToInterpolate
         return [InterpolateSequenceToInterpolate]
 
     def find_and_replace_pattern(self, graph: Graph):

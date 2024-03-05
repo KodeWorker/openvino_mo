@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.elemental import copy_shape_infer
-from openvino.tools.mo.front.common.partial_infer.utils import mark_input_bins
-from openvino.tools.mo.graph.graph import Node
+from front.common.partial_infer.elemental import copy_shape_infer
+from front.common.partial_infer.utils import mark_input_bins
+from graph.graph import Node
 
 
 def batch_norm_4_infer(node: Node):

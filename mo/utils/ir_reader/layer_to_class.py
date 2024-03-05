@@ -6,36 +6,36 @@ import os
 
 import numpy as np
 
-from openvino.tools.mo.back.MaxPool import MaxPool
-from openvino.tools.mo.back.TopKNormalizer import TopKNormalizer
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, strict_compare_tensors
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.GRU import GRU
-from openvino.tools.mo.ops.ReduceOps import ReduceOp
-from openvino.tools.mo.ops.activation_ops import Activation
-from openvino.tools.mo.ops.clamp import AttributedClamp
-from openvino.tools.mo.ops.convolution import Convolution
-from openvino.tools.mo.ops.deconvolution import Deconvolution
-from openvino.tools.mo.ops.dft import FFTBase
-from openvino.tools.mo.ops.elementwise import Elementwise, UnaryElementwise, LogicalElementwise, BiasAdd, Div, Mul, Pow, \
+from back.MaxPool import MaxPool
+from back.TopKNormalizer import TopKNormalizer
+from front.common.partial_infer.utils import int64_array, strict_compare_tensors
+from graph.graph import Graph, Node
+from ops.Cast import Cast
+from ops.GRU import GRU
+from ops.ReduceOps import ReduceOp
+from ops.activation_ops import Activation
+from ops.clamp import AttributedClamp
+from ops.convolution import Convolution
+from ops.deconvolution import Deconvolution
+from ops.dft import FFTBase
+from ops.elementwise import Elementwise, UnaryElementwise, LogicalElementwise, BiasAdd, Div, Mul, Pow, \
     Sub
-from openvino.tools.mo.ops.embedding_bag import EmbeddingBagBase
-from openvino.tools.mo.ops.loop import Loop
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.ops.pooling import Pooling
-from openvino.tools.mo.ops.psroipooling import DeformablePSROIPoolingOp
-from openvino.tools.mo.ops.scatter import Scatter
-from openvino.tools.mo.ops.scatternd import ScatterNDBase
-from openvino.tools.mo.ops.slice import OvSlice
-from openvino.tools.mo.ops.split import Split, VariadicSplit
-from openvino.tools.mo.utils.class_registration import update_registration
-from openvino.tools.mo.utils.import_extensions import import_by_path
-from openvino.tools.mo.utils.ir_reader.extender import Extender
-from openvino.tools.mo.utils.ir_reader.internal_ops.squeeze import SqueezeInternal
-from openvino.tools.mo.utils.ir_reader.internal_ops.unsqueeze import UnsqueezeInternal
-from openvino.tools.mo.utils.ir_reader.internal_ops.unique import UniqueInternal
-from openvino.tools.mo.utils.ir_reader.internal_ops.scatter import ScatterUpdateInternal
+from ops.embedding_bag import EmbeddingBagBase
+from ops.loop import Loop
+from ops.op import Op
+from ops.pooling import Pooling
+from ops.psroipooling import DeformablePSROIPoolingOp
+from ops.scatter import Scatter
+from ops.scatternd import ScatterNDBase
+from ops.slice import OvSlice
+from ops.split import Split, VariadicSplit
+from utils.class_registration import update_registration
+from utils.import_extensions import import_by_path
+from utils.ir_reader.extender import Extender
+from utils.ir_reader.internal_ops.squeeze import SqueezeInternal
+from utils.ir_reader.internal_ops.unsqueeze import UnsqueezeInternal
+from utils.ir_reader.internal_ops.unique import UniqueInternal
+from utils.ir_reader.internal_ops.scatter import ScatterUpdateInternal
 
 # Operations not registered in collect_ops() function
 custom_ops = {

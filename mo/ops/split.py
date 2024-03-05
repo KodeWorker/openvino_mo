@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, dynamic_dimension, shape_delete, \
+from front.common.partial_infer.utils import is_fully_defined, dynamic_dimension, shape_delete, \
     clarify_partial_shape, shape_array, mo_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
+from graph.graph import Graph, Node
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op, PermuteAttrs
 
 
 def delete_out_port(idx, node: Node):

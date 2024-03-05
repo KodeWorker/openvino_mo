@@ -4,12 +4,12 @@
 import logging as log
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.pass_separator import PostMiddleStart, MiddleFinish
-from openvino.tools.mo.middle.passes.eliminate import remove_op_node_with_data_node
-from openvino.tools.mo.middle.passes.fusing.helpers import get_next_operation
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from front.common.partial_infer.utils import is_fully_defined
+from graph.graph import Graph
+from middle.pass_separator import PostMiddleStart, MiddleFinish
+from middle.passes.eliminate import remove_op_node_with_data_node
+from middle.passes.fusing.helpers import get_next_operation
+from middle.replacement import MiddleReplacementPattern
 
 
 class FuseReshapesSequence(MiddleReplacementPattern):
@@ -65,7 +65,7 @@ class FuseReshapesSequenceKaldi(MiddleReplacementPattern):
     graph_condition = [lambda graph: graph.graph['fw'] == 'kaldi']
 
     def run_before(self):
-        from openvino.tools.mo.middle.MergeNodesPermutations import MergeNodesPermutations
+        from middle.MergeNodesPermutations import MergeNodesPermutations
         return [MergeNodesPermutations]
 
     def run_after(self):

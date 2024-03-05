@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.shufflechannel import ShuffleChannels
-from openvino.tools.mo.front.caffe.collect_attributes import collect_attributes
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.shufflechannel import ShuffleChannels
+from front.caffe.collect_attributes import collect_attributes
+from front.common.extractors.utils import layout_attrs
+from front.extractor import FrontExtractorOp
 
 
 class ShuffleChannelFrontExtractor(FrontExtractorOp):

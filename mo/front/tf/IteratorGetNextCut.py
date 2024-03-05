@@ -3,11 +3,11 @@
 
 from collections import defaultdict
 
-from openvino.tools.mo.front.extractor import add_input_ops
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.convert_data_type import SUPPORTED_DATA_TYPES, np_data_type_to_precision
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
+from front.extractor import add_input_ops
+from graph.graph import Graph
+from middle.passes.convert_data_type import SUPPORTED_DATA_TYPES, np_data_type_to_precision
+from utils.error import Error
+from front.common.replacement import FrontReplacementPattern
 
 
 class IteratorGetNextCut(FrontReplacementPattern):
@@ -20,8 +20,8 @@ class IteratorGetNextCut(FrontReplacementPattern):
     graph_condition = [lambda graph: graph.graph['cmd_params'].input is None]
 
     def run_before(self):
-        from openvino.tools.mo.front.output_cut import OutputCut
-        from openvino.tools.mo.front.input_cut import InputCut
+        from front.output_cut import OutputCut
+        from front.input_cut import InputCut
         return [OutputCut, InputCut]
 
     def run_after(self):

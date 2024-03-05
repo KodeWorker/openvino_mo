@@ -4,8 +4,8 @@
 import logging as log
 import re
 
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.simple_proto_parser import SimpleProtoParser
+from utils.error import Error
+from utils.simple_proto_parser import SimpleProtoParser
 
 # The list of rules how to map the value from the pipeline.config file to the dictionary with attributes.
 # The rule is either a string or a tuple with two elements. In the first case the rule string is used as a key to

@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.subgraph_matcher import SubgraphMatch
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.ops.squeeze import Squeeze
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.subgraph_matcher import SubgraphMatch
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from ops.split import Split
+from ops.squeeze import Squeeze
 
 
 class RFFTRealImagToRDFTSplit(FrontReplacementSubgraph):
@@ -18,7 +18,7 @@ class RFFTRealImagToRDFTSplit(FrontReplacementSubgraph):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.tf.TFFFTToDFT import TFFFTToDFT
+        from front.tf.TFFFTToDFT import TFFFTToDFT
         return [TFFFTToDFT]
 
     def pattern(self):

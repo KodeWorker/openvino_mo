@@ -5,8 +5,8 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import compatible_dims
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from front.common.partial_infer.utils import compatible_dims
+from middle.replacement import MiddleReplacementPattern
 
 
 class ConditionChecks(MiddleReplacementPattern):
@@ -14,11 +14,11 @@ class ConditionChecks(MiddleReplacementPattern):
     graph_condition = [lambda graph: graph.graph['is_cyclic']]
 
     def run_after(self):
-        from openvino.tools.mo.middle.TensorIteratorBackEdge import BackEdgesMatching
+        from middle.TensorIteratorBackEdge import BackEdgesMatching
         return [BackEdgesMatching]
 
     def run_before(self):
-        from openvino.tools.mo.middle.TensorIteratorMerge import TensorIteratorMerge
+        from middle.TensorIteratorMerge import TensorIteratorMerge
         return [TensorIteratorMerge]
 
     @staticmethod

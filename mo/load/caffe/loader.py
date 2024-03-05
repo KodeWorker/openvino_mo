@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import os
-from openvino.tools.mo.load.loader import Loader
-from openvino.tools.mo.front.caffe import custom_layers_mapping, loader
-from openvino.tools.mo.front.caffe.extractor import caffe_type_extractors, caffe_extractor
-from openvino.tools.mo.front.common.register_custom_ops import update_extractors_with_extensions, check_for_duplicates
-from openvino.tools.mo.front.extractor import extract_node_attrs
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.telemetry_utils import send_op_names_info, send_shapes_info
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from load.loader import Loader
+from front.caffe import custom_layers_mapping, loader
+from front.caffe.extractor import caffe_type_extractors, caffe_extractor
+from front.common.register_custom_ops import update_extractors_with_extensions, check_for_duplicates
+from front.extractor import extract_node_attrs
+from graph.graph import Graph
+from utils.error import Error
+from utils.telemetry_utils import send_op_names_info, send_shapes_info
+from utils.utils import refer_to_faq_msg
 
 
 class CaffeLoader(Loader):

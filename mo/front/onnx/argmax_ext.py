@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.argmax import ArgMaxOp
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
+from ops.argmax import ArgMaxOp
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
 
 class ArgMaxFrontExtractor(FrontExtractorOp):
     op = 'ArgMax'

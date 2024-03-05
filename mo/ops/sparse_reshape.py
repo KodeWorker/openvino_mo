@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension, is_fully_defined, shape_array, strict_compare_tensors, dynamic_dimension_value
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import dynamic_dimension, is_fully_defined, shape_array, strict_compare_tensors, dynamic_dimension_value
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class SparseReshape(Op):

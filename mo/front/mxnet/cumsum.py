@@ -1,14 +1,14 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.cumsum import CumSum
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.mxnet.extractors.utils import get_mxnet_layer_attrs, mxnet_str_dtype_to_np
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, rename_node, Node
-from openvino.tools.mo.ops.const import Const
+from ops.Cast import Cast
+from ops.cumsum import CumSum
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.mxnet.extractors.utils import get_mxnet_layer_attrs, mxnet_str_dtype_to_np
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, rename_node, Node
+from ops.const import Const
 
 
 class CumSumFrontReplacer(FrontReplacementOp):

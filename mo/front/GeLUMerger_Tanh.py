@@ -5,9 +5,9 @@ import logging as log
 
 from math import sqrt, fabs, pi
 
-from openvino.tools.mo.ops.gelu import GeLUOP
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
+from ops.gelu import GeLUOP
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
 
 
 class GeLUMergerTanh(FrontReplacementSubgraph):

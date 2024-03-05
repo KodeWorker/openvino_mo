@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.pass_separator import FrontStart
-from openvino.tools.mo.front.restore_ports import RestorePorts
-from openvino.tools.mo.ops.loop import Loop
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from front.pass_separator import FrontStart
+from front.restore_ports import RestorePorts
+from ops.loop import Loop
+from front.common.partial_infer.utils import int64_array, mo_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, Node
+from ops.const import Const
+from ops.unsqueeze import Unsqueeze
 
 
 class ONNXLoopNormalize(FrontReplacementSubgraph):

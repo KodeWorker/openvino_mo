@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.concat import concat_infer
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.concat import concat_infer
+from front.common.partial_infer.utils import dynamic_dimension
+from graph.graph import Node
+from ops.op import Op
 
 
 class Concat(Op):

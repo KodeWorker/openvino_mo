@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.elementwise import Mul, Pow
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node, rename_node
+from ops.elementwise import Mul, Pow
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, Node, rename_node
 
 
 class Div(FrontReplacementPattern):

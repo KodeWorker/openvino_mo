@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_destination_type
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import mo_array
+from front.common.partial_infer.utils import shape_array
+from graph.graph import Graph
+from middle.passes.convert_data_type import np_data_type_to_destination_type
+from ops.op import Op
+from utils.error import Error
 
 
 class Shape(Op):

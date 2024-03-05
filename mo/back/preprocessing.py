@@ -9,9 +9,9 @@ from openvino.preprocess import PrePostProcessor  # pylint: disable=no-name-in-m
 # pylint: disable=no-name-in-module,import-error
 from openvino.runtime import Model, Layout, PartialShape, layout_helpers
 
-from openvino.tools.mo.moc_frontend.layout_utils import update_layout_to_dict
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from moc_frontend.layout_utils import update_layout_to_dict
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 def update_mean_scale_to_dict(input_nodes: list, mean_scale_val, scale):
@@ -371,12 +371,12 @@ def apply_preprocessing(ov_function: Model, argv: argparse.Namespace):
     :param: argv Parsed command line arguments
     """
     prep = PrePostProcessor(ov_function)
-
+    
     if 'mean_scale_values' in argv and argv.mean_scale_values:
         mean_scale_values = argv.mean_scale_values
     else:
         mean_scale_values = {}
-
+    
     # mean_scale_values stores mean/scale values from command line with names which were set by user.
     # For models with single input scale or mean may be unnamed, so name is set by first tensor name from
     # names list. This may lead to different naming of preprocessing params for a single node and lead to error.
@@ -388,23 +388,24 @@ def apply_preprocessing(ov_function: Model, argv: argparse.Namespace):
                                                   scale=argv.scale)
     # On return, mean_scale_values is a dictionary with input names as key and mean/scale pair as value
     # {'inputName': {'mean': [1., 2., 3.], 'scale': [2.]}}
-
+    
     layout_values = {}
     if 'layout_values' in argv and argv.layout_values:
         layout_values = update_layout_to_dict(ov_function.inputs, argv.layout_values,
                                               lambda ov_input: ov_input.get_tensor().get_names())
-
+    
     check_keys_valid(ov_function=ov_function, dict_to_validate=mean_scale_values, search_outputs=False)
     check_keys_valid(ov_function=ov_function, dict_to_validate=layout_values, search_outputs=True)
-
+    
     layout_values = update_layout_is_input_flag(ov_function, layout_values)
     layout_values = guess_source_layouts_by_mean_scale(ov_function, layout_values, mean_scale_values)
+    
     need_reverse = 'reverse_input_channels' in argv and argv.reverse_input_channels
     suitable_params_ric = []
     if need_reverse:
         suitable_params_ric = guess_source_layouts_for_reverse_channels(ov_function=ov_function,
                                                                         layout_values=layout_values)
-
+    
     for node_name, layout_value in layout_values.items():
         if layout_value.get('source_layout'):
             if layout_value.get('is_input'):
@@ -416,13 +417,12 @@ def apply_preprocessing(ov_function: Model, argv: argparse.Namespace):
                 prep.input(node_name).tensor().set_layout(Layout(layout_value['target_layout']))
             else:
                 prep.output(node_name).tensor().set_layout(Layout(layout_value['target_layout']))
-
     # Apply reverse_input_channels
     if need_reverse:
         for name, _ in suitable_params_ric:
             prep.input(name).preprocess().reverse_channels()
             log.debug('reverse_input_channels pre-processing applied to {}'.format(name))
-
+    
     for node_name, node_mean_scale_values in mean_scale_values.items():
         # Apply mean first, then scale
         if node_mean_scale_values['mean'] is not None:
@@ -430,10 +430,10 @@ def apply_preprocessing(ov_function: Model, argv: argparse.Namespace):
         if node_mean_scale_values['scale'] is not None:
             prep.input(node_name).preprocess().scale(node_mean_scale_values['scale'])
         log.debug('Mean/Scale pre-processing applied to {}'.format(node_name))
-
+    
     # Apply pre-processing builder to a function
     ov_function = prep.build()
-
+    
     # Remove guessed layout values from ov_function (these values shall not be serialized to IR
     for node_name, layout_value in layout_values.items():
         if layout_value.get('source_guessed') and \

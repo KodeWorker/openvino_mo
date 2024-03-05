@@ -3,8 +3,8 @@
 
 import logging as log
 
-from openvino.tools.mo.ops.proposal import ProposalOp
-from openvino.tools.mo.front.extractor import CaffePythonFrontExtractorOp
+from ops.proposal import ProposalOp
+from front.extractor import CaffePythonFrontExtractorOp
 
 
 class ProposalPythonFrontExtractor(CaffePythonFrontExtractorOp):

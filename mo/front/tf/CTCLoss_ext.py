@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.ctc_loss import CTCLoss
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.ctc_loss import CTCLoss
+from front.extractor import FrontExtractorOp
 
 
 class CTCLossFrontExtractor(FrontExtractorOp):

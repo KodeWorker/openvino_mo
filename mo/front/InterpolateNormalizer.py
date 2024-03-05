@@ -4,14 +4,14 @@
 import inspect
 import logging as log
 
-from openvino.tools.mo.ops.elementwise import Mul, Add
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.strided_slice import StridedSlice
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from ops.elementwise import Mul, Add
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Graph
+from ops.const import Const
+from ops.shape import Shape
+from ops.strided_slice import StridedSlice
+from utils.utils import refer_to_faq_msg
 
 
 class InterpolateNormalizer(FrontReplacementOp):

@@ -55,7 +55,7 @@ def try_to_import_ie(module="", libs=[], silent=False):
     # os.environ that is set after setup_env()
     setup_env(module=module, libs=libs)
     
-    from openvino.tools.mo.utils.check_ie_bindings import import_core_modules
+    from utils.check_ie_bindings import import_core_modules
     path_to_module = "PYTHONPATH" if module == "" else module
     if not import_core_modules(silent, path_to_module):
         reset_env()

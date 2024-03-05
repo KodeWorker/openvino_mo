@@ -3,8 +3,8 @@
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class Complex(Op):

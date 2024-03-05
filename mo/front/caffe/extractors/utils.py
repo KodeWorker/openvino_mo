@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Node
+from ops.const import Const
 
 
 def dim_to_shape(dim):

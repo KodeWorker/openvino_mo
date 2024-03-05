@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.non_max_suppression import NonMaxSuppression
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
+from ops.non_max_suppression import NonMaxSuppression
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
 
 
 class NonMaxSuppressionExtractor(FrontExtractorOp):

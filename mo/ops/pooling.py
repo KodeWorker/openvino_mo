@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.partial_infer.utils import tf_window_op_pad_infer, int64_array, shape_array, \
+from front.common.partial_infer.utils import mo_array
+from front.common.partial_infer.utils import tf_window_op_pad_infer, int64_array, shape_array, \
     dynamic_dimension_value, dynamic_dimension, undefined_shape_of_rank
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.front.onnx.extractors.utils import get_backend_pad
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_destination_type
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
-from openvino.tools.mo.utils.error import Error
+from front.extractor import bool_to_str
+from front.onnx.extractors.utils import get_backend_pad
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import np_data_type_to_destination_type
+from ops.op import Op, PermuteAttrs
+from utils.error import Error
 
 
 poolings_map = {

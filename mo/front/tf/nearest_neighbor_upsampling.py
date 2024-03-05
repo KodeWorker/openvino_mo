@@ -3,12 +3,12 @@
 
 import logging as log
 
-from openvino.tools.mo.front.Pack import Pack
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, mo_array, float32_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from front.Pack import Pack
+from ops.interpolate import Interpolate
+from front.common.partial_infer.utils import int64_array, mo_array, float32_array
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
+from ops.const import Const
 
 
 class NearestNeighborUpsampling(FrontReplacementSubgraph):

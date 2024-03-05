@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.scatter import ScatterUpdate, Scatter
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension_value
+from graph.graph import Node
+from ops.scatter import ScatterUpdate, Scatter
+from front.common.partial_infer.utils import dynamic_dimension_value
 
 class ScatterUpdateInternal(ScatterUpdate):
     @staticmethod

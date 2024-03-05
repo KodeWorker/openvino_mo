@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.crop import Crop
-from openvino.tools.mo.utils.logger import log
+from ops.parameter import Parameter
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph
+from ops.crop import Crop
+from utils.logger import log
 
 
 class CutMemoryInput(BackReplacementPattern):

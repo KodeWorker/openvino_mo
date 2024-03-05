@@ -1,15 +1,15 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.elementwise import Add, Mul, Maximum
-from openvino.tools.mo.front.caffe.collect_attributes import merge_attrs
-from openvino.tools.mo.front.caffe.extractors.utils import embed_input
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.eltwise_n import EltwiseNMul, EltwiseNAdd, EltwiseNMax
-from openvino.tools.mo.ops.power import AttributedPower
+from front.common.partial_infer.utils import mo_array
+from ops.elementwise import Add, Mul, Maximum
+from front.caffe.collect_attributes import merge_attrs
+from front.caffe.extractors.utils import embed_input
+from front.common.extractors.utils import layout_attrs
+from front.extractor import FrontExtractorOp
+from graph.graph import Node
+from ops.eltwise_n import EltwiseNMul, EltwiseNAdd, EltwiseNMax
+from ops.power import AttributedPower
 
 
 class BiasToAdd(FrontExtractorOp):

@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension_value, shape_array
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Graph, Node
+from front.common.partial_infer.utils import dynamic_dimension_value, shape_array
+from front.extractor import bool_to_str
+from graph.graph import Graph, Node
 
-from openvino.tools.mo.ops.op import Op
+from ops.op import Op
 
 
 class Multinomial(Op):

@@ -3,10 +3,10 @@
 
 import logging as log
 
-from openvino.tools.mo.middle.ConstSwitchResolver import ConstSwitchEraser
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.eliminate import remove_op_node_with_data_node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.ConstSwitchResolver import ConstSwitchEraser
+from graph.graph import Graph
+from middle.passes.eliminate import remove_op_node_with_data_node
+from middle.replacement import MiddleReplacementPattern
 
 
 class UselessMergeEraser(MiddleReplacementPattern):
@@ -16,7 +16,7 @@ class UselessMergeEraser(MiddleReplacementPattern):
         return [ConstSwitchEraser]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     def pattern(self):

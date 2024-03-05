@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.elementwise import Mul, Add, Pow
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
+from ops.elementwise import Mul, Add, Pow
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
 
 
 class FusedBatchNormNonConstant(MiddleReplacementPattern):
@@ -17,11 +17,11 @@ class FusedBatchNormNonConstant(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     def pattern(self):

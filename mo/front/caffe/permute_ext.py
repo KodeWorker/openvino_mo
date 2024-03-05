@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from front.common.partial_infer.utils import mo_array
+from ops.transpose import Transpose
+from front.extractor import FrontExtractorOp
 
 
 class PermuteFrontExtractor(FrontExtractorOp):

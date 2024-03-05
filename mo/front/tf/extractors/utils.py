@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, dynamic_dimension_value
-from openvino.tools.mo.front.tf.common import tf_data_type_decode
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.common.partial_infer.utils import mo_array, int64_array
+from front.common.partial_infer.utils import shape_array, dynamic_dimension_value
+from front.tf.common import tf_data_type_decode
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 def tf_tensor_shape(pb):

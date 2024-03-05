@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.pattern_match import apply_pattern
-from openvino.tools.mo.utils.model_analysis import AnalyzeAction
+from graph.graph import Graph
+from middle.pattern_match import apply_pattern
+from utils.model_analysis import AnalyzeAction
 
 
 def pattern_instance_counter(graph: Graph, match: dict):

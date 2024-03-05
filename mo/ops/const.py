@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, int64_array
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np, np_data_type_to_destination_type, \
+from front.common.partial_infer.utils import mo_array, int64_array
+from middle.passes.convert_data_type import data_type_str_to_np, np_data_type_to_destination_type, \
     precision_to_destination_type
-from openvino.tools.mo.ops.op import Op
+from ops.op import Op
 
 
 class Const(Op):

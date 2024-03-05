@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mark_input_bins, shape_insert, dynamic_dimension, \
+from front.common.partial_infer.utils import mark_input_bins, shape_insert, dynamic_dimension, \
     shape_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Node, Graph, add_opoutput, Error
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Node, Graph, add_opoutput, Error
+from ops.op import Op
 
 
 class RNN(Op):

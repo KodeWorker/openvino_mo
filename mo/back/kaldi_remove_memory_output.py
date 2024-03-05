@@ -1,19 +1,19 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
 
 
 class KaldiRemoveMemoryOutputBackReplacementPattern(BackReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.back.pass_separator import BackFinish
+        from back.pass_separator import BackFinish
         return [BackFinish]
 
     def run_before(self):
-        from openvino.tools.mo.back.SpecialNodesFinalization import CreateConstNodesReplacement
+        from back.SpecialNodesFinalization import CreateConstNodesReplacement
         return [CreateConstNodesReplacement]
 
     @staticmethod

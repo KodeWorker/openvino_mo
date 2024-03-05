@@ -8,7 +8,7 @@ import numpy as np
 from openvino._pyopenvino import Place, PartialShape # pylint: disable=no-name-in-module,import-error
 
 from openvino.frontend import InputModel  # pylint: disable=no-name-in-module,import-error
-from openvino.tools.mo.utils.error import Error
+from utils.error import Error
 
 
 def raise_no_node(node_name: str):

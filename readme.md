@@ -20,9 +20,4 @@ Therefore, ```openvino-dev[tensorflow2, onnx]``` is picked and the corresponding
 2. What's in the mo directory?
 
 This directory is acually copied from the openvino/tools/mo in the virtual environment.
-In order to freeze the tool properly, the following files are modified:
-- mo/main.py
-- mo/convert_impl.py
-- mo/utils/cli_parser.py
-- mo/utils/find_ie_version.py
-- mo/utils/version
+In order to freeze the tool properly, the many files were modified, and hidden imports were introduced.

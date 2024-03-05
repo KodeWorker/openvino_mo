@@ -4,9 +4,9 @@
 from onnx import numpy_helper
 from onnx.numpy_helper import to_array
 
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.ops.const import Const
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
+from ops.const import Const
 
 
 class ConstExtractor(FrontExtractorOp):

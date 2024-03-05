@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, is_fully_defined, shape_insert, undefined_shape_of_rank
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import int64_array, is_fully_defined, shape_insert, undefined_shape_of_rank
+from graph.graph import Node
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op
+from utils.error import Error
 
 
 class Unsqueeze(Op):

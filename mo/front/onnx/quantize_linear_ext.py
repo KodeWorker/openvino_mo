@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.quantize_linear import QuantizeLinear
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr, get_onnx_opset_version
+from ops.quantize_linear import QuantizeLinear
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr, get_onnx_opset_version
 
 
 class QuantizeLinearFrontExtractor(FrontExtractorOp):

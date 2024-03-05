@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.tf.extractors.utils import tf_dtype_extractor
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.tf.extractors.utils import tf_dtype_extractor
+from ops.op import Op
 
 
 class FIFOQueueV2Extractor(FrontExtractorOp):

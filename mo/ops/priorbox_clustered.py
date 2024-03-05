@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.layout import get_width_dim, get_height_dim
-from openvino.tools.mo.front.extractor import attr_getter
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from front.common.layout import get_width_dim, get_height_dim
+from front.extractor import attr_getter
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class PriorBoxClusteredOp(Op):

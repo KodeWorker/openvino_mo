@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_spatial_attr, get_list_from_container, weights_biases
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.convolution import Convolution
-from openvino.tools.mo.utils.error import Error
+from front.caffe.extractors.utils import get_spatial_attr, get_list_from_container, weights_biases
+from front.common.extractors.utils import layout_attrs
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from ops.convolution import Convolution
+from utils.error import Error
 
 
 class ConvFrontExtractor(FrontExtractorOp):

@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.activation_ops import Log
-from openvino.tools.mo.ops.elementwise import Add
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.ops.const import Const
+from ops.activation_ops import Log
+from ops.elementwise import Add
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Graph, Node, rename_nodes
+from ops.const import Const
 
 
 class Log1p(FrontReplacementOp):

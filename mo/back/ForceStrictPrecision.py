@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
+from ops.Cast import Cast
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
+from middle.passes.convert_data_type import data_type_str_to_np
 
 
 class ForceStrictPrecision(BackReplacementPattern):

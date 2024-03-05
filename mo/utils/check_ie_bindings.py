@@ -22,8 +22,8 @@ try:
     from openvino_telemetry.backend import backend_ga4
 except ImportError:
     import openvino.tools.mo.utils.telemetry_stub as tm
-from openvino.tools.mo.utils.error import classify_error_type
-from openvino.tools.mo.utils.telemetry_utils import init_mo_telemetry
+from utils.error import classify_error_type
+from utils.telemetry_utils import init_mo_telemetry
 
 
 def send_telemetry(mo_version: str, message: str, event_type: str):

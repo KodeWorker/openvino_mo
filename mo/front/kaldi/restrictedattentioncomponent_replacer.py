@@ -3,19 +3,19 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils \
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils \
     import create_op_with_const_inputs, create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.split import VariadicSplit
-from openvino.tools.mo.ops.memoryoffset import MemoryOffset
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.einsum import Einsum
-from openvino.tools.mo.ops.elementwise import Mul, Add
-from openvino.tools.mo.ops.softmax import Softmax
+from graph.graph import Graph, Node
+from ops.concat import Concat
+from ops.reshape import Reshape
+from ops.split import VariadicSplit
+from ops.memoryoffset import MemoryOffset
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from ops.einsum import Einsum
+from ops.elementwise import Mul, Add
+from ops.softmax import Softmax
 
 
 class RestrictedAttentionComponentReplacer(FrontReplacementPattern):
@@ -69,7 +69,7 @@ class RestrictedAttentionComponentReplacer(FrontReplacementPattern):
         super().__init__()
 
     def run_before(self):
-        from openvino.tools.mo.front.kaldi.memory_offset_adjustment import MemoryOffsetAdjustment
+        from front.kaldi.memory_offset_adjustment import MemoryOffsetAdjustment
         return [MemoryOffsetAdjustment]
 
     def find_and_replace_pattern(self, graph: Graph):

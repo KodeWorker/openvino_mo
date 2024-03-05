@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.reorgyolo import ReorgYoloOp
-from openvino.tools.mo.front.caffe.collect_attributes import merge_attrs
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.reorgyolo import ReorgYoloOp
+from front.caffe.collect_attributes import merge_attrs
+from front.common.extractors.utils import layout_attrs
+from front.extractor import FrontExtractorOp
 
 
 class ReorgYoloFrontExtractor(FrontExtractorOp):

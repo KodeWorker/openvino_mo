@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.concat import Concat
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.concat import Concat
 
 
 class CutInputHavingZeroDimFromConcat(MiddleReplacementPattern):

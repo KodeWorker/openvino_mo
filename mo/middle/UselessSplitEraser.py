@@ -1,19 +1,19 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
 
 
 class UselessSplitEraser(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import PreMiddleStart
+        from middle.pass_separator import PreMiddleStart
         return [PreMiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def pattern(self):

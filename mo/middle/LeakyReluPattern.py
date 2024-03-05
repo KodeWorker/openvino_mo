@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging as log
-from openvino.tools.mo.middle.fusings import Fusing
-from openvino.tools.mo.middle.pass_separator import PostMiddleStart
-from openvino.tools.mo.ops.activation_ops import LeakyReLU
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.fusings import Fusing
+from middle.pass_separator import PostMiddleStart
+from ops.activation_ops import LeakyReLU
+from graph.graph import Graph, rename_nodes
+from middle.replacement import MiddleReplacementPattern
 
 
 class LeakyReLUFusion(MiddleReplacementPattern):

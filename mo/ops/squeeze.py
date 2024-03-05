@@ -3,13 +3,13 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, dynamic_dimension, shape_delete, is_fully_defined, \
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.partial_infer.utils import int64_array, dynamic_dimension, shape_delete, is_fully_defined, \
     undefined_shape_of_rank
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from graph.graph import Node
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op
+from utils.error import Error
 
 
 class Squeeze(Op):

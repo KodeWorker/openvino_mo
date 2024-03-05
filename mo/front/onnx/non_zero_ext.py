@@ -3,8 +3,8 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.non_zero import NonZero
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.non_zero import NonZero
+from front.extractor import FrontExtractorOp
 
 
 class NonZeroExtractor(FrontExtractorOp):

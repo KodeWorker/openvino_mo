@@ -6,14 +6,14 @@ from typing import List
 
 import numpy as np
 
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, shape_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import group_by_with_binary_predicate
+from ops.interpolate import Interpolate
+from front.common.partial_infer.utils import int64_array, shape_array
+from front.common.partial_infer.utils import mo_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, Node, rename_nodes
+from middle.replacement import MiddleReplacementPattern
+from utils.error import Error
+from utils.utils import group_by_with_binary_predicate
 
 
 def node_has_one_consumer(node: Node) -> bool:
@@ -250,7 +250,7 @@ class InterpolateSequenceToInterpolate(MiddleReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.UpsampleToResample import UpsampleToResample
+        from middle.UpsampleToResample import UpsampleToResample
         return [UpsampleToResample]
 
     def find_and_replace_pattern(self, graph: Graph):

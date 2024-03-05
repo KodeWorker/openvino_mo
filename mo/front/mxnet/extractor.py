@@ -1,16 +1,16 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.mxnet.extractors.batchnorm import batch_norm_ext
-from openvino.tools.mo.front.mxnet.extractors.concat import concat_ext
-from openvino.tools.mo.front.mxnet.extractors.l2_normalization import l2_normalization_ext
-from openvino.tools.mo.front.mxnet.extractors.multibox_prior import multi_box_prior_ext
-from openvino.tools.mo.front.mxnet.extractors.scaleshift import scale_shift_ext
-from openvino.tools.mo.front.mxnet.extractors.slice_axis import slice_axis_ext
-from openvino.tools.mo.front.mxnet.extractors.utils import get_mxnet_layer_attrs
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.mxnet.extractors.batchnorm import batch_norm_ext
+from front.mxnet.extractors.concat import concat_ext
+from front.mxnet.extractors.l2_normalization import l2_normalization_ext
+from front.mxnet.extractors.multibox_prior import multi_box_prior_ext
+from front.mxnet.extractors.scaleshift import scale_shift_ext
+from front.mxnet.extractors.slice_axis import slice_axis_ext
+from front.mxnet.extractors.utils import get_mxnet_layer_attrs
+from graph.graph import Node
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 def extractor_wrapper(mxnet_extractor):

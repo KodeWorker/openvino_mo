@@ -1,14 +1,14 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.GRUCell import GRUCell
-from openvino.tools.mo.ops.split import AttributedSplit
-from openvino.tools.mo.ops.transpose import Transpose
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, rename_nodes
+from ops.concat import Concat
+from ops.GRUCell import GRUCell
+from ops.split import AttributedSplit
+from ops.transpose import Transpose
 
 
 class GRUBlockCellToGRUCell(FrontReplacementPattern):

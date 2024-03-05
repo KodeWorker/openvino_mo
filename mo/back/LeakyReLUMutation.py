@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.back.ForceStrictPrecision import ForceStrictPrecision
-from openvino.tools.mo.ops.prelu import PReLU
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph, rename_node
-from openvino.tools.mo.ops.const import Const
+from back.ForceStrictPrecision import ForceStrictPrecision
+from ops.prelu import PReLU
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph, rename_node
+from ops.const import Const
 
 
 class LeakyReLUMutation(BackReplacementPattern):

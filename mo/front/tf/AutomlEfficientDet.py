@@ -3,21 +3,21 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.Pack import Pack
-from openvino.tools.mo.front.TransposeOrderNormalizer import TransposeOrderNormalizer
-from openvino.tools.mo.front.eltwise_n import EltwiseNReplacement
-from openvino.tools.mo.front.tf.pad_tf_to_pad import PadTFToPad
-from openvino.tools.mo.ops.DetectionOutput import DetectionOutput
-from openvino.tools.mo.ops.activation_ops import Sigmoid
-from openvino.tools.mo.ops.priorbox_clustered import PriorBoxClusteredOp
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, mo_array
-from openvino.tools.mo.front.tf.replacement import FrontReplacementFromConfigFileGeneral
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.result import Result
+from front.Pack import Pack
+from front.TransposeOrderNormalizer import TransposeOrderNormalizer
+from front.eltwise_n import EltwiseNReplacement
+from front.tf.pad_tf_to_pad import PadTFToPad
+from ops.DetectionOutput import DetectionOutput
+from ops.activation_ops import Sigmoid
+from ops.priorbox_clustered import PriorBoxClusteredOp
+from front.common.partial_infer.utils import int64_array, mo_array
+from front.tf.replacement import FrontReplacementFromConfigFileGeneral
+from graph.graph import Graph, Node
+from middle.passes.convert_data_type import data_type_str_to_np
+from ops.concat import Concat
+from ops.const import Const
+from ops.reshape import Reshape
+from ops.result import Result
 
 
 class EfficientDet(FrontReplacementFromConfigFileGeneral):
@@ -25,7 +25,7 @@ class EfficientDet(FrontReplacementFromConfigFileGeneral):
     run_not_recursively = True
 
     def run_before(self):
-        from openvino.tools.mo.front.ExpandDimsToUnsqueeze import ExpandDimsToUnsqueeze
+        from front.ExpandDimsToUnsqueeze import ExpandDimsToUnsqueeze
         return [ExpandDimsToUnsqueeze, Pack, TransposeOrderNormalizer, PadTFToPad, EltwiseNReplacement]
 
     class AnchorGenerator:

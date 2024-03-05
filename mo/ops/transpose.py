@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import shape_array
+from graph.graph import Graph, Node
+from ops.op import Op
 
 
 class Transpose(Op):
@@ -37,7 +37,7 @@ class Transpose(Op):
             order = np.arange(len(input_shape))[::-1]  # Reverse order
         else:
             # we import PermuteInputs locally because it uses Transpose inside and we have recursive imports
-            from openvino.tools.mo.graph.perm_inputs import PermuteInputs
+            from graph.perm_inputs import PermuteInputs
             assert len(connected_ports) == 2 and 0 in in_ports and 1 in in_ports, \
                 "{} node `{}` should have 2 input ports, where 0-input is a data input and 1-input represents " \
                 "Transpose `order`".format(node.op, node.id)

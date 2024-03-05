@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.kaldi.loader.utils import read_binary_bool_token, read_binary_integer32_token, collect_until_token, \
+from front.common.partial_infer.utils import mo_array
+from front.extractor import FrontExtractorOp
+from front.kaldi.loader.utils import read_binary_bool_token, read_binary_integer32_token, collect_until_token, \
     read_binary_float_token
-from openvino.tools.mo.front.kaldi.utils import read_binary_vector, read_binary_matrix
-from openvino.tools.mo.ops.tdnncomponent import TdnnComponent
+from front.kaldi.utils import read_binary_vector, read_binary_matrix
+from ops.tdnncomponent import TdnnComponent
 
 
 class TdnnComponentFrontExtractor(FrontExtractorOp):

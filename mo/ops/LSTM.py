@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.RNN import rnn_infer, RNN
-from openvino.tools.mo.ops.op import Op
+from graph.graph import Node, Graph
+from ops.RNN import rnn_infer, RNN
+from ops.op import Op
 
 
 class LSTM(Op):

@@ -5,12 +5,12 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.convert_data_type import SUPPORTED_DATA_TYPES
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
+from middle.passes.convert_data_type import SUPPORTED_DATA_TYPES
+from ops.const import Const
+from utils.error import Error
 
 
 class FreezePlaceholderValue(FrontReplacementSubgraph):
@@ -23,7 +23,7 @@ class FreezePlaceholderValue(FrontReplacementSubgraph):
     graph_condition = [lambda graph: graph.graph['freeze_placeholder'] is not None]
 
     def run_after(self):
-        from openvino.tools.mo.front.restore_ports import RestorePorts
+        from front.restore_ports import RestorePorts
         return [RestorePorts]
 
     def run_before(self):
@@ -50,7 +50,7 @@ class FreezePlaceholderValue(FrontReplacementSubgraph):
                     value = mo_array(string_value, dtype=data_type)
                 # TODO: investigate why boolean type is allowed only for TensorFlow
                 elif data_type == bool and graph.graph['fw'] == 'tf':
-                    from openvino.tools.mo.front.tf.common import tf_data_type_cast
+                    from front.tf.common import tf_data_type_cast
                     if isinstance(string_value, list):
                         casted_list = list()
                         for v in mo_array(string_value):

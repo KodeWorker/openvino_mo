@@ -7,11 +7,11 @@ from typing import Dict, List
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.passes.fusing.helpers import get_tensor_in_port, get_value_in_port
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph, Node
+from middle.passes.fusing.helpers import get_tensor_in_port, get_value_in_port
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
 
 
 def resolve_shared_inputs(node: Node, port_ids_to_duplicate: List[int]):

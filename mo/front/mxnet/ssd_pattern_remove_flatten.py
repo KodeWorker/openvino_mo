@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.flatten_to_reshape import FlattenToReshape
-from openvino.tools.mo.front.mxnet.ssd_pattern_remove_reshape import SsdPatternRemoveReshape
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph
+from front.flatten_to_reshape import FlattenToReshape
+from front.mxnet.ssd_pattern_remove_reshape import SsdPatternRemoveReshape
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph
 
 
 class SsdPatternRemoveFlatten(FrontReplacementSubgraph):

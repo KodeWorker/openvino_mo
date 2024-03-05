@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.subgraph_matcher import SubgraphMatch
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.concat import Concat
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.subgraph_matcher import SubgraphMatch
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph
+from ops.concat import Concat
 
 
 class CorrectPaddingsForPadAfterComplex(FrontReplacementSubgraph):
@@ -35,7 +35,7 @@ class CorrectPaddingsForPadAfterComplex(FrontReplacementSubgraph):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.tf.pad_tf_to_pad import PadTFToPad
+        from front.tf.pad_tf_to_pad import PadTFToPad
         return [PadTFToPad]
 
     def pattern(self):

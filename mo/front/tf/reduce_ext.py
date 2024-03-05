@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.ReduceOps import ReduceProd, ReduceAnd, ReduceMax, ReduceMean, ReduceSum, ReduceL2, \
+from ops.ReduceOps import ReduceProd, ReduceAnd, ReduceMax, ReduceMean, ReduceSum, ReduceL2, \
     ReduceMin, ReduceLogicalOr
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.graph.graph import Node
+from front.extractor import FrontExtractorOp
+from graph.graph import Node
 
 
 class AllFrontExtractor(FrontExtractorOp):

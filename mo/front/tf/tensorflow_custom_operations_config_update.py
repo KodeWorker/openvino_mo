@@ -3,11 +3,11 @@
 
 import json
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils.custom_replacement_config import parse_custom_replacement_config_file
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from utils.custom_replacement_config import parse_custom_replacement_config_file
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 class TensorflowCustomOperationsConfigUpdate(FrontReplacementPattern):
@@ -18,7 +18,7 @@ class TensorflowCustomOperationsConfigUpdate(FrontReplacementPattern):
         return []
 
     def run_after(self):
-        from openvino.tools.mo.front.freeze_placeholder_value import FreezePlaceholderValue
+        from front.freeze_placeholder_value import FreezePlaceholderValue
         return [FreezePlaceholderValue]
 
     @staticmethod

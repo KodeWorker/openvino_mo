@@ -3,18 +3,18 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.graph.port import Port
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.clamp import Clamp
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.strided_slice import StridedSlice
+from ops.Cast import Cast
+from ops.gather import Gather
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from graph.port import Port
+from middle.replacement import MiddleReplacementPattern
+from ops.clamp import Clamp
+from ops.concat import Concat
+from ops.const import Const
+from ops.strided_slice import StridedSlice
 
 
 def create_ss_interval_border(graph: Graph, slice_border_port: Port, shape: np.ndarray, axes: np.ndarray, node_name: str):

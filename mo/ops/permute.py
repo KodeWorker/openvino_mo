@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.extractor import attr_getter
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.op import Op
+from front.extractor import attr_getter
+from graph.graph import Graph
+from ops.op import Op
 
 
 class Permute(Op):

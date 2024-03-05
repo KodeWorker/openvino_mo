@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
 
 
 class ResultNormalizer(BackReplacementPattern):

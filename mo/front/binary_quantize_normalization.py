@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.elementwise import Add, Mul
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from ops.elementwise import Add, Mul
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from ops.const import Const
 
 
 class BinaryFakeQuantizeNormalization(FrontReplacementPattern):

@@ -7,12 +7,12 @@ import defusedxml.ElementTree as ET
 from defusedxml import defuse_stdlib
 from defusedxml.minidom import parseString
 
-from openvino.tools.mo.front.common.partial_infer.utils import unmask_shape, is_fully_defined
-from openvino.tools.mo.graph.graph import *
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_precision
-from openvino.tools.mo.utils.unsupported_ops import UnsupportedOps
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
-from openvino.tools.mo.utils.version import get_version
+from front.common.partial_infer.utils import unmask_shape, is_fully_defined
+from graph.graph import *
+from middle.passes.convert_data_type import np_data_type_to_precision
+from utils.unsupported_ops import UnsupportedOps
+from utils.utils import refer_to_faq_msg
+from utils.version import get_version
 
 # defuse_stdlib provide patched version of xml.etree.ElementTree which allows to use objects from xml.etree.ElementTree
 # in a safe manner without including unsafe xml.etree.ElementTree

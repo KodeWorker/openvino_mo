@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.squeeze import Squeeze
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, is_fully_defined
+from graph.graph import Node
+from ops.squeeze import Squeeze
+from front.common.partial_infer.utils import shape_array, is_fully_defined
 
 
 class SqueezeInternal(Squeeze):

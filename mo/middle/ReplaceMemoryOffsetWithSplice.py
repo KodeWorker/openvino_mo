@@ -3,18 +3,18 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.splice import Splice
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.assign import Assign
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.crop import Crop
-from openvino.tools.mo.ops.read_value import ReadValue
-from openvino.tools.mo.ops.result import Result
-from openvino.tools.mo.utils.error import Error
+from ops.splice import Splice
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph, Node
+from middle.replacement import MiddleReplacementPattern
+from ops.assign import Assign
+from ops.concat import Concat
+from ops.const import Const
+from ops.crop import Crop
+from ops.read_value import ReadValue
+from ops.result import Result
+from utils.error import Error
 
 
 class ReplaceMemoryOffsetNodePattern(MiddleReplacementPattern):
@@ -24,11 +24,11 @@ class ReplaceMemoryOffsetNodePattern(MiddleReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.RemoveDuplicationMemory import RemoveMemoryDuplicationPattern
+        from middle.RemoveDuplicationMemory import RemoveMemoryDuplicationPattern
         return [RemoveMemoryDuplicationPattern]
 
     def run_after(self):
-        from openvino.tools.mo.middle.split_tdnn_memoryoffset import SplitTdnnMemoryOffset
+        from middle.split_tdnn_memoryoffset import SplitTdnnMemoryOffset
         return [SplitTdnnMemoryOffset]
 
     @staticmethod
@@ -105,7 +105,7 @@ class ReplaceMemoryOffsetWithMemoryNodePattern(MiddleReplacementPattern):
     force_shape_inference = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.RemoveDuplicationMemory import RemoveMemoryDuplicationPattern
+        from middle.RemoveDuplicationMemory import RemoveMemoryDuplicationPattern
         return [RemoveMemoryDuplicationPattern]
 
     @staticmethod

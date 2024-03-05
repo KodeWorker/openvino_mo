@@ -5,10 +5,10 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.extractor import get_new_placeholder_name
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.extractor import get_new_placeholder_name
+from graph.graph import Node, Graph
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 """
 Packed data of custom types are stored in numpy uint8 data type.

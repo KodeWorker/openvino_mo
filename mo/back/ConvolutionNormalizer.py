@@ -3,20 +3,20 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.ReshapeMutation import ReshapeMutation
-from openvino.tools.mo.back.ReverseInputChannels import ApplyReverseChannels
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, is_fully_defined, int64_array, mo_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.elementwise import Div
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.strided_slice import StridedSlice
-from openvino.tools.mo.utils.error import Error
+from back.ReshapeMutation import ReshapeMutation
+from back.ReverseInputChannels import ApplyReverseChannels
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import shape_array, is_fully_defined, int64_array, mo_array
+from front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
+from graph.graph import Graph, Node
+from ops.concat import Concat
+from ops.const import Const
+from ops.elementwise import Div
+from ops.gather import Gather
+from ops.reshape import Reshape
+from ops.shape import Shape
+from ops.strided_slice import StridedSlice
+from utils.error import Error
 
 
 def resolve_convolution_with_group(node: Node, group: int, ir_version: str):
@@ -124,8 +124,8 @@ class ConvolutionWithGroupsResolver(BackReplacementPattern):
     force_clean_up = True
 
     def run_before(self):
-        from openvino.tools.mo.back.StridedSliceMasksNormalizer import StridedSliceMasksNormalizer
-        from openvino.tools.mo.back.ShapeOfConstFolding import ShapeOfConstFolding
+        from back.StridedSliceMasksNormalizer import StridedSliceMasksNormalizer
+        from back.ShapeOfConstFolding import ShapeOfConstFolding
         return [ShapeOfConstFolding, ReshapeMutation, StridedSliceMasksNormalizer]
 
     def run_after(self):

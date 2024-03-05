@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.normalize import NormalizeOp
-from openvino.tools.mo.front.caffe.collect_attributes import collect_attributes
-from openvino.tools.mo.front.caffe.extractors.utils import weights_biases
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.normalize import NormalizeOp
+from front.caffe.collect_attributes import collect_attributes
+from front.caffe.extractors.utils import weights_biases
+from front.extractor import FrontExtractorOp
 
 
 class NormalizeFrontExtractor(FrontExtractorOp):

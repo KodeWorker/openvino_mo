@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
 
 
 class StridedSliceMasksNormalizer(BackReplacementPattern):
@@ -11,8 +11,8 @@ class StridedSliceMasksNormalizer(BackReplacementPattern):
     force_clean_up = True
 
     def run_after(self):
-        from openvino.tools.mo.back.ConvolutionNormalizer import DeconvolutionNormalizer
-        from openvino.tools.mo.back.CropToStridedSlice import CropToStridedSlice
+        from back.ConvolutionNormalizer import DeconvolutionNormalizer
+        from back.CropToStridedSlice import CropToStridedSlice
         return [CropToStridedSlice, DeconvolutionNormalizer]
 
     def find_and_replace_pattern(self, graph: Graph):

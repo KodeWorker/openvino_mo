@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.ForceStrictPrecision import ForceStrictPrecision
-from openvino.tools.mo.ops.elementwise import Add
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.strided_slice import StridedSlice
+from back.ForceStrictPrecision import ForceStrictPrecision
+from ops.elementwise import Add
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph, Node
+from ops.const import Const
+from ops.shape import Shape
+from ops.strided_slice import StridedSlice
 
 
 class CropToStridedSlice(BackReplacementPattern):

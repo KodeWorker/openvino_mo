@@ -3,14 +3,14 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.elementwise import Mul, Sub
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.reshape import Reshape
+from ops.Cast import Cast
+from ops.elementwise import Mul, Sub
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from middle.passes.convert_data_type import data_type_str_to_np
+from middle.replacement import MiddleReplacementPattern
+from ops.reshape import Reshape
 
 
 class DequantizeLinearResolver(MiddleReplacementPattern):
@@ -26,7 +26,7 @@ class DequantizeLinearResolver(MiddleReplacementPattern):
     graph_condition = [lambda graph: graph.graph['layout'] == 'NCHW']
 
     def run_after(self):
-        from openvino.tools.mo.middle.quantize_dequantize_linear_resolver import QuantizeDequantizeLinearResolver
+        from middle.quantize_dequantize_linear_resolver import QuantizeDequantizeLinearResolver
         return [QuantizeDequantizeLinearResolver]
 
     def find_and_replace_pattern(self, graph: Graph):

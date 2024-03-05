@@ -1,21 +1,21 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.rank_decomposer import RankDecomposer
-from openvino.tools.mo.ops.elementwise import Add, Sub, Mul
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.rank import Rank
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node, rename_node
-from openvino.tools.mo.ops.broadcast import Broadcast
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.tile import Tile
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
-from openvino.tools.mo.utils.shape import get_canonical_axis_index_node, new_shape_node_from_shape_nodes, \
+from front.rank_decomposer import RankDecomposer
+from ops.elementwise import Add, Sub, Mul
+from ops.gather import Gather
+from ops.rank import Rank
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_node_with_second_input, create_op_with_const_inputs
+from graph.graph import Graph, Node, rename_node
+from ops.broadcast import Broadcast
+from ops.const import Const
+from ops.reshape import Reshape
+from ops.shape import Shape
+from ops.tile import Tile
+from ops.unsqueeze import Unsqueeze
+from utils.shape import get_canonical_axis_index_node, new_shape_node_from_shape_nodes, \
     get_shape_values_by_range_idxs
 
 

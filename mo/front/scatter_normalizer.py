@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from ops.const import Const
 
 
 class ScatterNormalizer(FrontReplacementPattern):

@@ -4,7 +4,7 @@
 from collections import namedtuple
 from copy import deepcopy
 
-from openvino.tools.mo.utils.error import Error
+from utils.error import Error
 
 
 class Connection:

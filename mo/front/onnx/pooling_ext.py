@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr, get_onnx_autopad
-from openvino.tools.mo.ops.pooling import Pooling
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr, get_onnx_autopad
+from ops.pooling import Pooling
+from utils.error import Error
 
 
 class AveragePoolFrontExtractor(FrontExtractorOp):

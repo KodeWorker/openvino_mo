@@ -3,22 +3,22 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array
-from openvino.tools.mo.middle.MakeKaldiConstReshapable import create_const_with_batch_from_input
-from openvino.tools.mo.ops.MatMul import FullyConnected
-from openvino.tools.mo.ops.activation_ops import Tanh, Sigmoid
-from openvino.tools.mo.ops.elementwise import Add, Mul
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.front.caffe.extractors.utils import input_as_const
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.assign import Assign
-from openvino.tools.mo.ops.clamp import Clamp
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.read_value import ReadValue
-from openvino.tools.mo.ops.result import Result
-from openvino.tools.mo.ops.scale_shift import ScaleShiftOp
+from front.common.partial_infer.utils import float32_array
+from middle.MakeKaldiConstReshapable import create_const_with_batch_from_input
+from ops.MatMul import FullyConnected
+from ops.activation_ops import Tanh, Sigmoid
+from ops.elementwise import Add, Mul
+from ops.split import Split
+from front.caffe.extractors.utils import input_as_const
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Node, Graph
+from ops.assign import Assign
+from ops.clamp import Clamp
+from ops.const import Const
+from ops.read_value import ReadValue
+from ops.result import Result
+from ops.scale_shift import ScaleShiftOp
 
 
 def unique_id(prefix: str = 'id') -> str:
@@ -43,13 +43,13 @@ class ReplaceLSTMNodePattern(FrontReplacementOp):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.restore_ports import RestorePorts
+        from front.restore_ports import RestorePorts
         return [RestorePorts]
 
     def run_before(self):
         # current pass should be rewritten to use MatMul ops only (No FullyConnected ops should be created here)
-        from openvino.tools.mo.front.MatMul_normalizer import FullyConnectedDecomposer
-        from openvino.tools.mo.front.MoveEmbeddedInputsToInputs import MoveEmbeddedInputsToInputs
+        from front.MatMul_normalizer import FullyConnectedDecomposer
+        from front.MoveEmbeddedInputsToInputs import MoveEmbeddedInputsToInputs
         return [FullyConnectedDecomposer,
                 MoveEmbeddedInputsToInputs]
 

@@ -1,9 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils import class_registration
-
+from graph.graph import Graph
+from utils import class_registration
 
 class Loader(object):
     registered_cls = []

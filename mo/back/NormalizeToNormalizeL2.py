@@ -3,14 +3,14 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.insert_compatibility_l2normalization import CompatibilityL2NormalizationPattern
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.ops.normalize_l2 import NormalizeL2Op
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_node
+from back.insert_compatibility_l2normalization import CompatibilityL2NormalizationPattern
+from ops.elementwise import Mul
+from ops.normalize_l2 import NormalizeL2Op
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from front.common.partial_infer.utils import mo_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_node
 
 
 class NormalizeToNormalizeL2(BackReplacementPattern):

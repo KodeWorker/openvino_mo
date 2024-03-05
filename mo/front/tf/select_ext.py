@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.select import Select
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.graph.graph import Node
+from ops.select import Select
+from front.extractor import FrontExtractorOp
+from graph.graph import Node
 
 
 class SelectExtractor(FrontExtractorOp):

@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.broadcast import Broadcast
-from openvino.tools.mo.ops.const import Const
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from ops.broadcast import Broadcast
+from ops.const import Const
 
 
 class ConstantOfShapeToBroadcast(FrontReplacementPattern):

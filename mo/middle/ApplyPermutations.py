@@ -3,17 +3,17 @@
 
 import logging as log
 
-from openvino.tools.mo.middle.InsertLayoutPropagationTransposes import is_input_data_in_correct_layout, \
+from middle.InsertLayoutPropagationTransposes import is_input_data_in_correct_layout, \
     is_output_data_in_correct_layout
-from openvino.tools.mo.middle.LayoutChangeForConstantShapePaths import LayoutChangeForConstantShapePaths
-from openvino.tools.mo.middle.PreserveRuntimeInfo import PreserveRuntimeInfo
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.graph.perm_inputs import get_node_with_permutation
-from openvino.tools.mo.graph.port import Port
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.utils.error import Error
+from middle.LayoutChangeForConstantShapePaths import LayoutChangeForConstantShapePaths
+from middle.PreserveRuntimeInfo import PreserveRuntimeInfo
+from front.common.partial_infer.utils import mo_array
+from front.common.partial_infer.utils import shape_array
+from graph.graph import Graph
+from graph.perm_inputs import get_node_with_permutation
+from graph.port import Port
+from middle.replacement import MiddleReplacementPattern
+from utils.error import Error
 
 
 class ApplyPermutation(MiddleReplacementPattern):

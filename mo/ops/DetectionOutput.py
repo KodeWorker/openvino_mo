@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, compatible_dims, \
+from front.common.partial_infer.utils import is_fully_defined, compatible_dims, \
     undefined_shape_of_rank, set_input_shapes
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.extractor import bool_to_str
+from graph.graph import Graph, Node
+from ops.op import Op
+from utils.error import Error
 
 
 class DetectionOutput(Op):

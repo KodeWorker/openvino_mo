@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
+from ops.const import Const
 
 
 class CompatibilityL2NormalizationPattern(BackReplacementPattern):

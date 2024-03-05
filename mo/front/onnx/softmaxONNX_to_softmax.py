@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.ops.flatten import FlattenONNX
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.softmax import Softmax
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Graph, Node, rename_nodes
+from ops.flatten import FlattenONNX
+from ops.reshape import Reshape
+from ops.shape import Shape
+from ops.softmax import Softmax
 
 
 class SoftmaxONNXFrontReplacer(FrontReplacementOp):
@@ -17,7 +17,7 @@ class SoftmaxONNXFrontReplacer(FrontReplacementOp):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.onnx.flattenONNX_to_reshape import FlattenONNXToReshape
+        from front.onnx.flattenONNX_to_reshape import FlattenONNXToReshape
         return [FlattenONNXToReshape]
 
     def replace_op(self, graph: Graph, node: Node):

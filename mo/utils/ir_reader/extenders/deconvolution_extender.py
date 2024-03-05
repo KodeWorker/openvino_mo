@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.utils.graph import Node
-from openvino.tools.mo.utils.ir_reader.extender import Extender
+from front.common.partial_infer.utils import int64_array
+from utils.graph import Node
+from utils.ir_reader.extender import Extender
 
 
 class ConvolutionBackpropData_extender(Extender):

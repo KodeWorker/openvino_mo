@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.front.caffe.extractors.utils import dim_to_shape
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.parameter import Parameter
+from front.caffe.extractors.utils import dim_to_shape
+from front.extractor import FrontExtractorOp
 
 
 class InputFrontExtractor(FrontExtractorOp):

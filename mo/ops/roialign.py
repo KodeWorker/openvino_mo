@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.layout import get_features_dim, shape_for_layout
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension_value, shape_array, \
+from front.common.layout import get_features_dim, shape_for_layout
+from front.common.partial_infer.utils import dynamic_dimension_value, shape_array, \
     undefined_shape_of_rank, set_input_shapes, compatible_dims
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.op import Op
+from graph.graph import Graph
+from ops.op import Op
 
 
 class ROIAlign(Op):

@@ -3,13 +3,13 @@
 
 import numpy as np
 
-from openvino.tools.mo.middle.BinarizeWeightsM1P1 import BinarizeWeightsM1P1
-from openvino.tools.mo.middle.DeleteControlFlowEdges import DeleteControlFlowEdges
-from openvino.tools.mo.middle.EltwiseChecker import EltwiseChecker
-from openvino.tools.mo.middle.quantize_linear_resolver import QuantizeLinearResolver
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.fusing.helpers import get_value_in_port
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.BinarizeWeightsM1P1 import BinarizeWeightsM1P1
+from middle.DeleteControlFlowEdges import DeleteControlFlowEdges
+from middle.EltwiseChecker import EltwiseChecker
+from middle.quantize_linear_resolver import QuantizeLinearResolver
+from graph.graph import Graph
+from middle.passes.fusing.helpers import get_value_in_port
+from middle.replacement import MiddleReplacementPattern
 
 
 class MarkNodesToFuseUpToFakeQuantize(MiddleReplacementPattern):

@@ -5,16 +5,16 @@ from typing import Dict
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.elementwise import Sub, Div, Mul, Equal
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.select import Select
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np, np_data_type_to_destination_type, packed_I4
-from openvino.tools.mo.middle.pattern_match import apply_pattern
-from openvino.tools.mo.ops.const import Const
+from ops.Cast import Cast
+from ops.elementwise import Sub, Div, Mul, Equal
+from ops.Cast import Cast
+from ops.select import Select
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph, Node
+from middle.passes.convert_data_type import data_type_str_to_np, np_data_type_to_destination_type, packed_I4
+from middle.pattern_match import apply_pattern
+from ops.const import Const
 
 
 class CompressQuantizeWeights(BackReplacementPattern):

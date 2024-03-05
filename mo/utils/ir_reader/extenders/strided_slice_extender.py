@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.ops.strided_slice import StridedSlice
-from openvino.tools.mo.utils.graph import Node
-from openvino.tools.mo.utils.ir_reader.extender import Extender
+from front.common.partial_infer.utils import int64_array
+from ops.strided_slice import StridedSlice
+from utils.graph import Node
+from utils.ir_reader.extender import Extender
 
 
 class StridedSlice_extender(Extender):

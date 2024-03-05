@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
+from front.common.partial_infer.utils import mo_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
 
 
 class AffineFrontExtractor(FrontExtractorOp):

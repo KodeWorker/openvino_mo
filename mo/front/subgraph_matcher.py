@@ -4,11 +4,11 @@
 import logging as log
 import re
 
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.utils.custom_replacement_config import CustomReplacementDescriptor
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.graph import nodes_matching_name_pattern, sub_graph_between_nodes
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from graph.graph import Node, Graph
+from utils.custom_replacement_config import CustomReplacementDescriptor
+from utils.error import Error
+from utils.graph import nodes_matching_name_pattern, sub_graph_between_nodes
+from utils.utils import refer_to_faq_msg
 
 
 def find_object_by_pattern(names: list, pattern: str):

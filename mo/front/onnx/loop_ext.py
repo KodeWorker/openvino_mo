@@ -4,16 +4,16 @@
 import copy
 import logging as log
 
-from openvino.tools.mo.ops.loop import Loop
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.front.common.register_custom_ops import check_for_duplicates
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.extractor import extract_node_attrs
-from openvino.tools.mo.front.onnx.extractor import onnx_op_extractor, onnx_op_extractors
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.front.onnx.loader import node_id, add_initializers_and_inputs_to_graph
-from openvino.tools.mo.graph.graph import Graph, Node, add_opoutput
-from openvino.tools.mo.utils.error import Error
+from ops.loop import Loop
+from ops.parameter import Parameter
+from front.common.register_custom_ops import check_for_duplicates
+from front.extractor import FrontExtractorOp
+from front.extractor import extract_node_attrs
+from front.onnx.extractor import onnx_op_extractor, onnx_op_extractors
+from front.onnx.extractors.utils import onnx_attr
+from front.onnx.loader import node_id, add_initializers_and_inputs_to_graph
+from graph.graph import Graph, Node, add_opoutput
+from utils.error import Error
 
 
 def create_edge_with_attrs(graph, src_name, src_internal_id, src_port, dst_id, dst_port):

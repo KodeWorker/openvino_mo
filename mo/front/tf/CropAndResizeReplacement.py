@@ -3,15 +3,15 @@
 
 import logging as log
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import add_convolution_to_swap_xy_coordinates, create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from ops.Cast import Cast
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import add_convolution_to_swap_xy_coordinates, create_op_node_with_second_input
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import data_type_str_to_np
+from ops.concat import Concat
+from ops.reshape import Reshape
+from ops.unsqueeze import Unsqueeze
 
 
 class CropAndResizeReplacement(FrontReplacementOp):

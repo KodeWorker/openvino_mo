@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.parameter import Parameter
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.const import Const
+from ops.parameter import Parameter
+from front.extractor import FrontExtractorOp
+from ops.const import Const
 
 
 class NullFrontExtractor(FrontExtractorOp):

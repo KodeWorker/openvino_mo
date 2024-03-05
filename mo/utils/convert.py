@@ -16,7 +16,7 @@ except ImportError:
 tf_v1.get_logger().setLevel("ERROR")
 
 sys.path.append(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
-from openvino.tools.mo.front.tf.loader import load_tf_graph_def
+from front.tf.loader import load_tf_graph_def
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 

@@ -3,11 +3,11 @@
 
 import logging as log
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from ops.const import Const
+from utils.error import Error
 
 
 class SqueezeNormalize(FrontReplacementPattern):

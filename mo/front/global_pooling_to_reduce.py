@@ -3,14 +3,14 @@
 
 import logging as log
 
-from openvino.tools.mo.front.rank_decomposer import RankDecomposer
-from openvino.tools.mo.ops.ReduceOps import ReduceMax, ReduceMean
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.ops.rank import Rank
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from front.rank_decomposer import RankDecomposer
+from ops.ReduceOps import ReduceMax, ReduceMean
+from ops.range import Range
+from ops.rank import Rank
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from ops.const import Const
 
 
 class GlobalPoolingToReduce(FrontReplacementPattern):

@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.caffe.extractors.utils import embed_input, weights_biases
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.scale_shift import ScaleShiftOp
-from openvino.tools.mo.utils.utils import NamedAttrsClass
+from front.caffe.extractors.utils import embed_input, weights_biases
+from front.common.partial_infer.utils import mo_array
+from front.extractor import FrontExtractorOp
+from ops.scale_shift import ScaleShiftOp
+from utils.utils import NamedAttrsClass
 
 
 class ScaleFrontExtractor(FrontExtractorOp):

@@ -4,11 +4,11 @@
 import inspect
 import logging as log
 
-from openvino.tools.mo.ops.resize_factor_utils import factor_update
-from openvino.tools.mo.front.common.layout import get_batch_dim, get_features_dim, get_height_dim, get_width_dim, shape_for_layout
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from ops.resize_factor_utils import factor_update
+from front.common.layout import get_batch_dim, get_features_dim, get_height_dim, get_width_dim, shape_for_layout
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.utils import refer_to_faq_msg
 
 
 class InterpOp(Op):

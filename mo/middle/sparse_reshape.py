@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.eliminate import merge_data_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.utils.error import Error
+from graph.graph import Graph
+from middle.passes.eliminate import merge_data_nodes
+from middle.replacement import MiddleReplacementPattern
+from utils.error import Error
 
 
 class SparseReshapeMiddleReplacer(MiddleReplacementPattern):
@@ -16,7 +16,7 @@ class SparseReshapeMiddleReplacer(MiddleReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     def pattern(self):

@@ -3,17 +3,17 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.TransposeReduceFusing import TransposeReduce
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
-from openvino.tools.mo.utils.shape import node_to_get_shape_value_of_indices, new_shape_node_from_shape_nodes
+from back.TransposeReduceFusing import TransposeReduce
+from ops.transpose import Transpose
+from back.replacement import BackReplacementPattern
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, Node
+from ops.const import Const
+from ops.shape import Shape
+from ops.unsqueeze import Unsqueeze
+from utils.shape import node_to_get_shape_value_of_indices, new_shape_node_from_shape_nodes
 
 
 class MatMulConstTransposesExtraction(BackReplacementPattern):

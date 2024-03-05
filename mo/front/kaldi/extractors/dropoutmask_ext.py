@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.kaldi.loader.utils import collect_until_token, collect_until_token_and_read, read_binary_float_token
-from openvino.tools.mo.ops.dropoutmask import DropoutMask
+from front.extractor import FrontExtractorOp
+from front.kaldi.loader.utils import collect_until_token, collect_until_token_and_read, read_binary_float_token
+from ops.dropoutmask import DropoutMask
 
 
 class DropoutMaskComponentFrontExtractor(FrontExtractorOp):

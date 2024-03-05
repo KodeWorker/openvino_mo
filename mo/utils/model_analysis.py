@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import sys
-
-from openvino.tools.mo.front.user_data_repack import UserDataRepack
-from openvino.tools.mo.load.loader import LoadFinish
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils import class_registration
-from openvino.tools.mo.utils.error import Error
-
+# DIT +++ [2024/03/25, Kelvin]
+from front.user_data_repack import UserDataRepack
+from load.loader import LoadFinish
+from graph.graph import Graph
+from utils import class_registration
+from utils.error import Error
+# DIT --- [2024/03/25, Kelvin]
 
 class AnalysisResults:
     _instance = None

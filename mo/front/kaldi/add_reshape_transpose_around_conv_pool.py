@@ -1,16 +1,16 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.elementwise import Div
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.shape import node_to_get_shape_value_of_indices
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
+from graph.graph import Graph, Node, rename_nodes
+from ops.concat import Concat
+from ops.elementwise import Div
+from ops.reshape import Reshape
+from ops.shape import Shape
+from ops.transpose import Transpose
+from utils.error import Error
+from utils.shape import node_to_get_shape_value_of_indices
 
 
 def find_max_frame_time(node: Node):
@@ -106,7 +106,7 @@ class AddReshapeTransposeAroundConvPool(FrontReplacementPattern):
 
     def run_after(self):
         # remove cycles before this transformation because topological_sort call
-        from openvino.tools.mo.front.kaldi.split_recurrent_memoryoffset import SplitRecurrentMemoryOffset
+        from front.kaldi.split_recurrent_memoryoffset import SplitRecurrentMemoryOffset
         return [SplitRecurrentMemoryOffset]
 
     @staticmethod

@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, is_fully_defined, shape_insert
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import int64_array, is_fully_defined, shape_insert
+from graph.graph import Node
+from ops.op import Op
+from utils.error import Error
 
 
 class ExpandDims(Op):

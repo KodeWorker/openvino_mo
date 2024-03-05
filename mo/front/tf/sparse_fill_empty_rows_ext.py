@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.sparse_fill_empty_rows import SparseFillEmptyRows
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.sparse_fill_empty_rows import SparseFillEmptyRows
+from front.extractor import FrontExtractorOp
 
 
 class SparseFillEmptyRowsFrontExtractor(FrontExtractorOp):

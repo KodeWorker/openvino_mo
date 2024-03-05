@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.tf.pad_tf_to_pad import PadTFToPad
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.subgraph_matcher import SubgraphMatch
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.utils.error import Error
+from front.tf.pad_tf_to_pad import PadTFToPad
+from front.common.replacement import FrontReplacementSubgraph
+from front.subgraph_matcher import SubgraphMatch
+from graph.graph import Graph
+from ops.const import Const
+from utils.error import Error
 
 
 class TransposeOrderNormalizer(FrontReplacementSubgraph):

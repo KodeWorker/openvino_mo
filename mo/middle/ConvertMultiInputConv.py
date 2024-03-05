@@ -3,8 +3,8 @@
 
 import copy
 
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from graph.graph import Graph, Node
+from middle.replacement import MiddleReplacementPattern
 
 
 class ConvertMultiInputConv(MiddleReplacementPattern):
@@ -12,11 +12,11 @@ class ConvertMultiInputConv(MiddleReplacementPattern):
     force_clean_up = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import PreMiddleStart
+        from middle.pass_separator import PreMiddleStart
         return [PreMiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def pattern(self):

@@ -5,14 +5,14 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, float32_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.utils.shape import node_to_get_shape_value_of_indices
+from ops.elementwise import Mul
+from ops.interpolate import Interpolate
+from front.common.partial_infer.utils import int64_array, float32_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from middle.replacement import MiddleReplacementPattern
+from ops.shape import Shape
+from utils.shape import node_to_get_shape_value_of_indices
 
 
 class UnsqueezeTileReshapeBlockToInterpolate(MiddleReplacementPattern):
@@ -69,7 +69,7 @@ class UnsqueezeTileReshapeBlockToInterpolate(MiddleReplacementPattern):
     force_shape_inference = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.InterpolateSequenceToInterpolate import InterpolateSequenceToInterpolate
+        from middle.InterpolateSequenceToInterpolate import InterpolateSequenceToInterpolate
         return [InterpolateSequenceToInterpolate]
 
     def pattern(self):

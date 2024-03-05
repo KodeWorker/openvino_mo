@@ -24,7 +24,7 @@ from middle.passes.convert_data_type import destination_type_to_np_data_type
 from utils.error import Error
 from utils.utils import refer_to_faq_msg, get_mo_root_dir
 from utils.help import get_convert_model_help_specifics, get_to_string_methods_for_params
-from convert import convert_model, LayoutMap, InputCutInfo
+from openvino.tools.mo import convert_model, LayoutMap, InputCutInfo
 # DIT --- [2024/02/27, Kelvin]
 def extension_path_to_str_or_extensions_class(extension):
     if isinstance(extension, str):
@@ -195,7 +195,7 @@ def single_input_to_input_cut_info(input: [str, tuple, list, PartialShape, Type,
     # We don't expect here single unnamed value. If list of int is set it is considered as shape.
     # Setting of value is expected only using InputCutInfo or string analog.
 
-    raise Exception("Unexpected object provided for input. Expected openvino.toos.mo.InputCutInfo "
+    raise Exception("Unexpected object provided for input. Expected openvino.toos.InputCutInfo "
                     "or tuple or str. Got {}".format(type(input)))
 
 
@@ -807,7 +807,7 @@ def add_args_by_description(args_group, params_description):
             # Bool params common setting
             if signature.parameters[param_name].annotation == bool and param_name != 'version':
                 default_flag = signature.parameters[param_name].default
-                # tools.mo.convert_model by default does not compress,
+                # tools.convert_model by default does not compress,
                 # but if we convert from cli we need to compress_to_fp16 if user did not specify otherwise
                 if param_name == 'compress_to_fp16':
                     default_flag = True

@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.ops.ReduceOps import reduce_map
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.concat import Concat
+from ops.ReduceOps import reduce_map
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
+from ops.concat import Concat
 
 
 class ReduceMerge(BackReplacementPattern):

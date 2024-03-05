@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
 
 
 class TensorFlowLSTMtoGeneric(MiddleReplacementPattern):
@@ -18,11 +18,11 @@ class TensorFlowLSTMtoGeneric(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.permute_tensor_iterator import TransposeTensorIteratorLSTM
+        from middle.permute_tensor_iterator import TransposeTensorIteratorLSTM
         return [TransposeTensorIteratorLSTM]
 
 

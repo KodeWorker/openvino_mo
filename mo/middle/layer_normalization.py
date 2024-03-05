@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 import logging as log
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.elementwise import Mul, Add
-from openvino.tools.mo.ops.mvn import MVN
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
-from openvino.tools.mo.utils.error import Error
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, rename_nodes
+from middle.replacement import MiddleReplacementPattern
+from ops.elementwise import Mul, Add
+from ops.mvn import MVN
+from ops.unsqueeze import Unsqueeze
+from utils.error import Error
 
 
 class LayerNormalization(MiddleReplacementPattern):

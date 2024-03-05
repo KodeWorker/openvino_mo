@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.activation_ops import Floor
-from openvino.tools.mo.ops.elementwise import Div
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph, Node, rename_node
+from ops.activation_ops import Floor
+from ops.elementwise import Div
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph, Node, rename_node
 
 
 class FloorDivDecomposition(FrontReplacementPattern):

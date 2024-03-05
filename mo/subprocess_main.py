@@ -46,7 +46,7 @@ def setup_env():
 
     ie_found = True
     try:
-        from openvino.tools.mo.utils.find_ie_version import find_ie_version  # pylint: disable=no-name-in-module
+        from utils.find_ie_version import find_ie_version  # pylint: disable=no-name-in-module
         ie_found = find_ie_version(silent=True)
     except Exception as e:
         log.error(e)

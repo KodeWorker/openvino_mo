@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Node, Graph, rename_nodes
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Node, Graph, rename_nodes
+from ops.concat import Concat
+from ops.unsqueeze import Unsqueeze
 
 
 class Pack(FrontReplacementOp):

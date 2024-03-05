@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph, rename_nodes
+from ops.const import Const
+from ops.unsqueeze import Unsqueeze
 
 
 class ExpandDimsToUnsqueeze(FrontReplacementPattern):
@@ -20,7 +20,7 @@ class ExpandDimsToUnsqueeze(FrontReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.Pack import Pack
+        from front.Pack import Pack
         return [Pack]
 
     def find_and_replace_pattern(self, graph: Graph):

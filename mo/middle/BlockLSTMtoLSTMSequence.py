@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.LSTM import LSTM
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import dynamic_dimension
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.LSTM import LSTM
+from utils.error import Error
 
 
 class BlockLSTMtoLSTMSequenceSingleFirstOutput(MiddleReplacementPattern):
@@ -21,11 +21,11 @@ class BlockLSTMtoLSTMSequenceSingleFirstOutput(MiddleReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.LSTMRNNSequenceToTensorIterator import LSTMToTensorIterator
+        from middle.LSTMRNNSequenceToTensorIterator import LSTMToTensorIterator
         return [LSTMToTensorIterator]
 
     def run_after(self):
-        from openvino.tools.mo.middle.RNNSequenceNormalizeToIE import RNNSequenceNormalize
+        from middle.RNNSequenceNormalizeToIE import RNNSequenceNormalize
         return [RNNSequenceNormalize, BlockLSTMtoLSTMSequence]
 
     def pattern(self):
@@ -134,12 +134,12 @@ class BlockLSTMtoLSTMSequence(MiddleReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.middle.LSTMRNNSequenceToTensorIterator import LSTMToTensorIterator
+        from middle.LSTMRNNSequenceToTensorIterator import LSTMToTensorIterator
         return [LSTMToTensorIterator]
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
-        from openvino.tools.mo.middle.RNNSequenceNormalizeToIE import RNNSequenceNormalize
+        from middle.pass_separator import MiddleStart
+        from middle.RNNSequenceNormalizeToIE import RNNSequenceNormalize
         return [MiddleStart, RNNSequenceNormalize]
 
     def pattern(self):

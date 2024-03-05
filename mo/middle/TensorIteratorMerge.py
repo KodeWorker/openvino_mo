@@ -4,15 +4,15 @@
 from collections import deque
 from copy import deepcopy
 
-from openvino.tools.mo.ops.tensor_iterator import TensorIterator
-from openvino.tools.mo.front.common.partial_infer.utils import shape_insert
-from openvino.tools.mo.graph.graph import Node, Graph, add_opoutput
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.ops.squeeze import Squeeze
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
-from openvino.tools.mo.utils.graph import sub_graph_between_nodes, invert_sub_graph_between_nodes
+from ops.tensor_iterator import TensorIterator
+from front.common.partial_infer.utils import shape_insert
+from graph.graph import Node, Graph, add_opoutput
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.op import Op
+from ops.squeeze import Squeeze
+from ops.unsqueeze import Unsqueeze
+from utils.graph import sub_graph_between_nodes, invert_sub_graph_between_nodes
 
 stop_nodes = ['TensorIteratorInput', 'TensorIteratorOutput', 'TensorIteratorBackEdge', 'TensorIteratorCondition']
 

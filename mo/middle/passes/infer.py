@@ -6,11 +6,11 @@ from typing import List
 
 import networkx as nx
 
-from openvino.tools.mo.front.common.layout import get_dim_from_layout
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension
-from openvino.tools.mo.graph.graph import Node, Graph, dict_includes
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg, shrink_str_value
+from front.common.layout import get_dim_from_layout
+from front.common.partial_infer.utils import dynamic_dimension
+from graph.graph import Node, Graph, dict_includes
+from utils.error import Error
+from utils.utils import refer_to_faq_msg, shrink_str_value
 
 
 def log_debug_dict(nodes_per_port: dict, direction_name: str):

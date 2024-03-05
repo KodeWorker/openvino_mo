@@ -3,9 +3,9 @@
 
 import logging as log
 
-from openvino.tools.mo.back.ResultNormalizer import ResultNormalizer
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
+from back.ResultNormalizer import ResultNormalizer
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
 
 
 class UselessConcatRemoval(BackReplacementPattern):

@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.loop import Loop
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import mo_array
+from ops.loop import Loop
+from front.common.replacement import FrontReplacementSubgraph
+from graph.graph import Graph, Node
+from ops.const import Const
 
 
 class WhileNormalize(FrontReplacementSubgraph):

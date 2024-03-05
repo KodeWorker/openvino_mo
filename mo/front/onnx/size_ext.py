@@ -3,8 +3,8 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.size import Size
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.size import Size
+from front.extractor import FrontExtractorOp
 
 
 class SizeExtractor(FrontExtractorOp):

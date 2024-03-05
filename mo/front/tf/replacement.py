@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging as log
-
-from openvino.tools.mo.front.common.custom_replacement_registry import CustomReplacementRegistry
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph, FrontReplacementPattern
-from openvino.tools.mo.front.subgraph_matcher import SubgraphMatcher, SubgraphMatch
-from openvino.tools.mo.front.tf.custom_subgraph_call import merge_nodes
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils import class_registration
-from openvino.tools.mo.utils.graph import is_connected_component
-from openvino.tools.mo.utils.replacement_pattern import ReplacementPattern
-
+# DIT +++ [2024/03/25, Kelvin]
+from front.common.custom_replacement_registry import CustomReplacementRegistry
+from front.common.replacement import FrontReplacementSubgraph, FrontReplacementPattern
+from front.subgraph_matcher import SubgraphMatcher, SubgraphMatch
+from front.tf.custom_subgraph_call import merge_nodes
+from graph.graph import Graph
+from ops.op import Op
+from utils import class_registration
+from utils.graph import is_connected_component
+from utils.replacement_pattern import ReplacementPattern
+# DIT --- [2024/03/25, Kelvin]
 
 class FrontReplacementFromConfigFileGeneral(FrontReplacementPattern):
     """

@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.common.partial_infer.batch_norm import batch_norm_4_infer
+from front.common.extractors.utils import layout_attrs
+from front.common.partial_infer.batch_norm import batch_norm_4_infer
 
 
 def scale_shift_ext(attrs):

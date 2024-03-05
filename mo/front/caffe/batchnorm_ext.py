@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.BatchNormInference import BatchNormInference
-from openvino.tools.mo.front.caffe.extractors.utils import embed_input
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from front.common.partial_infer.utils import mo_array
+from ops.BatchNormInference import BatchNormInference
+from front.caffe.extractors.utils import embed_input
+from front.extractor import FrontExtractorOp
 
 
 class BatchNormalizationExtractor(FrontExtractorOp):

@@ -2,24 +2,24 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging as log
-
-from openvino.tools.mo.front.subgraph_matcher import SubgraphMatch
-from openvino.tools.mo.graph.graph import Node, merge_edge_props, Graph
-from openvino.tools.mo.middle.pattern_match import apply_pattern
-from openvino.tools.mo.utils import class_registration
-from openvino.tools.mo.utils.replacement_pattern import ReplacementPattern
-
+# DIT +++ [2024/03/25, Kelvin]
+from front.subgraph_matcher import SubgraphMatch
+from graph.graph import Node, merge_edge_props, Graph
+from middle.pattern_match import apply_pattern
+from utils import class_registration
+from utils.replacement_pattern import ReplacementPattern
+# DIT --- [2024/03/25, Kelvin]
 
 class FrontReplacementPattern(ReplacementPattern):
     registered_ops = {}
     registered_cls = []
 
     def run_after(self):
-        from openvino.tools.mo.front.pass_separator import FrontStart
+        from front.pass_separator import FrontStart
         return [FrontStart]
 
     def run_before(self):
-        from openvino.tools.mo.front.pass_separator import FrontFinish
+        from front.pass_separator import FrontFinish
         return [FrontFinish]
 
     def pattern(self):
@@ -40,11 +40,11 @@ class FrontReplacementSubgraph(FrontReplacementPattern):
     replacement_id = 'None'
 
     def run_after(self):
-        from openvino.tools.mo.front.pass_separator import FrontStart
+        from front.pass_separator import FrontStart
         return [FrontStart]
 
     def run_before(self):
-        from openvino.tools.mo.front.pass_separator import FrontFinish
+        from front.pass_separator import FrontFinish
         return [FrontFinish]
 
     def __init__(self):
@@ -155,11 +155,11 @@ class FrontReplacementOp(FrontReplacementSubgraph):
     op = 'UnknownOp'
 
     def run_after(self):
-        from openvino.tools.mo.front.pass_separator import FrontStart
+        from front.pass_separator import FrontStart
         return [FrontStart]
 
     def run_before(self):
-        from openvino.tools.mo.front.pass_separator import FrontFinish
+        from front.pass_separator import FrontFinish
         return [FrontFinish]
 
     def pattern(self):

@@ -3,13 +3,13 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.elementwise import Add
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.find_inputs import find_outputs
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from ops.elementwise import Add
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Node, Graph
+from utils.error import Error
+from utils.find_inputs import find_outputs
+from utils.utils import refer_to_faq_msg
 
 
 def apply_biases_to_last_layer(graph, counts):
@@ -104,14 +104,14 @@ class ApplyCountsFilePattern(FrontReplacementSubgraph):
     graph_condition = [lambda graph: graph.graph['cmd_params'].counts is not None]
 
     def run_after(self):
-        from openvino.tools.mo.front.output_cut import OutputCut
-        from openvino.tools.mo.front.MoveEmbeddedInputsToInputs import MoveEmbeddedInputsToInputs
+        from front.output_cut import OutputCut
+        from front.MoveEmbeddedInputsToInputs import MoveEmbeddedInputsToInputs
         return [MoveEmbeddedInputsToInputs,
                 OutputCut,
                 ]
 
     def run_before(self):
-        from openvino.tools.mo.front.MatMul_normalizer import FullyConnectedDecomposer
+        from front.MatMul_normalizer import FullyConnectedDecomposer
         return [FullyConnectedDecomposer,
                 ]
 

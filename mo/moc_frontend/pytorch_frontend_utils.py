@@ -8,7 +8,7 @@ import numpy as np
 # pylint: disable=no-name-in-module,import-error
 from openvino.runtime import Tensor, PartialShape
 
-from openvino.tools.mo.utils.error import Error
+from utils.error import Error
 
 
 def get_pytorch_decoder(model, input_shape, example_inputs, args):

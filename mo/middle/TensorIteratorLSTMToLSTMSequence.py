@@ -1,13 +1,13 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.middle.ONNXRNNSequenceNormalize import ONNXRNNSequenceNormalize
-from openvino.tools.mo.middle.TF_lstm_cell_to_generic import TensorFlowLSTMtoGeneric
-from openvino.tools.mo.middle.TensorIteratorMerge import TensorIteratorMerge
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.pattern_match import find_isomorphisms
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.utils.error import Error
+from middle.ONNXRNNSequenceNormalize import ONNXRNNSequenceNormalize
+from middle.TF_lstm_cell_to_generic import TensorFlowLSTMtoGeneric
+from middle.TensorIteratorMerge import TensorIteratorMerge
+from graph.graph import Graph
+from middle.pattern_match import find_isomorphisms
+from middle.replacement import MiddleReplacementPattern
+from utils.error import Error
 
 
 class TensorIteratorLSTM(MiddleReplacementPattern):

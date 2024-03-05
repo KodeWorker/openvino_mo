@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension_value
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, int64_array
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import dynamic_dimension_value
+from front.common.partial_infer.utils import mo_array, int64_array
+from graph.graph import Node
+from utils.error import Error
 
 nchw_to_nhwc_permute = int64_array([0, 2, 3, 1])
 nhwc_to_nchw_permute = int64_array([0, 3, 1, 2])

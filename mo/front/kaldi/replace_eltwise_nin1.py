@@ -1,14 +1,14 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.elementwise import Add, Mul
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.eltwise_n import EltwiseN
-from openvino.tools.mo.utils.error import Error
+from ops.elementwise import Add, Mul
+from ops.split import Split
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Node, Graph
+from ops.eltwise_n import EltwiseN
+from utils.error import Error
 
 
 class ReplaceEltwiseNin1NodePattern(FrontReplacementOp):
@@ -19,7 +19,7 @@ class ReplaceEltwiseNin1NodePattern(FrontReplacementOp):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.restore_ports import RestorePorts
+        from front.restore_ports import RestorePorts
         return [RestorePorts]
 
     def replace_op(self, graph: Graph, node: Node):

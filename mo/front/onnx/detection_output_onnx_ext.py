@@ -3,10 +3,10 @@
 
 from math import log
 
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.ops.detection_output_onnx import ExperimentalDetectronDetectionOutput
+from front.common.partial_infer.utils import float32_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
+from ops.detection_output_onnx import ExperimentalDetectronDetectionOutput
 
 
 class ExperimentalDetectronDetectionOutputFrontExtractor(FrontExtractorOp):

@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.proposal import ProposalOp
-from openvino.tools.mo.front.extractor import MXNetCustomFrontExtractorOp
-from openvino.tools.mo.front.mxnet.extractors.utils import get_mxnet_layer_attrs
+from front.common.partial_infer.utils import mo_array
+from ops.proposal import ProposalOp
+from front.extractor import MXNetCustomFrontExtractorOp
+from front.mxnet.extractors.utils import get_mxnet_layer_attrs
 
 
 class RPNProposalMXNetFrontExtractor(MXNetCustomFrontExtractorOp):

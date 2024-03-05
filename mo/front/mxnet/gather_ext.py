@@ -1,7 +1,7 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from front.extractor import FrontExtractorOp
 
 
 class GatherFrontExtractor(FrontExtractorOp):

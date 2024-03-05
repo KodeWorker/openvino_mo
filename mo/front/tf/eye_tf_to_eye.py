@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph, rename_node
-from openvino.tools.mo.ops.eye import Eye
-from openvino.tools.mo.utils.error import Error
+from ops.const import Const
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph, rename_node
+from ops.eye import Eye
+from utils.error import Error
 
 
 class EyeTFToEye(FrontReplacementPattern):

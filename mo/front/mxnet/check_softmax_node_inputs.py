@@ -1,15 +1,15 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
 
 
 class CheckSoftmaxNodeInputs(FrontReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.user_data_repack import UserDataRepack
+        from front.user_data_repack import UserDataRepack
         return [UserDataRepack]
 
     def run_after(self):

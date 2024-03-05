@@ -3,13 +3,13 @@
 
 import numpy as np
 
-from openvino.tools.mo.middle.MergeNodesPermutations import MergeNodesPermutations
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.utils.runtime_info import OldAPIMapOrder
+from middle.MergeNodesPermutations import MergeNodesPermutations
+from ops.transpose import Transpose
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, Node
+from middle.replacement import MiddleReplacementPattern
+from utils.runtime_info import OldAPIMapOrder
 
 
 class PreserveRuntimeInfo(MiddleReplacementPattern):

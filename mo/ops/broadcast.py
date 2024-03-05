@@ -1,13 +1,13 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, shape_array, undefined_shape_of_rank
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.broadcasting import bi_directional_shape_broadcasting, uni_directional_shape_broadcasting, \
+from front.common.partial_infer.utils import is_fully_defined, shape_array, undefined_shape_of_rank
+from graph.graph import Node, Graph
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op
+from utils.broadcasting import bi_directional_shape_broadcasting, uni_directional_shape_broadcasting, \
     uni_directional_broadcasting, bi_directional_broadcasting, explicit_broadcasting, explicit_shape_broadcasting
-from openvino.tools.mo.utils.error import Error
+from utils.error import Error
 
 
 class Broadcast(Op):

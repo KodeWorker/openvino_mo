@@ -1,25 +1,25 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.div import Div
-from openvino.tools.mo.front.sub import Sub
-from openvino.tools.mo.middle.AddFakeQuantizeFuse import AddFakeQuantizeFuse
-from openvino.tools.mo.middle.EltwiseInputReshape import normalize_eltwise_inputs
-from openvino.tools.mo.middle.MulFakeQuantizeFuse import MulFakeQuantizeFuse
-from openvino.tools.mo.middle.RemoveRedundantReshapes import RemoveRedundantReshapes
+from front.div import Div
+from front.sub import Sub
+from middle.AddFakeQuantizeFuse import AddFakeQuantizeFuse
+from middle.EltwiseInputReshape import normalize_eltwise_inputs
+from middle.MulFakeQuantizeFuse import MulFakeQuantizeFuse
+from middle.RemoveRedundantReshapes import RemoveRedundantReshapes
 
-from openvino.tools.mo.middle.pass_separator import PostMiddleStart
-from openvino.tools.mo.middle.quantize_fuses import MarkNodesToFuseUpToFakeQuantize, FakeQuantizeFuse
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.conv import fuse_pad
-from openvino.tools.mo.middle.passes.fusing.decomposition import convert_scale_shift_to_mul_add, convert_batch_norm
-from openvino.tools.mo.middle.passes.fusing.fuse_grouped_conv import grouped_convolutions_fusing
-from openvino.tools.mo.middle.passes.fusing.fuse_linear_ops import fuse_linear_ops
-from openvino.tools.mo.middle.passes.fusing.fuse_linear_seq import fuse_mul_add_sequence
-from openvino.tools.mo.middle.passes.fusing.mark_unfused_nodes import mark_unfused_nodes, mark_shape_of_sugraph_as_unfusable
-from openvino.tools.mo.middle.passes.fusing.resnet_optimization import stride_optimization
-from openvino.tools.mo.middle.pattern_match import for_graph_and_each_sub_graph_recursively
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.pass_separator import PostMiddleStart
+from middle.quantize_fuses import MarkNodesToFuseUpToFakeQuantize, FakeQuantizeFuse
+from graph.graph import Graph
+from middle.passes.conv import fuse_pad
+from middle.passes.fusing.decomposition import convert_scale_shift_to_mul_add, convert_batch_norm
+from middle.passes.fusing.fuse_grouped_conv import grouped_convolutions_fusing
+from middle.passes.fusing.fuse_linear_ops import fuse_linear_ops
+from middle.passes.fusing.fuse_linear_seq import fuse_mul_add_sequence
+from middle.passes.fusing.mark_unfused_nodes import mark_unfused_nodes, mark_shape_of_sugraph_as_unfusable
+from middle.passes.fusing.resnet_optimization import stride_optimization
+from middle.pattern_match import for_graph_and_each_sub_graph_recursively
+from middle.replacement import MiddleReplacementPattern
 
 
 class Fusing(MiddleReplacementPattern):
@@ -29,7 +29,7 @@ class Fusing(MiddleReplacementPattern):
     run_not_recursively = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleFinish
+        from middle.pass_separator import MiddleFinish
         return [MiddleFinish]
 
     def run_before(self):

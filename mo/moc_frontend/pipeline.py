@@ -15,13 +15,13 @@ from openvino.frontend import FrontEnd, InputModel, NotImplementedFailure, \
 from openvino.runtime import PartialShape, Type  # pylint: disable=no-name-in-module,import-error
 from openvino.runtime.utils.types import get_element_type, \
     get_numpy_ctype  # pylint: disable=no-name-in-module,import-error
-from openvino.tools.mo.moc_frontend.analysis import json_model_analysis_dump
-from openvino.tools.mo.moc_frontend.extractor import fe_user_data_repack, convert_params_lists_to_dicts, fe_output_user_data_repack
-from openvino.tools.mo.moc_frontend.layout_utils import update_layout_to_dict, get_dimension_index_by_label
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.type_utils import np_map_cast
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.middle.passes.infer import validate_batch_in_shape
+from moc_frontend.analysis import json_model_analysis_dump
+from moc_frontend.extractor import fe_user_data_repack, convert_params_lists_to_dicts, fe_output_user_data_repack
+from moc_frontend.layout_utils import update_layout_to_dict, get_dimension_index_by_label
+from utils.error import Error
+from utils.type_utils import np_map_cast
+from front.common.partial_infer.utils import mo_array
+from middle.passes.infer import validate_batch_in_shape
 
 
 def get_enabled_and_disabled_transforms():

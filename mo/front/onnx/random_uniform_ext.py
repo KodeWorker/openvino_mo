@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.random_uniform import AttributedRandomUniform
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr, get_onnx_datatype_as_numpy
-from openvino.tools.mo.graph.graph import Node
+from ops.random_uniform import AttributedRandomUniform
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr, get_onnx_datatype_as_numpy
+from graph.graph import Node
 
 
 class RandomUniformFrontExtractor(FrontExtractorOp):

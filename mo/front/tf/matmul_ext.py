@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.MatMul import MatMul
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.utils.error import Error
+from ops.MatMul import MatMul
+from front.extractor import FrontExtractorOp
+from graph.graph import Node
+from utils.error import Error
 
 
 class MatMulExtractor(FrontExtractorOp):

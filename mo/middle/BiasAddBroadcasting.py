@@ -3,13 +3,13 @@
 
 import numpy as np
 
-from openvino.tools.mo.middle.EltwiseChecker import EltwiseChecker
-from openvino.tools.mo.ops.elementwise import Add
-from openvino.tools.mo.front.common.layout import get_features_dim
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from middle.EltwiseChecker import EltwiseChecker
+from ops.elementwise import Add
+from front.common.layout import get_features_dim
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.unsqueeze import Unsqueeze
 
 
 class BiasAddInputBroadcasting(MiddleReplacementPattern):

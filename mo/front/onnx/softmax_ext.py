@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.ops.softmax import SoftmaxONNX
-from openvino.tools.mo.ops.log_softmax import LogSoftmaxONNX
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
+from ops.softmax import SoftmaxONNX
+from ops.log_softmax import LogSoftmaxONNX
 
 
 class SoftmaxExtractor(FrontExtractorOp):

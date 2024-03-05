@@ -4,21 +4,21 @@
 import logging as log
 from copy import copy
 
-from openvino.tools.mo.back.ConvolutionNormalizer import ConvolutionNormalizer, ConvolutionWithGroupsResolver
-from openvino.tools.mo.back.ShapeOfConstFolding import ShapeOfConstFolding
-from openvino.tools.mo.back.MarkNodesWithShapeValues import MarkNodesWithShapeValues
-from openvino.tools.mo.back.PackBinaryWeights import PackBinaryWeights
-from openvino.tools.mo.back.SpecialNodesFinalization import RemoveConstOps, CreateConstNodesReplacement
-from openvino.tools.mo.back.StridedSliceMasksNormalizer import StridedSliceMasksNormalizer
-from openvino.tools.mo.back.blob_normalizer import BlobNormalizer
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_precision
-from openvino.tools.mo.middle.pattern_match import for_graph_and_each_sub_graph_recursively
-from openvino.tools.mo.pipeline.common import prepare_emit_ir
-from openvino.tools.mo.utils.class_registration import apply_replacements_list
-from openvino.tools.mo.utils.ir_engine.ir_engine import IREngine
-from openvino.tools.mo.utils.ir_reader.layer_to_class import copy_graph_with_ops, collect_extenders, collect_ops
-from openvino.tools.mo.utils.utils import get_mo_root_dir
+from back.ConvolutionNormalizer import ConvolutionNormalizer, ConvolutionWithGroupsResolver
+from back.ShapeOfConstFolding import ShapeOfConstFolding
+from back.MarkNodesWithShapeValues import MarkNodesWithShapeValues
+from back.PackBinaryWeights import PackBinaryWeights
+from back.SpecialNodesFinalization import RemoveConstOps, CreateConstNodesReplacement
+from back.StridedSliceMasksNormalizer import StridedSliceMasksNormalizer
+from back.blob_normalizer import BlobNormalizer
+from graph.graph import Graph
+from middle.passes.convert_data_type import data_type_str_to_precision
+from middle.pattern_match import for_graph_and_each_sub_graph_recursively
+from pipeline.common import prepare_emit_ir
+from utils.class_registration import apply_replacements_list
+from utils.ir_engine.ir_engine import IREngine
+from utils.ir_reader.layer_to_class import copy_graph_with_ops, collect_extenders, collect_ops
+from utils.utils import get_mo_root_dir
 
 
 def restore_graph_from_ir(path_to_xml: str, path_to_bin: str = None) -> (Graph, dict):

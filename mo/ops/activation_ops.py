@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.eltwise import eltwise_infer
-from openvino.tools.mo.front.common.partial_infer.utils import reverse_bypass_infer
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.clamp import AttributedClamp
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.eltwise import eltwise_infer
+from front.common.partial_infer.utils import reverse_bypass_infer
+from graph.graph import Graph, Node
+from ops.clamp import AttributedClamp
+from ops.op import Op
 
 activation_ops = ['Sigmoid', 'Tanh', 'ReLU6', 'Exp', 'Elu', 'LogicalNot', 'Floor', 'Ceiling']
 

@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mark_input_bins, compatible_dims
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import mark_input_bins, compatible_dims
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.error import Error
 
 
 class LSTMCell(Op):

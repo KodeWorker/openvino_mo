@@ -5,18 +5,18 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.layout import get_dim_from_layout, get_features_dim
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, compatible_dims
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.utils.error import Error
+from back.replacement import BackReplacementPattern
+from front.common.layout import get_dim_from_layout, get_features_dim
+from front.common.partial_infer.utils import int64_array, compatible_dims
+from front.common.partial_infer.utils import mo_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph
+from graph.graph import Node
+from ops.concat import Concat
+from ops.gather import Gather
+from ops.op import Op, PermuteAttrs
+from ops.split import Split
+from utils.error import Error
 
 
 class ReverseChannels(Op):

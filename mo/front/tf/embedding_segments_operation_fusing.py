@@ -5,14 +5,14 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.embedding_bag import EmbeddingSegmentsMean, EmbeddingSegmentsSum
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.ops.squeeze import Squeeze
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementSubgraph
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from ops.Cast import Cast
+from ops.embedding_bag import EmbeddingSegmentsMean, EmbeddingSegmentsSum
+from ops.split import Split
+from ops.squeeze import Squeeze
 
 
 class EmbeddingSegmentsOperationSingleFeatureFusing(FrontReplacementSubgraph):

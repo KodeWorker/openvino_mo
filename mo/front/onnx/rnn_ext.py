@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array, int64_array
-from openvino.tools.mo.ops.RNN import RNN
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
+from front.common.partial_infer.utils import float32_array, int64_array
+from ops.RNN import RNN
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
 
 
 class RNNFrontExtractor(FrontExtractorOp):

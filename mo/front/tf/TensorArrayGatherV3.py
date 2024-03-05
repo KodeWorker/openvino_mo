@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.TensorArrayGather import TensorArrayGather
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.tf.extractors.utils import tf_tensor_shape
-from openvino.tools.mo.graph.graph import Node
+from ops.TensorArrayGather import TensorArrayGather
+from front.extractor import FrontExtractorOp
+from front.tf.extractors.utils import tf_tensor_shape
+from graph.graph import Node
 
 
 class TensorArrayGatherV3Extractor(FrontExtractorOp):

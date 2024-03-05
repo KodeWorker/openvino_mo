@@ -5,15 +5,15 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.elementwise import Div
-from openvino.tools.mo.ops.interpolate import Interpolate
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node, rename_nodes
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.strided_slice import StridedSlice
+from ops.Cast import Cast
+from ops.elementwise import Div
+from ops.interpolate import Interpolate
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, Node, rename_nodes
+from ops.shape import Shape
+from ops.strided_slice import StridedSlice
 
 
 def replace_tf_resize(graph: Graph, resize: Node, interpolation_mode: str):
@@ -113,7 +113,7 @@ class TFResizeToInterpolate(FrontReplacementOp):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.InterpolateNormalizer import InterpolateNormalizer
+        from front.InterpolateNormalizer import InterpolateNormalizer
         return [InterpolateNormalizer]
 
     def replace_sub_graph(self, graph: Graph, match: dict):

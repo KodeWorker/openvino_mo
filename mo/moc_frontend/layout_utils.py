@@ -4,8 +4,8 @@
 from typing import Callable
 
 from openvino.runtime import PartialShape  # pylint: disable=no-name-in-module,import-error
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 def update_layout_to_dict(inputs: list, layout: [list, dict], get_names_func: Callable):

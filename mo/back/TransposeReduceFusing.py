@@ -5,14 +5,14 @@ from typing import Dict
 
 import numpy as np
 
-from openvino.tools.mo.back.FuseTransposesSequence import FuseTransposesSequence
-from openvino.tools.mo.back.ReduceMerge import ReduceMerge
-from openvino.tools.mo.ops.ReduceOps import reduce_map
-from openvino.tools.mo.ops.gather import Gather
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, Node
+from back.FuseTransposesSequence import FuseTransposesSequence
+from back.ReduceMerge import ReduceMerge
+from ops.ReduceOps import reduce_map
+from ops.gather import Gather
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, Node
 
 
 class TransposeReduce(BackReplacementPattern):

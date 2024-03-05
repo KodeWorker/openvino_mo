@@ -3,17 +3,17 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.mxnet.mx_reshape_to_reshape import MXReshapeToReshape
-from openvino.tools.mo.ops.Reverse import Reverse
-from openvino.tools.mo.ops.mxreshape import MXReshape
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.reshape import Reshape
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.squeeze import Squeeze
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from front.mxnet.mx_reshape_to_reshape import MXReshapeToReshape
+from ops.Reverse import Reverse
+from ops.mxreshape import MXReshape
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph
+from ops.reshape import Reshape
+from ops.shape import Shape
+from ops.squeeze import Squeeze
+from ops.unsqueeze import Unsqueeze
 
 
 class MXReshapeReverse(FrontReplacementOp):

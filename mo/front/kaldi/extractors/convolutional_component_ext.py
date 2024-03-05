@@ -3,16 +3,16 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import embed_input
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.kaldi.loader.utils import read_token_value, collect_until_whitespace
-from openvino.tools.mo.front.kaldi.utils import read_learning_info, read_binary_matrix, read_binary_vector
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.convolution import Convolution
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.caffe.extractors.utils import embed_input
+from front.common.extractors.utils import layout_attrs
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.kaldi.loader.utils import read_token_value, collect_until_whitespace
+from front.kaldi.utils import read_learning_info, read_binary_matrix, read_binary_vector
+from graph.graph import Node
+from ops.convolution import Convolution
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 class ConvolutionalComponentFrontExtractor(FrontExtractorOp):

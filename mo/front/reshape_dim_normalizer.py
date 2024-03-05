@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.pass_separator import FrontStart
-from openvino.tools.mo.front.common.replacement import FrontReplacementSubgraph
-from openvino.tools.mo.front.subgraph_matcher import SubgraphMatch
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.utils.error import Error
+from front.pass_separator import FrontStart
+from front.common.replacement import FrontReplacementSubgraph
+from front.subgraph_matcher import SubgraphMatch
+from graph.graph import Graph
+from ops.const import Const
+from utils.error import Error
 
 
 class ReshapeDimNormalizer(FrontReplacementSubgraph):
@@ -25,7 +25,7 @@ class ReshapeDimNormalizer(FrontReplacementSubgraph):
         return [FrontStart]
 
     def run_after(self):
-        from openvino.tools.mo.front.freeze_placeholder_value import FreezePlaceholderValue
+        from front.freeze_placeholder_value import FreezePlaceholderValue
         return [FreezePlaceholderValue]
 
     def pattern(self):

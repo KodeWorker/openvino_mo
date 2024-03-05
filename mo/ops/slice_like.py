@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, shape_array, is_fully_defined
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.op import Op
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.partial_infer.utils import int64_array, shape_array, is_fully_defined
+from graph.graph import Graph
+from ops.op import Op
 
 
 class SliceLike(Op):

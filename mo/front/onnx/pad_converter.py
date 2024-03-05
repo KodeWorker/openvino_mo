@@ -1,13 +1,13 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_node, Node
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.pad import Pad
+from ops.split import Split
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_node, Node
+from ops.const import Const
+from ops.pad import Pad
 
 
 class ONNXPadToPad(FrontReplacementOp):

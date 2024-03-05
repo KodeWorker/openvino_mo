@@ -3,9 +3,9 @@
 
 import numpy as np
 
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.quantize_linear_resolver import QuantizeLinearResolver
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from graph.graph import Graph, rename_nodes
+from middle.quantize_linear_resolver import QuantizeLinearResolver
+from middle.replacement import MiddleReplacementPattern
 
 
 class QuantizeDequantizeLinearResolver(MiddleReplacementPattern):
@@ -33,7 +33,7 @@ class QuantizeDequantizeLinearResolver(MiddleReplacementPattern):
         )
 
     def run_after(self):
-        from openvino.tools.mo.middle.quantize_fuses import MarkNodesToFuseUpToFakeQuantize
+        from middle.quantize_fuses import MarkNodesToFuseUpToFakeQuantize
         return [MarkNodesToFuseUpToFakeQuantize]
 
     def replace_pattern(self, graph: Graph, match: dict):

@@ -5,10 +5,10 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.middle.FuseReshapesSequence import FuseReshapesSequence
-from openvino.tools.mo.middle.pass_separator import PostMiddleStart
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.FuseReshapesSequence import FuseReshapesSequence
+from middle.pass_separator import PostMiddleStart
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
 
 
 class RemoveRedundantReshapes(MiddleReplacementPattern):

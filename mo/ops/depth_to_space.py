@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.layout import shape_for_layout, get_height_dim, get_batch_dim, get_features_dim, get_width_dim
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension, is_fully_defined
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.layout import shape_for_layout, get_height_dim, get_batch_dim, get_features_dim, get_width_dim
+from front.common.partial_infer.utils import dynamic_dimension, is_fully_defined
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.error import Error
 
 
 class DepthToSpaceOp(Op):

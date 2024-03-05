@@ -6,15 +6,15 @@ import logging as log
 import os
 import pkgutil
 import sys
-
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.load.loader import Loader
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.class_registration import _check_unique_ids, update_registration, \
+# DIT +++ [2024/03/25, Kelvin]
+from back.replacement import BackReplacementPattern
+from load.loader import Loader
+from middle.replacement import MiddleReplacementPattern
+from ops.op import Op
+from utils.class_registration import _check_unique_ids, update_registration, \
     get_enabled_and_disabled_transforms, clear_registered_classes_dict
-from openvino.tools.mo.utils.model_analysis import AnalyzeAction
-
+from utils.model_analysis import AnalyzeAction
+# DIT --- [2024/03/25, Kelvin]
 
 def get_internal_dirs(framework: str, get_front_classes: callable):
     front_classes = get_front_classes()
@@ -30,8 +30,11 @@ def get_internal_dirs(framework: str, get_front_classes: callable):
 
 def import_by_path(path: str, middle_names: list = (), prefix: str = ''):
     for module_loader, name, ispkg in pkgutil.iter_modules([path]):
+        # DIT +++ [2024/03/25, Kelvin] pyinstaller cannot import dynamically needto generate hidden-import list
+        #with open("./hidden-import.txt", "a") as write_file:
+        #    write_file.write('"{}{}.{}",\n'.format(prefix, '.'.join(middle_names), name))
+        # DIT --- [2024/03/25, Kelvin]
         importlib.import_module('{}{}.{}'.format(prefix, '.'.join(middle_names), name))
-
 
 def default_path():
     EXT_DIR_NAME = '.'
@@ -71,7 +74,7 @@ def load_dir(framework: str, path: str, get_front_classes: callable):
     sys.path.insert(0, root_dir)
 
     enabled_transforms, disabled_transforms = get_enabled_and_disabled_transforms()
-
+    
     internal_dirs = get_internal_dirs(framework, get_front_classes)
     prefix = 'openvino.tools.' if ext == 'mo' else ''
 
@@ -79,8 +82,29 @@ def load_dir(framework: str, path: str, get_front_classes: callable):
     exclude_modules.remove(framework)
 
     for p in internal_dirs.keys():
-        import_by_path(os.path.join(path, *p), [ext, *p], prefix)
+        #import_by_path(os.path.join(path, *p), [ext, *p], prefix)        
+        import_by_path(os.path.join(path, *p), [*p], "")
+        
         update_registration(internal_dirs[p], enabled_transforms, disabled_transforms, exclude_modules)
+    
+    # DIT +++ [2024/03/25, Kelvin] pyinstaller cannot import dynamically needto generate hidden-import list
+    """
+    internal_dirs = {}
+    include_modules = ['tf', 'onnx']
+    exclude_modules = {'tf', 'onnx', 'kaldi', 'mxnet', 'caffe'}
+    
+    for framework_ in include_modules:
+        framework_dirs = get_internal_dirs(framework_, get_front_classes)
+        #print(framework_dirs)        
+        exclude_modules.remove(framework_)
+        internal_dirs.update(framework_dirs)
+    #print(internal_dirs)
+    #assert False
+    for p in internal_dirs.keys():       
+        import_by_path(os.path.join(path, *p), [*p], "")        
+        update_registration(internal_dirs[p], enabled_transforms, disabled_transforms, exclude_modules)
+    """
+    # DIT --- [2024/03/25, Kelvin]
     sys.path.remove(root_dir)
 
 
@@ -88,7 +112,7 @@ def load_dirs(framework: str, dirs: list, get_front_classes: callable):
     if dirs is None:
         return
     internal_dirs = get_internal_dirs(framework, get_front_classes)
-
+    
     for p, dir_names in internal_dirs.items():
         for d in dir_names:
             d.registered_cls = []
@@ -97,10 +121,10 @@ def load_dirs(framework: str, dirs: list, get_front_classes: callable):
 
     mo_inner_extensions = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, 'mo'))
     dirs.insert(0, mo_inner_extensions)
-    dirs = [os.path.abspath(e) for e in dirs]
+    dirs = [os.path.abspath(e) for e in dirs]    
     if default_path() not in dirs:
         dirs.insert(0, default_path())
     for path in dirs:
         load_dir(framework, path, get_front_classes)
-
+        
     _check_unique_ids()

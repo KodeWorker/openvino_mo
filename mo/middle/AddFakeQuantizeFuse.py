@@ -4,10 +4,10 @@
 import logging as log
 from typing import Dict
 
-from openvino.tools.mo.middle.MulFakeQuantizeFuse import resolve_shared_inputs
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.passes.fusing.helpers import get_tensor_in_port, get_value_in_port
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.MulFakeQuantizeFuse import resolve_shared_inputs
+from graph.graph import Graph, Node
+from middle.passes.fusing.helpers import get_tensor_in_port, get_value_in_port
+from middle.replacement import MiddleReplacementPattern
 
 
 class AddFakeQuantizeFuse(MiddleReplacementPattern):

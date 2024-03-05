@@ -3,8 +3,8 @@
 
 import logging as log
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, reverse_bypass_infer, shape_array
-from openvino.tools.mo.front.tf.extractors.utils import tf_dtype_extractor
+from front.common.partial_infer.utils import mo_array, reverse_bypass_infer, shape_array
+from front.tf.extractors.utils import tf_dtype_extractor
 
 
 def tf_fused_bn_infer(node):

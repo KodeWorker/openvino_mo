@@ -5,13 +5,13 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.middle.pattern_match import apply_pattern
-from openvino.tools.mo.middle.TensorIterator_utils import delete_selects_from
-from openvino.tools.mo.ops.TensorIterator_ops import TensorIteratorCondition, TensorIteratorBackEdge
-from openvino.tools.mo.ops.identity import Identity
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, int64_array
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from middle.pattern_match import apply_pattern
+from middle.TensorIterator_utils import delete_selects_from
+from ops.TensorIterator_ops import TensorIteratorCondition, TensorIteratorBackEdge
+from ops.identity import Identity
+from front.common.partial_infer.utils import mo_array, int64_array
+from graph.graph import Graph, rename_nodes
+from middle.replacement import MiddleReplacementPattern
 
 
 def make_nodes_1D(nodes: list):
@@ -63,7 +63,7 @@ Shape -> StridedSlice -> Enter -|    LogicalAnd --> LoopCond (data)
         return []
 
     def run_before(self):
-        from openvino.tools.mo.middle.TensorIteratorMerge import TensorIteratorMerge
+        from middle.TensorIteratorMerge import TensorIteratorMerge
         return [TensorIteratorMerge]
 
     @staticmethod
@@ -303,7 +303,7 @@ class SimpleConditionMatcher(MiddleReplacementPattern):
         return [LoopConditionMatcher]
 
     def run_before(self):
-        from openvino.tools.mo.middle.TensorIteratorMerge import TensorIteratorMerge
+        from middle.TensorIteratorMerge import TensorIteratorMerge
         return [TensorIteratorMerge]
 
     @staticmethod
@@ -442,7 +442,7 @@ class DynamicDecoderConditionMatcher(MiddleReplacementPattern):
         return [SimpleConditionMatcher]
 
     def run_before(self):
-        from openvino.tools.mo.middle.TensorIteratorMerge import TensorIteratorMerge
+        from middle.TensorIteratorMerge import TensorIteratorMerge
         return [TensorIteratorMerge]
 
     @staticmethod

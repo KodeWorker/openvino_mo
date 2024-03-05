@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, shape_array, undefined_shape_of_rank
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.graph.perm_inputs import PermuteInputs
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import is_fully_defined, shape_array, undefined_shape_of_rank
+from graph.graph import Graph, Node
+from graph.perm_inputs import PermuteInputs
+from ops.op import Op
 
 
 class Pad(Op):

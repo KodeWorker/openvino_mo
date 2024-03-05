@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.partial_infer.utils import shape_insert
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import mo_array
+from front.common.partial_infer.utils import shape_insert
+from graph.graph import Graph, Node
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
 
 
 class DilatedConvolutionConverter(MiddleReplacementPattern):
@@ -17,11 +17,11 @@ class DilatedConvolutionConverter(MiddleReplacementPattern):
     force_clean_up = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import PreMiddleStart
+        from middle.pass_separator import PreMiddleStart
         return [PreMiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def pattern(self):
@@ -94,11 +94,11 @@ class DilatedConvolution1DConverter(MiddleReplacementPattern):
     force_shape_inference = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import PreMiddleStart
+        from middle.pass_separator import PreMiddleStart
         return [PreMiddleStart]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def pattern(self):

@@ -3,11 +3,11 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import compatible_dims
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import compatible_dims
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.op import Op
 
 
 class ONNXRNNSequenceNormalize(MiddleReplacementPattern):

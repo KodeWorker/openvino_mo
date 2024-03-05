@@ -1,15 +1,15 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.load.loader import Loader
-from openvino.tools.mo.front.common.register_custom_ops import update_extractors_with_extensions
-from openvino.tools.mo.front.extractor import extract_node_attrs
-from openvino.tools.mo.front.kaldi.extractor import kaldi_extractor, kaldi_type_extractors
-from openvino.tools.mo.front.kaldi.loader.loader import load_kaldi_model
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.telemetry_utils import send_shapes_info, send_op_names_info
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from load.loader import Loader
+from front.common.register_custom_ops import update_extractors_with_extensions
+from front.extractor import extract_node_attrs
+from front.kaldi.extractor import kaldi_extractor, kaldi_type_extractors
+from front.kaldi.loader.loader import load_kaldi_model
+from graph.graph import Graph
+from utils.error import Error
+from utils.telemetry_utils import send_shapes_info, send_op_names_info
+from utils.utils import refer_to_faq_msg
 
 
 class KaldiLoader(Loader):

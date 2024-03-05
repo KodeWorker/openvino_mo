@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import dynamic_dimension
+from graph.graph import Node, Graph
+from ops.op import Op, PermuteAttrs
+from utils.error import Error
 
 
 class GatherElements(Op):

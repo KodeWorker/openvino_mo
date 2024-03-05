@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.eltwise import eltwise_infer, bias_add_infer, eltwise_reverse_infer
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array, reverse_bypass_infer
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.passes.infer import copy_type_infer
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.type_utils import override_data_type_of_constant
+from front.common.partial_infer.eltwise import eltwise_infer, bias_add_infer, eltwise_reverse_infer
+from front.common.partial_infer.utils import float32_array, reverse_bypass_infer
+from graph.graph import Graph, Node
+from middle.passes.infer import copy_type_infer
+from ops.op import Op
+from utils.type_utils import override_data_type_of_constant
 
 
 class Elementwise(Op):

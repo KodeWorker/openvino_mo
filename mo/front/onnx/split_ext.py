@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.split import AttributedVariadicSplit, AttributedSplit
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr, onnx_get_num_outputs
+from ops.split import AttributedVariadicSplit, AttributedSplit
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr, onnx_get_num_outputs
 
 
 class SplitFrontExtractor(FrontExtractorOp):

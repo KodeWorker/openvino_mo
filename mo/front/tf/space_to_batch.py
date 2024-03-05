@@ -3,20 +3,20 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.elementwise import Sub
-from openvino.tools.mo.ops.rank import Rank
-from openvino.tools.mo.ops.split import Split
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.pad import Pad
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.squeeze import Squeeze
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from ops.Cast import Cast
+from ops.elementwise import Sub
+from ops.rank import Rank
+from ops.split import Split
+from ops.transpose import Transpose
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from front.tf.graph_utils import create_op_with_const_inputs, create_op_node_with_second_input
+from graph.graph import Graph
+from ops.const import Const
+from ops.pad import Pad
+from ops.shape import Shape
+from ops.squeeze import Squeeze
+from ops.unsqueeze import Unsqueeze
 
 
 class BatchToSpaceNormalizer(FrontReplacementPattern):
@@ -28,7 +28,7 @@ class BatchToSpaceNormalizer(FrontReplacementPattern):
     enabled = True
 
     def run_before(self):
-        from openvino.tools.mo.front.rank_decomposer import RankDecomposer
+        from front.rank_decomposer import RankDecomposer
         return [RankDecomposer]
 
     def find_and_replace_pattern(self, graph: Graph):

@@ -1,9 +1,9 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.utils.graph import Node
-from openvino.tools.mo.utils.ir_reader.extender import Extender
-from openvino.tools.mo.utils.ir_reader.extenders.priorbox_extender import PriorBox_extender
+from utils.graph import Node
+from utils.ir_reader.extender import Extender
+from utils.ir_reader.extenders.priorbox_extender import PriorBox_extender
 
 
 class PriorBoxClustered_extender(Extender):

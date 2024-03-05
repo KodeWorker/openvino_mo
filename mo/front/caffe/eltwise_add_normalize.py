@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.eltwise_n import EltwiseNReplacement
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import mo_array
+from front.eltwise_n import EltwiseNReplacement
+from ops.elementwise import Mul
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph, Node
+from ops.const import Const
 
 
 class EltwiseAddNormalize(FrontReplacementPattern):

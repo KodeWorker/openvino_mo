@@ -3,15 +3,15 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.elementwise import Add, Equal
-from openvino.tools.mo.ops.select import Select
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_with_const_inputs
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.ops.slice import Slice
+from ops.Cast import Cast
+from ops.elementwise import Add, Equal
+from ops.select import Select
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_with_const_inputs
+from graph.graph import Graph, rename_nodes
+from ops.shape import Shape
+from ops.slice import Slice
 
 
 class TFSliceToSliceReplacer(FrontReplacementOp):

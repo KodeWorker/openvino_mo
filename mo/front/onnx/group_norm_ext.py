@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.ops.group_norm import GroupNorm
+from front.common.partial_infer.utils import mo_array, int64_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
+from ops.group_norm import GroupNorm
 
 
 class ExperimentalDetectronGroupNorm(FrontExtractorOp):

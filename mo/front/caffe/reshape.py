@@ -3,8 +3,8 @@
 
 import logging as log
 
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.ops.reshape import Reshape
+from front.extractor import FrontExtractorOp
+from ops.reshape import Reshape
 
 
 class ReshapeFrontExtractor(FrontExtractorOp):

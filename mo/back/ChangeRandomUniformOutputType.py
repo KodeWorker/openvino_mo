@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
+from ops.Cast import Cast
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
+from middle.passes.convert_data_type import data_type_str_to_np
 
 
 class ChangeRandomUniformOutputType(BackReplacementPattern):
@@ -23,7 +23,7 @@ class ChangeRandomUniformOutputType(BackReplacementPattern):
     force_shape_inference = True
 
     def run_after(self):
-        from openvino.tools.mo.back.MarkNodesWithShapeValues import MarkNodesWithShapeValues
+        from back.MarkNodesWithShapeValues import MarkNodesWithShapeValues
         return [MarkNodesWithShapeValues]
 
     def run_before(self):

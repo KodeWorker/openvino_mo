@@ -3,10 +3,10 @@
 
 import logging as log
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
-from openvino.tools.mo.ops.crop import Crop
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
+from ops.crop import Crop
 
 
 class CropFrontExtractor(FrontExtractorOp):

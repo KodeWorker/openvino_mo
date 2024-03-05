@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import input_as_const
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.scale_shift import ScaleShiftOp
-from openvino.tools.mo.utils.error import Error
+from front.caffe.extractors.utils import input_as_const
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Node, Graph
+from ops.scale_shift import ScaleShiftOp
+from utils.error import Error
 
 
 class BNToScaleShift(FrontReplacementOp):

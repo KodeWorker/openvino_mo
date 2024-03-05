@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
 
 
 class RemoveUselessCropsPattern(MiddleReplacementPattern):
@@ -17,7 +17,7 @@ class RemoveUselessCropsPattern(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.RemoveDuplicationMemory import MergeNeighborSplicePattern
+        from middle.RemoveDuplicationMemory import MergeNeighborSplicePattern
         return [MergeNeighborSplicePattern]
 
     @staticmethod

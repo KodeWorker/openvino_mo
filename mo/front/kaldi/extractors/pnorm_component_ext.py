@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.pnorm import PNormOp
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.kaldi.loader.utils import collect_until_token, read_binary_integer32_token, read_binary_float_token
-from openvino.tools.mo.utils.error import Error
+from ops.pnorm import PNormOp
+from front.extractor import FrontExtractorOp
+from front.kaldi.loader.utils import collect_until_token, read_binary_integer32_token, read_binary_float_token
+from utils.error import Error
 
 
 class PNormComponentFrontExtractor(FrontExtractorOp):

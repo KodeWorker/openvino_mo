@@ -5,14 +5,14 @@ from typing import Dict
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.elementwise import Sub, Div, Less, Round, Mul, Add, Greater
-from openvino.tools.mo.ops.fakequantize import FakeQuantize
-from openvino.tools.mo.ops.select import Select
+from front.common.partial_infer.utils import int64_array, mo_array
+from front.common.replacement import FrontReplacementOp
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, Node
+from ops.const import Const
+from ops.elementwise import Sub, Div, Less, Round, Mul, Add, Greater
+from ops.fakequantize import FakeQuantize
+from ops.select import Select
 
 
 class FakeQuantWithMinMaxVarsToQuantize(FrontReplacementOp):

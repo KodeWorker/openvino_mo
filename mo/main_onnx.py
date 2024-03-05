@@ -3,9 +3,9 @@
 
 import sys
 
-from openvino.tools.mo.utils.cli_parser import get_onnx_cli_parser  # pylint: disable=no-name-in-module,import-error
+from utils.cli_parser import get_onnx_cli_parser  # pylint: disable=no-name-in-module,import-error
 
 if __name__ == "__main__":
-    from openvino.tools.mo.main import main
+    from main import main
 
     sys.exit(main(get_onnx_cli_parser(), 'onnx'))

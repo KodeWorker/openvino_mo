@@ -1,20 +1,20 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
-from openvino.tools.mo.middle.InsertSelect import check_inputs
-from openvino.tools.mo.middle.MakeKaldiConstReshapable import create_const_with_batch_from_input
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
+from middle.InsertSelect import check_inputs
+from middle.MakeKaldiConstReshapable import create_const_with_batch_from_input
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
 
 
 class ReplaceDropoutMaskPattern(FrontReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.front.restore_ports import RestorePorts
+        from front.restore_ports import RestorePorts
         return [RestorePorts]
 
     def run_before(self):
-        from openvino.tools.mo.front.kaldi.replace_lstm_nonlinearity import ReplaceLstmNonLinearityPattern
+        from front.kaldi.replace_lstm_nonlinearity import ReplaceLstmNonLinearityPattern
         return [ReplaceLstmNonLinearityPattern]
 
     def find_and_replace_pattern(self, graph: Graph):

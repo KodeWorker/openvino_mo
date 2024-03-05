@@ -3,12 +3,12 @@
 
 import logging as log
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.middle.TensorIteratorCondition import looking_for_op_in_list
-from openvino.tools.mo.ops.elementwise import Mul
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.ops.const import Const
+from front.common.partial_infer.utils import mo_array
+from middle.TensorIteratorCondition import looking_for_op_in_list
+from ops.elementwise import Mul
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Graph
+from ops.const import Const
 
 
 class GNMT_sequence_lengths(FrontReplacementPattern):

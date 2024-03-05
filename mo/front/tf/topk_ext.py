@@ -3,8 +3,8 @@
 
 import numpy as np
 
-from openvino.tools.mo.ops.topk import TopK
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.topk import TopK
+from front.extractor import FrontExtractorOp
 
 
 class TopKExtractor(FrontExtractorOp):

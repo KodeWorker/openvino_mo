@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.op import Op
+from front.common.partial_infer.utils import mo_array
+from graph.graph import Graph, Node
+from middle.replacement import MiddleReplacementPattern
+from ops.op import Op
 
 
 class SharedWeightsDuplication(MiddleReplacementPattern):
@@ -12,11 +12,11 @@ class SharedWeightsDuplication(MiddleReplacementPattern):
     force_clean_up = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.CheckForCycle import CheckForCycle
+        from middle.CheckForCycle import CheckForCycle
         return [CheckForCycle]
 
     def run_before(self):
-        from openvino.tools.mo.middle.pass_separator import PreMiddleStart
+        from middle.pass_separator import PreMiddleStart
         return [PreMiddleStart]
 
     def find_and_replace_pattern(self, graph: Graph):

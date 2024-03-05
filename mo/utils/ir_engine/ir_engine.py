@@ -13,11 +13,11 @@ import defusedxml.ElementTree as ET
 import numpy as np
 from defusedxml import defuse_stdlib
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension_value, shape_array
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import destination_type_to_np_data_type
-from openvino.tools.mo.utils.ir_engine.compare_graphs import compare_graphs
-from openvino.tools.mo.utils.runtime_info import RTInfo, OldAPIMapOrder, OldAPIMapElementType
+from front.common.partial_infer.utils import dynamic_dimension_value, shape_array
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import destination_type_to_np_data_type
+from utils.ir_engine.compare_graphs import compare_graphs
+from utils.runtime_info import RTInfo, OldAPIMapOrder, OldAPIMapElementType
 
 log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.DEBUG, stream=sys.stdout)
 

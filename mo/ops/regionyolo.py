@@ -3,13 +3,13 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.front.common.layout import get_batch_dim, get_height_dim, get_width_dim, shape_for_layout
-from openvino.tools.mo.front.common.partial_infer.utils import is_fully_defined, dynamic_dimension_value, \
+from front.caffe.extractors.utils import get_canonical_axis_index
+from front.common.layout import get_batch_dim, get_height_dim, get_width_dim, shape_for_layout
+from front.common.partial_infer.utils import is_fully_defined, dynamic_dimension_value, \
     undefined_shape_of_rank
-from openvino.tools.mo.front.extractor import attr_getter, bool_to_str
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
+from front.extractor import attr_getter, bool_to_str
+from graph.graph import Node, Graph
+from ops.op import Op
 
 
 class RegionYoloOp(Op):

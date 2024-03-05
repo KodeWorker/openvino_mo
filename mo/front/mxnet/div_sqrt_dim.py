@@ -2,16 +2,16 @@
 # SPDX-License-Identifier: Apache-2.0
 import numpy as np
 
-from openvino.tools.mo.front.PowerToEltwises import PowerToEltwises
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementOp
-from openvino.tools.mo.graph.graph import Graph, rename_nodes
-from openvino.tools.mo.ops.Cast import Cast
-from openvino.tools.mo.ops.ConvertLike import ConvertLike
-from openvino.tools.mo.ops.elementwise import Div
-from openvino.tools.mo.ops.power import AttributedPower
-from openvino.tools.mo.ops.shape import Shape
-from openvino.tools.mo.utils.shape import node_to_get_shape_value_of_indices
+from front.PowerToEltwises import PowerToEltwises
+from front.common.partial_infer.utils import mo_array
+from front.common.replacement import FrontReplacementOp
+from graph.graph import Graph, rename_nodes
+from ops.Cast import Cast
+from ops.ConvertLike import ConvertLike
+from ops.elementwise import Div
+from ops.power import AttributedPower
+from ops.shape import Shape
+from utils.shape import node_to_get_shape_value_of_indices
 
 
 class DivSqrtDim(FrontReplacementOp):

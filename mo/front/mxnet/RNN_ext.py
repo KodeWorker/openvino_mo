@@ -1,13 +1,13 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.GRU import GRU
-from openvino.tools.mo.ops.LSTM import LSTM
-from openvino.tools.mo.ops.RNN import RNN
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.mxnet.extractors.utils import get_mxnet_layer_attrs
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from ops.GRU import GRU
+from ops.LSTM import LSTM
+from ops.RNN import RNN
+from front.extractor import FrontExtractorOp
+from front.mxnet.extractors.utils import get_mxnet_layer_attrs
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 class RNNFrontExtractor(FrontExtractorOp):

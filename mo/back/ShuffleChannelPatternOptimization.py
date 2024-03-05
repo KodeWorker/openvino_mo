@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from openvino.tools.mo.back.FuseTransposesSequence import FuseTransposesSequence
-from openvino.tools.mo.ops.depth_to_space import DepthToSpaceOp
-from openvino.tools.mo.ops.shufflechannel import ShuffleChannels
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Graph
+from back.FuseTransposesSequence import FuseTransposesSequence
+from ops.depth_to_space import DepthToSpaceOp
+from ops.shufflechannel import ShuffleChannels
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Graph
 
 
 class ShuffleChannelPatternOptimization(BackReplacementPattern):

@@ -3,12 +3,12 @@
 
 import math
 
-from openvino.tools.mo.front.common.partial_infer.utils import float32_array
-from openvino.tools.mo.ops.ONNXResize10 import ONNXResize10
-from openvino.tools.mo.ops.upsample import UpsampleOp
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr, get_onnx_opset_version
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import float32_array
+from ops.ONNXResize10 import ONNXResize10
+from ops.upsample import UpsampleOp
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr, get_onnx_opset_version
+from utils.error import Error
 
 
 class UpsampleFrontExtractor(FrontExtractorOp):

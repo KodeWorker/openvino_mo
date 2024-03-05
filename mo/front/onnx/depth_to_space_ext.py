@@ -3,9 +3,9 @@
 
 import logging as log
 
-from openvino.tools.mo.ops.depth_to_space import DepthToSpaceOp
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr
+from ops.depth_to_space import DepthToSpaceOp
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr
 
 
 class DepthToSpaceFrontExtractor(FrontExtractorOp):

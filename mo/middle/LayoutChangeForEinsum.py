@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.middle.InsertLayoutPropagationTransposes import is_input_data_in_correct_layout, \
+from middle.InsertLayoutPropagationTransposes import is_input_data_in_correct_layout, \
     is_output_data_in_correct_layout
-from openvino.tools.mo.ops.einsum import Einsum
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
+from ops.einsum import Einsum
+from graph.graph import Graph
+from middle.replacement import MiddleReplacementPattern
 
 
 class LayoutChangeForEinsum(MiddleReplacementPattern):
@@ -24,11 +24,11 @@ class LayoutChangeForEinsum(MiddleReplacementPattern):
     graph_condition = [lambda graph: graph.graph['layout'] == 'NHWC']
 
     def run_after(self):
-        from openvino.tools.mo.middle.MarkSubgraphsWithCorrectLayout import MarkSubGraphsWithCorrectLayout
+        from middle.MarkSubgraphsWithCorrectLayout import MarkSubGraphsWithCorrectLayout
         return [MarkSubGraphsWithCorrectLayout]
 
     def run_before(self):
-        from openvino.tools.mo.middle.InsertLayoutPropagationTransposes import InsertLayoutPropagationTranspose
+        from middle.InsertLayoutPropagationTransposes import InsertLayoutPropagationTranspose
         return [InsertLayoutPropagationTranspose]
 
     def find_and_replace_pattern(self, graph: Graph):

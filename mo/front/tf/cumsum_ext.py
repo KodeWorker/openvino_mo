@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.cumsum import CumSum
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.cumsum import CumSum
+from front.extractor import FrontExtractorOp
 
 
 class CumSumExtractor(FrontExtractorOp):

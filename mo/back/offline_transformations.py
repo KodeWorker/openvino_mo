@@ -4,8 +4,8 @@
 import argparse
 from typing import List
 
-from openvino.tools.mo.utils.cli_parser import parse_transform
-from openvino.tools.mo.utils.error import Error
+from utils.cli_parser import parse_transform
+from utils.error import Error
 from openvino.runtime import Model
 
 
@@ -108,22 +108,22 @@ def apply_fused_names_cleanup(func: object):
 
 
 def apply_offline_transformations(func: Model, argv: argparse.Namespace):
-    from openvino.tools.mo.back.preprocessing import apply_preprocessing  # pylint: disable=no-name-in-module,import-error
+    from back.preprocessing import apply_preprocessing  # pylint: disable=no-name-in-module,import-error
 
     # Apply preprocessing (mean/scale/reverse_channels/convert_layout/etc)
     apply_preprocessing(ov_function=func, argv=argv)
-
+    
     from openvino._offline_transformations import apply_moc_transformations as moc_transformations  # pylint: disable=import-error,no-name-in-module
     moc_transformations(func, cf=argv.static_shape, smart_reshape=True)
-
+    
     params_with_custom_types = create_params_with_custom_types(argv.packed_user_shapes)
     apply_moc_legacy_transformations(func, params_with_custom_types)
     apply_user_transformations(func, parse_transform(argv.transform))
-
+    
     if "compress_to_fp16" in argv and argv.compress_to_fp16:
         compress_model(func)
-
+    
     apply_fused_names_cleanup(func)
-
+    
     return func
 

@@ -3,11 +3,11 @@
 
 import logging as log
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.tf.extractors.utils import tf_dtype_extractor, tf_tensor_shape
-from openvino.tools.mo.ops.op import PermuteAttrs
-from openvino.tools.mo.ops.parameter import Parameter
+from front.common.partial_infer.utils import shape_array
+from front.extractor import FrontExtractorOp
+from front.tf.extractors.utils import tf_dtype_extractor, tf_tensor_shape
+from ops.op import PermuteAttrs
+from ops.parameter import Parameter
 
 
 class PlaceholderFrontExtractor(FrontExtractorOp):

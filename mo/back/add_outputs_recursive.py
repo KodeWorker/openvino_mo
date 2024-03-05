@@ -3,15 +3,15 @@
 from math import ceil
 import numpy as np
 
-from openvino.tools.mo.ops.If import If
-from openvino.tools.mo.ops.loop import Loop
-from openvino.tools.mo.ops.tensor_iterator import TensorIterator
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array, dynamic_dimension_value
-from openvino.tools.mo.front.tf.graph_utils import create_op_node_with_second_input
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.ops.result import Result
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from ops.If import If
+from ops.loop import Loop
+from ops.tensor_iterator import TensorIterator
+from back.replacement import BackReplacementPattern
+from front.common.partial_infer.utils import int64_array, dynamic_dimension_value
+from front.tf.graph_utils import create_op_node_with_second_input
+from graph.graph import Graph, Node
+from ops.result import Result
+from ops.unsqueeze import Unsqueeze
 
 
 def ti_set_output_port_shape(cycle_node, internal_id, port_num, iterations_count, axis):

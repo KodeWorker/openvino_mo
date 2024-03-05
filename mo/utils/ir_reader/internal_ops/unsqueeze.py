@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.ops.unsqueeze import Unsqueeze
+from graph.graph import Node
+from ops.unsqueeze import Unsqueeze
 
 
 class UnsqueezeInternal(Unsqueeze):

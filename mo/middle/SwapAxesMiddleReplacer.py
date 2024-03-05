@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.graph.graph import Graph, Node
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
+from ops.transpose import Transpose
+from graph.graph import Graph, Node
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
 
 
 class SwapAxisMiddleReplacer(MiddleReplacementPattern):

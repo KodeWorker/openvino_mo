@@ -5,11 +5,11 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.back.replacement import BackReplacementPattern
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.middle.passes.convert_data_type import data_type_str_to_np
-from openvino.tools.mo.utils.error import Error
+from back.replacement import BackReplacementPattern
+from graph.graph import Graph
+from graph.graph import Node
+from middle.passes.convert_data_type import data_type_str_to_np
+from utils.error import Error
 
 operations_with_data_type_attributes = {
     'Cast': {'attr_name': 'dst_type', 'in_ports_to_check': (0,)},
@@ -30,7 +30,7 @@ class ChangeOutputTypeAttributes(BackReplacementPattern):
     force_shape_inference = True
 
     def run_after(self):
-        from openvino.tools.mo.back.MarkNodesWithShapeValues import MarkNodesWithShapeValues
+        from back.MarkNodesWithShapeValues import MarkNodesWithShapeValues
         return [MarkNodesWithShapeValues]
 
     def run_before(self):

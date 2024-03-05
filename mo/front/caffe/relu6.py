@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.activation_ops import ReLU6
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from ops.activation_ops import ReLU6
+from front.extractor import FrontExtractorOp
 
 
 class ReLU6FrontExtractor(FrontExtractorOp):

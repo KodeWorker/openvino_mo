@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.elemental import single_output_infer
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from front.common.partial_infer.elemental import single_output_infer
+from front.extractor import FrontExtractorOp
 
 
 class LoopCondFrontExtractor(FrontExtractorOp):

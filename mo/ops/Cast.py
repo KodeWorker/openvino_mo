@@ -5,12 +5,12 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import reverse_bypass_infer
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_precision, convert_blob, \
+from front.common.partial_infer.utils import reverse_bypass_infer
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import np_data_type_to_precision, convert_blob, \
     np_data_type_to_destination_type, packed_I4, packed_U4
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from ops.op import Op
+from utils.utils import refer_to_faq_msg
 
 
 class Cast(Op):

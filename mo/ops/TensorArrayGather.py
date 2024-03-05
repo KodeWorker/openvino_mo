@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.utils import symm_match_shapes
+from front.common.partial_infer.utils import shape_array
+from graph.graph import Node, Graph
+from ops.op import Op
+from utils.utils import symm_match_shapes
 
 
 class TensorArrayGather(Op):

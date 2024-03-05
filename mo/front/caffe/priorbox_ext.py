@@ -1,11 +1,11 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
-from openvino.tools.mo.ops.priorbox import PriorBoxOp
-from openvino.tools.mo.front.caffe.collect_attributes import merge_attrs
-from openvino.tools.mo.front.common.extractors.utils import layout_attrs
-from openvino.tools.mo.front.extractor import FrontExtractorOp
+from front.common.partial_infer.utils import mo_array
+from ops.priorbox import PriorBoxOp
+from front.caffe.collect_attributes import merge_attrs
+from front.common.extractors.utils import layout_attrs
+from front.extractor import FrontExtractorOp
 
 
 class PriorBoxFrontExtractor(FrontExtractorOp):

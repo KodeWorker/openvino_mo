@@ -3,5 +3,8 @@ dependencies:
     - python=3.8
     - pip
     - pip:
-        - PyInstaller==6.3.0
+        - PyInstaller==6.4.0
         - openvino-dev[tensorflow2, onnx]==2023.3.0
+        - tf_slim==1.1.0
+        - tf2onnx==1.16.1
+        - tensorflow==2.12.0

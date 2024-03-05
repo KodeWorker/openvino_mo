@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.transpose import Transpose
-from openvino.tools.mo.front.common.layout import indices_mapping
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.replacement import MiddleReplacementPattern
-from openvino.tools.mo.ops.const import Const
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
+from ops.transpose import Transpose
+from front.common.layout import indices_mapping
+from graph.graph import Node, Graph
+from middle.replacement import MiddleReplacementPattern
+from ops.const import Const
+from ops.op import Op, PermuteAttrs
 
 
 class ConvertLayoutDependentOperations(MiddleReplacementPattern):
@@ -18,7 +18,7 @@ class ConvertLayoutDependentOperations(MiddleReplacementPattern):
     enabled = True
 
     def run_after(self):
-        from openvino.tools.mo.middle.pass_separator import MiddleStart
+        from middle.pass_separator import MiddleStart
         return [MiddleStart]
 
     def find_and_replace_pattern(self, graph: Graph):

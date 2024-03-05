@@ -11,11 +11,11 @@ import numpy as np
 from google.protobuf import text_format
 from google.protobuf.internal import api_implementation
 
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array, int64_array
-from openvino.tools.mo.front.extractor import add_outputs_identity
-from openvino.tools.mo.graph.graph import Graph
-from openvino.tools.mo.utils.error import Error, FrameworkError
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from front.common.partial_infer.utils import mo_array, int64_array
+from front.extractor import add_outputs_identity
+from graph.graph import Graph
+from utils.error import Error, FrameworkError
+from utils.utils import refer_to_faq_msg
 
 
 def import_caffe_pb2(caffe_parser_path: str):

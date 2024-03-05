@@ -4,9 +4,9 @@
 import logging as log
 import os
 
-from openvino.tools.mo.utils.custom_replacement_config import parse_custom_replacement_config_file
-from openvino.tools.mo.utils.error import Error
-from openvino.tools.mo.utils.utils import refer_to_faq_msg
+from utils.custom_replacement_config import parse_custom_replacement_config_file
+from utils.error import Error
+from utils.utils import refer_to_faq_msg
 
 
 class CustomReplacementRegistry(object):

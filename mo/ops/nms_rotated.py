@@ -5,12 +5,12 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array, dynamic_dimension_value
-from openvino.tools.mo.front.extractor import bool_to_str
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.middle.passes.convert_data_type import np_data_type_to_destination_type
-from openvino.tools.mo.ops.op import Op
-from openvino.tools.mo.utils.error import Error
+from front.common.partial_infer.utils import shape_array, dynamic_dimension_value
+from front.extractor import bool_to_str
+from graph.graph import Node, Graph
+from middle.passes.convert_data_type import np_data_type_to_destination_type
+from ops.op import Op
+from utils.error import Error
 
 
 class NMSRotated(Op):

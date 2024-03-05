@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.graph.graph import Node
-from openvino.tools.mo.middle.passes.convert_data_type import destination_type_to_np_data_type
-from openvino.tools.mo.utils.ir_reader.extender import Extender
+from front.common.partial_infer.utils import int64_array
+from graph.graph import Node
+from middle.passes.convert_data_type import destination_type_to_np_data_type
+from utils.ir_reader.extender import Extender
 
 
 class AvgPool_extender(Extender):

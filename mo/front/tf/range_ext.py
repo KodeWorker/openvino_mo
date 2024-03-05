@@ -1,10 +1,10 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.ops.range import Range
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.tf.extractors.utils import tf_dtype_extractor
-from openvino.tools.mo.graph.graph import Node
+from ops.range import Range
+from front.extractor import FrontExtractorOp
+from front.tf.extractors.utils import tf_dtype_extractor
+from graph.graph import Node
 
 
 class RangeFrontExtractor(FrontExtractorOp):

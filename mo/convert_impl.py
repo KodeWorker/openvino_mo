@@ -382,17 +382,18 @@ def prepare_ir(argv: argparse.Namespace):
     graph = None
     ngraph_function = None
     fallback_reasons = []
-    moc_front_end, available_moc_front_ends = get_moc_frontends(argv)
+    moc_front_end, available_moc_front_ends = get_moc_frontends(argv)    
     if moc_front_end:
-        fallback_reasons = check_fallback(argv)
+        fallback_reasons = check_fallback(argv)        
         if len(fallback_reasons) == 0:
             if is_tf and tf_frontend_with_python_bindings_installed and \
                     type_supported_by_tf_fe(argv.input_model):
+                
                 argv.input_model = create_tf_graph_iterator(argv.input_model,
                                                             argv.placeholder_shapes,
                                                             argv.placeholder_data_types,
                                                             getattr(argv, "example_input", None),
-                                                            argv.share_weights)
+                                                            argv.share_weights)                
             try:
                 t.send_event("mo", "conversion_method", moc_front_end.get_name() + "_frontend")
                 moc_front_end.add_extension(TelemetryExtension("mo", t.send_event, t.send_error, t.send_stack_trace))
@@ -419,6 +420,7 @@ def prepare_ir(argv: argparse.Namespace):
     if len(fallback_reasons) > 0:
         reasons_message = ", ".join(fallback_reasons)
         load_extensions(argv, *list(deduce_legacy_frontend_by_namespace(argv)))
+        
         t.send_event("mo", "fallback_reason", reasons_message)
         log.warning("The IR preparation was executed by the legacy MO path. "
                     "This is a fallback scenario applicable only for some specific cases. "
@@ -430,7 +432,6 @@ def prepare_ir(argv: argparse.Namespace):
 
     t.send_event("mo", "conversion_method", "mo_legacy")
     graph = unified_pipeline(argv)
-
     return graph, ngraph_function
 
 
@@ -452,20 +453,20 @@ def emit_ir(graph: Graph, argv: argparse.Namespace, non_default_params: dict):
 
     if 'feManager' in argv:
         del argv.feManager
-
+    
     mean_data = deepcopy(graph.graph['mf']) if 'mf' in graph.graph else None
     input_names = deepcopy(graph.graph['input_names']) if 'input_names' in graph.graph else []
-
+    
     output_dir = argv.output_dir if argv.output_dir != '.' else os.getcwd()
     orig_model_name = os.path.normpath(os.path.join(output_dir, argv.model_name))
-
+    
     def clear_tmp_ir_files():
         for suf in [".xml", ".bin", ".mapping"]:
             # remove existing files
             path_to_file = orig_model_name + "_tmp" + suf
             if os.path.exists(path_to_file):
                 os.remove(path_to_file)
-
+    
     try:
         prepare_emit_ir(graph=graph,
                         data_type=graph.graph['cmd_params'].data_type,
@@ -486,7 +487,6 @@ def emit_ir(graph: Graph, argv: argparse.Namespace, non_default_params: dict):
         # This graph cleanup is required to avoid double memory consumption
         graph.clear()
         clear_tmp_ir_files()
-
     return_code = "not executed"
     if not (argv.framework == 'tf' and argv.tensorflow_custom_operations_config_update):
         try:
@@ -511,7 +511,7 @@ def emit_ir(graph: Graph, argv: argparse.Namespace, non_default_params: dict):
 
         if return_code != 0:
             raise Error("offline transformations step has failed.")
-
+    
     return func
 
 
@@ -546,23 +546,24 @@ def check_model_object(argv):
 
 def driver(argv: argparse.Namespace, non_default_params: dict):
     init_logger(argv.log_level.upper(), argv.silent)
-
+    
     # Log dictionary with non-default cli parameters where complex classes are excluded.
     log.debug(str(non_default_params))
 
     start_time = datetime.datetime.now()
-
+    
     graph, ngraph_function = prepare_ir(argv)
     legacy_path = False
+    
     if graph is not None:
         res_ngraph_function = emit_ir(graph, argv, non_default_params)
         legacy_path = True
     else:
         res_ngraph_function = moc_emit_ir(ngraph_function, argv)
-
+        
     if res_ngraph_function is None:
         return res_ngraph_function
-
+        
     if not argv.silent:
         elapsed_time = datetime.datetime.now() - start_time
         print('[ SUCCESS ] Total execution time: {:.2f} seconds. '.format(elapsed_time.total_seconds()))
@@ -574,7 +575,7 @@ def driver(argv: argparse.Namespace, non_default_params: dict):
             print('[ SUCCESS ] Memory consumed: {} MB. '.format(mem_usage))
         except ImportError:
             pass
-
+            
     return res_ngraph_function, legacy_path
 
 
@@ -582,7 +583,7 @@ def args_dict_to_list(cli_parser, **kwargs):
     # This method is needed to prepare args from convert_model() for args_parse().
     # The method will not be needed when cli_parser checks are moved from cli_parser to a separate pass.
     import inspect
-    from openvino.tools.mo import convert_model
+    from convert import convert_model
     signature = inspect.signature(convert_model)
     result = []
     for key, value in kwargs.items():
@@ -605,7 +606,7 @@ def args_dict_to_list(cli_parser, **kwargs):
 def get_non_default_params(argv, cli_parser):
     import numbers
     import inspect
-    from openvino.tools.mo import convert_model
+    from convert import convert_model
 
     signature = inspect.signature(convert_model)
     # make dictionary with parameters which have non-default values to be serialized in IR in rt_info
@@ -853,7 +854,7 @@ def _convert(cli_parser: argparse.ArgumentParser, framework, args, python_api_us
                 pdmodel = paddle_runtime_converter.convert_paddle_to_pdmodel()
                 args['input_model'] = pdmodel
                 args['framework'] = model_framework
-
+        
         update_args_for_saved_model_dir(args)
 
         argv = pack_params_to_args_namespace(args, cli_parser)
@@ -870,14 +871,14 @@ def _convert(cli_parser: argparse.ArgumentParser, framework, args, python_api_us
 
         # send telemetry with params info
         send_params_info(argv, cli_parser)
-
+        
         non_default_params = get_non_default_params(argv, cli_parser)
-
+        
         if inp_model_is_object:
             argv.model_name = "model"
         if not hasattr(argv, "model_name") or argv.model_name is None:
             argv.model_name = get_model_name_from_args(argv)
-
+        
         if model_framework is not None:
             if argv.framework is not None:
                 if argv.framework != model_framework:
@@ -888,9 +889,9 @@ def _convert(cli_parser: argparse.ArgumentParser, framework, args, python_api_us
                                     model_framework))
             else:
                 argv.framework = model_framework
-
+                
         ov_model, legacy_path = driver(argv, {"conversion_parameters": non_default_params})
-
+        
         if inp_model_is_object and model_framework == "paddle":
             if paddle_runtime_converter:
                 paddle_runtime_converter.destroy()
@@ -901,7 +902,7 @@ def _convert(cli_parser: argparse.ArgumentParser, framework, args, python_api_us
         ov_model.set_rt_info(str(legacy_path), "legacy_frontend")
         for key, value in non_default_params.items():
             ov_model.set_rt_info(str(value), ["conversion_parameters", str(key)])
-
+        
         if silent_is_false(argv) or not python_api_used:
             if 'compress_to_fp16' in argv and argv.compress_to_fp16:
                 print(get_compression_message())

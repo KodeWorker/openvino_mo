@@ -5,9 +5,9 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import dynamic_dimension, shape_array, shape_insert, is_fully_defined, \
+from front.common.partial_infer.utils import dynamic_dimension, shape_array, shape_insert, is_fully_defined, \
     dynamic_dimension_value
-from openvino.tools.mo.front.common.partial_infer.utils import mo_array
+from front.common.partial_infer.utils import mo_array
 
 
 def make_equal_rank(shape_1: np.ndarray, shape_2: np.ndarray):

@@ -5,10 +5,10 @@ import logging as log
 
 import numpy as np
 
-from openvino.tools.mo.front.caffe.extractors.utils import get_canonical_axis_index
-from openvino.tools.mo.graph.graph import Node, Graph
-from openvino.tools.mo.ops.op import Op, PermuteAttrs
-from openvino.tools.mo.utils.error import Error
+from front.caffe.extractors.utils import get_canonical_axis_index
+from graph.graph import Node, Graph
+from ops.op import Op, PermuteAttrs
+from utils.error import Error
 
 
 class Crop(Op):

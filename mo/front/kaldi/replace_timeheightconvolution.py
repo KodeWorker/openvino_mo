@@ -1,12 +1,12 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.common.replacement import FrontReplacementPattern
-from openvino.tools.mo.graph.graph import Node, Graph, rename_node
-from openvino.tools.mo.ops.concat import Concat
-from openvino.tools.mo.ops.convolution import Convolution
-from openvino.tools.mo.ops.memoryoffset import MemoryOffset
+from front.common.partial_infer.utils import int64_array
+from front.common.replacement import FrontReplacementPattern
+from graph.graph import Node, Graph, rename_node
+from ops.concat import Concat
+from ops.convolution import Convolution
+from ops.memoryoffset import MemoryOffset
 
 
 class ReplaceTimeHeightConvolutionPattern(FrontReplacementPattern):
@@ -14,13 +14,13 @@ class ReplaceTimeHeightConvolutionPattern(FrontReplacementPattern):
     run_not_recursively = True
 
     def run_after(self):
-        from openvino.tools.mo.front.MoveEmbeddedInputsToInputs import MoveEmbeddedInputsToInputs
+        from front.MoveEmbeddedInputsToInputs import MoveEmbeddedInputsToInputs
         return [MoveEmbeddedInputsToInputs]
 
     def run_before(self):
-        from openvino.tools.mo.front.kaldi.add_reshape_transpose_around_conv_pool import AddReshapeTransposeAroundConvPool
-        from openvino.tools.mo.front.kaldi.memory_offset_adjustment import MemoryOffsetAdjustment
-        from openvino.tools.mo.front.kaldi.split_recurrent_memoryoffset import SplitRecurrentMemoryOffset
+        from front.kaldi.add_reshape_transpose_around_conv_pool import AddReshapeTransposeAroundConvPool
+        from front.kaldi.memory_offset_adjustment import MemoryOffsetAdjustment
+        from front.kaldi.split_recurrent_memoryoffset import SplitRecurrentMemoryOffset
         return [MemoryOffsetAdjustment, AddReshapeTransposeAroundConvPool, SplitRecurrentMemoryOffset]
 
     def find_and_replace_pattern(self, graph: Graph):

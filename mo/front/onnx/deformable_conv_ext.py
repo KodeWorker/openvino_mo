@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from openvino.tools.mo.front.common.partial_infer.utils import int64_array
-from openvino.tools.mo.front.extractor import FrontExtractorOp
-from openvino.tools.mo.front.onnx.extractors.utils import onnx_attr, get_onnx_autopad
-from openvino.tools.mo.ops.deformable_convolution import DeformableConvolution
+from front.common.partial_infer.utils import int64_array
+from front.extractor import FrontExtractorOp
+from front.onnx.extractors.utils import onnx_attr, get_onnx_autopad
+from ops.deformable_convolution import DeformableConvolution
 
 
 class DeformableConvExtractor(FrontExtractorOp):

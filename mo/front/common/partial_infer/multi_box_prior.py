@@ -1,8 +1,8 @@
 # Copyright (C) 2018-2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from openvino.tools.mo.front.common.partial_infer.utils import shape_array
-from openvino.tools.mo.graph.graph import Node
+from front.common.partial_infer.utils import shape_array
+from graph.graph import Node
 
 
 def multi_box_prior_infer_mxnet(node: Node):
